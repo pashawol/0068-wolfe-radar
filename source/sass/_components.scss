@@ -47,6 +47,17 @@
 	&:hover .icon {
 		transform: translateX(4px);
 	}
+
+	// font arrow (→) — replaces the SVG icon in CTA buttons (per Figma)
+	.btn-arrow {
+		font-size: rem(18);
+		line-height: 1;
+		flex-shrink: 0;
+		@include mt;
+	}
+	&:hover .btn-arrow {
+		transform: translateX(4px);
+	}
 }
 
 // --- Ghost / outline button ----------------------------------

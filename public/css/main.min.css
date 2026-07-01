@@ -580,6 +580,18 @@ iframe {
 .btn.btn-primary:hover .icon {
   transform: translateX(4px);
 }
+.btn-primary .btn-arrow,
+.btn.btn-primary .btn-arrow {
+  font-size: 1.125rem;
+  line-height: 1;
+  flex-shrink: 0;
+  --s: 0.36s;
+  transition: all var(--s) ease-in-out;
+}
+.btn-primary:hover .btn-arrow,
+.btn.btn-primary:hover .btn-arrow {
+  transform: translateX(4px);
+}
 
 .btn-ghost {
   display: inline-flex;
