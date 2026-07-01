@@ -1,0 +1,178 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`form-wrap input mixin > matches HTML snapshot 1`] = `
+"
+<div class="input-wrap form-group">
+  <label><span class="input-title">Snapshot label</span><input class="input form-control" inputmode="text" name="text" type="text" placeholder="Snapshot placeholder"/>
+  </label>
+</div>
+<!-- +e.input-wrap-->"
+`;
+
+exports[`sCatalog block > matches HTML snapshot 1`] = `
+"
+<!-- start sCatalog-->
+<div class="sCatalog section">
+  <div class="container">
+    <div class="section-title text-center">
+      <h2>sCatalog</h2>
+      <p>Выкупаем проблемные автомобили в день обращения</p>
+    </div>
+    <div class="sCatalog__row row">
+      <div class="sCatalog__col col-3">
+        <article class="product-item">
+          <a class="product-item__img-wrap" href="#" aria-label="Товар">
+            <div class="img-wrap-center"><img src="img/prod-1.jpg" alt="" loading="lazy"/>
+            </div>
+          </a>
+          <div class="product-item__caption">
+            <div class="product-item__title">
+            </div>
+            <div class="product-item__text">
+            </div>
+            <div class="product-item__price">
+            </div>
+            <a class="product-item__btn" href="#">Подробнее
+            </a>
+          </div>
+        </article>
+        <!-- /.product-item-->
+      </div>
+      <div class="sCatalog__col col-3">
+        <article class="product-item">
+          <a class="product-item__img-wrap" href="#" aria-label="Товар">
+            <div class="img-wrap-center"><img src="img/prod-2.jpg" alt="" loading="lazy"/>
+            </div>
+          </a>
+          <div class="product-item__caption">
+            <div class="product-item__title">
+            </div>
+            <div class="product-item__text">
+            </div>
+            <div class="product-item__price">
+            </div>
+            <a class="product-item__btn" href="#">Подробнее
+            </a>
+          </div>
+        </article>
+        <!-- /.product-item-->
+      </div>
+      <div class="sCatalog__col col-3">
+        <article class="product-item">
+          <a class="product-item__img-wrap" href="#" aria-label="Товар">
+            <div class="img-wrap-center"><img src="img/prod-3.jpg" alt="" loading="lazy"/>
+            </div>
+          </a>
+          <div class="product-item__caption">
+            <div class="product-item__title">
+            </div>
+            <div class="product-item__text">
+            </div>
+            <div class="product-item__price">
+            </div>
+            <a class="product-item__btn" href="#">Подробнее
+            </a>
+          </div>
+        </article>
+        <!-- /.product-item-->
+      </div>
+      <div class="sCatalog__col col-3">
+        <article class="product-item">
+          <a class="product-item__img-wrap" href="#" aria-label="Товар">
+            <div class="img-wrap-center"><img src="img/prod-4.jpg" alt="" loading="lazy"/>
+            </div>
+          </a>
+          <div class="product-item__caption">
+            <div class="product-item__title">
+            </div>
+            <div class="product-item__text">
+            </div>
+            <div class="product-item__price">
+            </div>
+            <a class="product-item__btn" href="#">Подробнее
+            </a>
+          </div>
+        </article>
+        <!-- /.product-item-->
+      </div>
+      <div class="sCatalog__col col-3">
+        <article class="product-item">
+          <a class="product-item__img-wrap" href="#" aria-label="Товар">
+            <div class="img-wrap-center"><img src="img/prod-5.jpg" alt="" loading="lazy"/>
+            </div>
+          </a>
+          <div class="product-item__caption">
+            <div class="product-item__title">
+            </div>
+            <div class="product-item__text">
+            </div>
+            <div class="product-item__price">
+            </div>
+            <a class="product-item__btn" href="#">Подробнее
+            </a>
+          </div>
+        </article>
+        <!-- /.product-item-->
+      </div>
+      <div class="sCatalog__col col-3">
+        <article class="product-item">
+          <a class="product-item__img-wrap" href="#" aria-label="Товар">
+            <div class="img-wrap-center"><img src="img/prod-6.jpg" alt="" loading="lazy"/>
+            </div>
+          </a>
+          <div class="product-item__caption">
+            <div class="product-item__title">
+            </div>
+            <div class="product-item__text">
+            </div>
+            <div class="product-item__price">
+            </div>
+            <a class="product-item__btn" href="#">Подробнее
+            </a>
+          </div>
+        </article>
+        <!-- /.product-item-->
+      </div>
+      <div class="sCatalog__col col-3">
+        <article class="product-item">
+          <a class="product-item__img-wrap" href="#" aria-label="Товар">
+            <div class="img-wrap-center"><img src="img/prod-7.jpg" alt="" loading="lazy"/>
+            </div>
+          </a>
+          <div class="product-item__caption">
+            <div class="product-item__title">
+            </div>
+            <div class="product-item__text">
+            </div>
+            <div class="product-item__price">
+            </div>
+            <a class="product-item__btn" href="#">Подробнее
+            </a>
+          </div>
+        </article>
+        <!-- /.product-item-->
+      </div>
+      <div class="sCatalog__col col-3">
+        <article class="product-item">
+          <a class="product-item__img-wrap" href="#" aria-label="Товар">
+            <div class="img-wrap-center"><img src="img/prod-8.jpg" alt="" loading="lazy"/>
+            </div>
+          </a>
+          <div class="product-item__caption">
+            <div class="product-item__title">
+            </div>
+            <div class="product-item__text">
+            </div>
+            <div class="product-item__price">
+            </div>
+            <a class="product-item__btn" href="#">Подробнее
+            </a>
+          </div>
+        </article>
+        <!-- /.product-item-->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end sCatalog-->"
+`;

@@ -1,0 +1,23 @@
+.sBadge {
+	display: flex;
+	align-items: center;
+	gap: rem(32);
+	margin-bottom: rem(32);
+
+	&__line {
+		width: rem(78);
+		height: 2px;
+		flex-shrink: 0;
+		background-color: $primary;
+	}
+
+	&__text {
+		font-family: var(--l-font-mono);
+		font-weight: 700;
+		font-size: rem(16);
+		line-height: 0.9;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: $primary;
+	}
+}

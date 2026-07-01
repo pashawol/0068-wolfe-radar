@@ -1,0 +1,468 @@
+// start .sAuthor
+.sAuthor {
+	position: relative;
+	overflow: hidden;
+
+	// === Canvas-section local token overrides ===
+	// This block is always on --bg-canvas (light); redefine dark tokens locally
+	--text-strong: var(--bg-inverse); // #1d2024 — uses token
+	--text-primary: #2a2e33; // canvas exception: no matching token
+	--text-secondary: #5a5e63; // canvas exception: no matching token
+	--text-muted: var(--text-faint); // #6b7176 — exact match with --text-faint
+	--bg-surface: #ffffff; // canvas exception: card bg on light section
+	--border-default: rgba(
+		29,
+		32,
+		36,
+		0.12
+	); // canvas exception: dark borders on light bg
+	--border-strong: rgba(
+		29,
+		32,
+		36,
+		0.16
+	); // canvas exception: dark borders on light bg
+	--border-accent: rgba(
+		176,
+		125,
+		34,
+		0.4
+	); // canvas exception: accent border, root has #d29a4566
+
+	// ---- Decorative background ellipse ----
+	&__decor {
+		display: none;
+		// centred on the author (lives inside &__left now) so it tracks him
+		position: absolute;
+		left: 50%;
+		top: rem(280);
+		transform: translate(-50%, -50%);
+		// significantly smaller than the CTA-banner spheres — a subtle frame
+		// around the author, not a big orange disc
+		width: rem(600);
+		pointer-events: none;
+		z-index: 0;
+
+		// soft, small core for the author sphere (the CTA spheres keep the big
+		// solid orange core from the shared component)
+		.orbit-figure__glow {
+			width: 30%;
+			box-shadow:
+				0 0 rem(160) rem(55) rgba(231, 144, 23, 0.55),
+				0 0 rem(340) rem(140) rgba(231, 144, 23, 0.36);
+		}
+
+		@include media-breakpoint-up(md) {
+			display: block;
+		}
+	}
+
+	// Ensure container content is above the decor
+	.container {
+		position: relative;
+		z-index: 1;
+	}
+
+	// ---- Body wrapper: intro + reviews ----
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: rem(40);
+		padding-top: var(--space-48);
+	}
+
+	// ---- Two-column intro ----
+	&__intro {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+		align-items: flex-start;
+
+		@include media-breakpoint-up(lg) {
+			flex-direction: row;
+			// stretch the left column to the (taller) right column's height so
+			// their bottoms line up
+			align-items: stretch;
+		}
+	}
+
+	// ---- Left column: photo + stats ----
+	&__left {
+		position: relative;
+		flex: none;
+		min-width: 0;
+		width: 100%;
+		max-width: 100%;
+
+		@include media-breakpoint-up(sm) {
+			max-width: rem(420);
+		}
+		@include media-breakpoint-up(lg) {
+			flex: 0 0 rem(420);
+			max-width: none;
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	&__photo-wrap {
+		position: relative;
+		z-index: 1;
+		display: block;
+		overflow: hidden;
+		// crop the lower legs (no feet) and enlarge the author; head anchored top
+		height: rem(540);
+
+		@include media-breakpoint-up(sm) {
+			height: rem(760);
+		}
+		// desktop: fill the stretched column down to the stat cards so the legs
+		// are cropped by the stat "plate" (no empty gap)
+		@include media-breakpoint-up(lg) {
+			flex: 1 1 auto;
+			height: auto;
+		}
+	}
+
+	&__photo {
+		display: block;
+		width: 150%;
+		max-width: none;
+		height: auto;
+		margin-left: -25%;
+
+		@include media-breakpoint-up(lg) {
+			// fill the (flex-grown) wrapper; head at top, feet reaching the stat
+			// plate. ~10% wider than the column (bleeds out both sides) so the
+			// author reads larger
+			width: 120%;
+			height: 100%;
+			margin-left: -10%;
+			margin-right: -10%;
+			object-fit: cover;
+			object-position: top center;
+		}
+	}
+
+	&__stat-cards {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+
+		// anchor the stat cards to the bottom of the stretched left column
+		@include media-breakpoint-up(lg) {
+			margin-top: auto;
+		}
+	}
+
+	&__stat-card {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: rem(16);
+		padding: var(--space-18);
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+
+		& + & {
+			margin-top: -1px;
+		}
+	}
+
+	&__stat-value {
+		font-family: $font-family-grotesk;
+		font-weight: 700;
+		font-size: rem(28);
+		line-height: 1;
+		color: var(--accent);
+	}
+
+	&__stat-label {
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-secondary);
+	}
+
+	// ---- Right column: content ----
+	&__right {
+		flex: 1 1 0;
+		min-width: 0;
+		// intro is a column flex on mobile (align-items: flex-start) — without an
+		// explicit width the column sizes to max-content and overflows the screen
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+	}
+
+	&__name {
+		display: block;
+		font-family: $font-family-sans-serif;
+		font-weight: 700;
+		font-size: rem(32);
+		line-height: 1.02;
+		letter-spacing: -0.025em;
+		color: var(--text-strong);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(42);
+		}
+		@include media-breakpoint-up(xl) {
+			font-size: rem(56);
+		}
+	}
+
+	// ---- Bio block: two paragraphs ----
+	&__bio-wrap {
+		display: flex;
+		flex-direction: column;
+		gap: rem(12);
+
+		p {
+			margin: 0;
+			font-weight: 500;
+			font-size: rem(18);
+			line-height: 1.5;
+			color: var(--text-primary);
+		}
+	}
+
+	&__bio-sub {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-primary);
+	}
+
+	&__bio-muted {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(17);
+		line-height: 1.5;
+		color: var(--text-secondary);
+	}
+
+	// ---- Pills (простота / автоматизация / надёжность) ----
+	&__pills {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(12);
+	}
+
+	&__pill {
+		display: inline-flex;
+		align-items: center;
+		padding: rem(10) rem(18);
+		border: 1px solid var(--border-accent);
+		border-radius: var(--radius-sm);
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--accent);
+	}
+
+	// ---- Fact card ----
+	&__fact-card {
+		display: flex;
+		flex-direction: column;
+		@include media-breakpoint-up(md) {
+			gap: rem(14);
+			padding: var(--space-30);
+		}
+		padding: var(--space-20);
+		gap: 10px;
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+		background: var(--bg-surface);
+	}
+
+	&__fact-head {
+		display: block;
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		color: var(--text-strong);
+	}
+
+	&__fact-sub {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-secondary);
+
+		&--muted {
+			color: var(--text-muted);
+		}
+	}
+
+	// ---- Tags (technology chips + mentor chips) ----
+	&__tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(8);
+		@include media-breakpoint-up(md) {
+			gap: rem(12);
+		}
+	}
+
+	&__tag {
+		display: inline-flex;
+		align-items: center;
+		padding: em(8) em(12);
+		border: 1px solid var(--border-accent);
+		border-radius: var(--radius-sm);
+		font-weight: 500;
+		font-size: rem(14);
+		line-height: 1.45;
+		@include media-breakpoint-up(md) {
+			padding: em(10) em(18);
+			font-size: rem(16);
+			white-space: nowrap;
+		}
+		color: var(--accent);
+
+		&--muted {
+			border-color: var(--border-default);
+			color: var(--text-muted);
+		}
+	}
+
+	// ---- Fact body (paragraph list) ----
+	&__fact-body {
+		display: flex;
+		flex-direction: column;
+		gap: rem(12);
+
+		p {
+			margin: 0;
+			font-weight: 500;
+			font-size: rem(16);
+			line-height: 1.45;
+			color: var(--text-muted);
+		}
+
+		strong {
+			font-weight: 700;
+			color: inherit;
+		}
+	}
+
+	// ---- Reviews section ----
+	&__reviews {
+		display: flex;
+		flex-direction: column;
+		gap: rem(28);
+	}
+
+	&__reviews-title {
+		display: block;
+		font-weight: 700;
+		font-size: rem(26);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+	}
+
+	// ---- Reviews slider (same 2-up pattern as sHow gallery) ----
+	&__slider {
+		position: relative;
+	}
+
+	&__reviews-swiper {
+		overflow: hidden;
+
+		// equal-height slides → the whole slide is one consistent swipe target
+		.swiper-wrapper {
+			display: flex;
+			align-items: stretch;
+		}
+		.swiper-slide {
+			flex-shrink: 0;
+			height: auto;
+			// peek: main card + next slide just sticks out (per Figma)
+			width: 88%;
+
+			@include media-breakpoint-up(lg) {
+				width: 74%;
+			}
+		}
+	}
+
+	// slide is a plain div so Swiper handles drag on the full area; the
+	// fancybox <a> lives INSIDE and only catches the click
+	&__slide {
+		display: flex;
+	}
+
+	&__review-link {
+		display: block;
+		width: 100%;
+		// uniform slide height (screenshots vary a lot) — the image is shown in
+		// full (contain) and centred; click opens the full image in Fancybox
+		aspect-ratio: 4 / 3;
+		overflow: hidden;
+		cursor: zoom-in;
+		padding: rem(10);
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+		background: var(--bg-surface);
+	}
+
+	&__review-img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		object-position: center;
+	}
+
+	// ---- controls row: [prev] dots [next], centred below the slider ----
+	&__reviews-nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: rem(20);
+		margin-top: rem(24);
+	}
+
+	&__nav-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(26);
+		height: rem(26);
+		padding: 0;
+		background: none;
+		border: none;
+		cursor: pointer;
+		color: var(--text-faint);
+		transition: color 0.2s ease;
+		flex-shrink: 0;
+
+		&:hover {
+			color: var(--accent);
+		}
+		&--next {
+			color: var(--accent);
+		}
+		svg {
+			display: block;
+		}
+	}
+
+	&__rdots {
+		width: auto;
+
+		.swiper-pagination-bullet {
+			margin: 0 rem(5);
+			background: var(--text-faint);
+		}
+		.swiper-pagination-bullet-active {
+			background: var(--accent);
+		}
+	}
+} // end .sAuthor

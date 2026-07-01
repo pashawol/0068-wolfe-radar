@@ -1,0 +1,424 @@
+.sPortfolio {
+	// -------------------------------------------------------
+	// Body — main content column
+	// -------------------------------------------------------
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: rem(32);
+
+		@include media-breakpoint-up(md) {
+			gap: rem(40);
+		}
+	}
+
+	// -------------------------------------------------------
+	// Lead
+	// -------------------------------------------------------
+	&__lead {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-canvas);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(21);
+		}
+	}
+
+	// -------------------------------------------------------
+	// Intro paragraphs
+	// -------------------------------------------------------
+	&__intro {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+
+		p {
+			margin: 0 0 rem(12);
+			font-weight: 500;
+			font-size: rem(18);
+			line-height: 1.5;
+			color: var(--text-muted);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// -------------------------------------------------------
+	// Professional approach block
+	// -------------------------------------------------------
+	&__approach {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+	}
+
+	&__approach-lead {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-canvas);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(21);
+		}
+	}
+
+	&__approach-sub,
+	&__approach-note {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-muted);
+	}
+
+	// -------------------------------------------------------
+	// Comparison cards: 1 vs 20
+	// -------------------------------------------------------
+	&__compare {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+
+		@include media-breakpoint-up(sm) {
+			flex-direction: row;
+		}
+	}
+
+	&__compare-card {
+		position: relative;
+		flex: 1 0 0;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+		padding: rem(34);
+		overflow: hidden;
+		border: 1px solid color-mix(in srgb, var(--text-canvas) 16%, transparent);
+		border-radius: var(--radius-md);
+		background: var(--text-strong); // white in this project
+
+		// Dark accent card (20 instruments)
+		&--accent {
+			background: var(--bg-inverse);
+			border-color: var(--border-accent);
+
+			.sPortfolio__card-text {
+				color: var(--text-strong);
+			}
+
+			.sPortfolio__card-decor {
+				color: var(--accent);
+				opacity: 0.15;
+			}
+		}
+	}
+
+	// Decorative huge background number
+	&__card-decor {
+		position: absolute;
+		right: rem(-20);
+		top: rem(-60);
+		font-family: $font-family-grotesk;
+		font-weight: 700;
+		font-size: rem(320);
+		line-height: 1;
+		letter-spacing: -0.04em;
+		color: var(--bg-inverse);
+		opacity: 0.05;
+		pointer-events: none;
+		user-select: none;
+		white-space: nowrap;
+	}
+
+	&__card-num {
+		position: relative;
+		z-index: 1;
+		font-family: $font-family-grotesk;
+		font-weight: 700;
+		font-size: rem(44);
+		line-height: 1;
+		color: var(--text-canvas);
+
+		&--accent {
+			color: var(--accent);
+		}
+	}
+
+	&__card-text {
+		position: relative;
+		z-index: 1;
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(18);
+		line-height: 1.4;
+		color: var(--text-canvas);
+	}
+
+	// -------------------------------------------------------
+	// "You can" capabilities box
+	// -------------------------------------------------------
+	&__can-box {
+		padding: rem(28) rem(24);
+		border: 1px solid color-mix(in srgb, var(--text-canvas) 14%, transparent);
+		border-radius: var(--radius-md);
+		background: var(--text-strong); // white
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+
+		@include media-breakpoint-up(md) {
+			padding: rem(40) rem(44);
+		}
+	}
+
+	&__can-title {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(17);
+		line-height: 1.3;
+		color: var(--text-canvas);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(19);
+		}
+	}
+
+	&__can-cols {
+		display: flex;
+		flex-direction: column;
+		gap: rem(14);
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+			gap: rem(48);
+		}
+	}
+
+	&__can-col {
+		flex: 1 0 0;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: rem(14);
+	}
+
+	&__can-item {
+		display: flex;
+		align-items: flex-start;
+		gap: rem(14);
+	}
+
+	&__can-arr {
+		flex-shrink: 0;
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		line-height: 1.45;
+		color: var(--accent);
+	}
+
+	&__can-text {
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-muted);
+	}
+
+	// -------------------------------------------------------
+	// Stat / screenshot block
+	// -------------------------------------------------------
+	&__stat-block {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+	}
+
+	&__stat-top {
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+	}
+
+	&__stat-heading {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(23);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-canvas);
+	}
+
+	&__stat-fact {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-muted);
+	}
+
+	&__screenshot {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: var(--radius-md);
+		mix-blend-mode: darken;
+	}
+
+	// -------------------------------------------------------
+	// Graal section ("one signal is not the grail")
+	// -------------------------------------------------------
+	&__graal {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+	}
+
+	&__graal-top {
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+	}
+
+	&__graal-label {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(23);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-canvas);
+	}
+
+	&__graal-desc {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-muted);
+	}
+
+	// Large accent quote
+	&__graal-big {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(28);
+		line-height: 1.02;
+		letter-spacing: -0.02em;
+		color: var(--text-canvas);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(40);
+			letter-spacing: -0.025em;
+		}
+		@include media-breakpoint-up(xl) {
+			font-size: rem(56);
+		}
+	}
+
+	// -------------------------------------------------------
+	// Chart blocks
+	// -------------------------------------------------------
+	&__charts-block {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+	}
+
+	&__charts-label {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-muted);
+	}
+
+	&__charts-pair {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+		}
+	}
+
+	&__chart-img {
+		display: block;
+		flex: 1 0 0;
+		min-width: 0;
+		width: 100%;
+		height: auto;
+		border-radius: var(--radius-md);
+		mix-blend-mode: darken;
+
+		&--wide {
+			flex: none;
+		}
+	}
+
+	// -------------------------------------------------------
+	// Standalone orphan note (Figma node 38:295)
+	// -------------------------------------------------------
+	&__orphan-note {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-muted);
+		max-width: rem(1090);
+	}
+
+	// -------------------------------------------------------
+	// CTA bar (dark island within light section)
+	// -------------------------------------------------------
+	&__cta-bar {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: rem(24);
+		padding: rem(28) rem(24);
+		border-radius: var(--radius-md);
+		background: var(--bg-inverse);
+
+		@include media-breakpoint-up(lg) {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			gap: rem(40);
+			padding: rem(40);
+		}
+	}
+
+	&__cta-text {
+		margin: 0;
+		flex: 1 0 0;
+		min-width: 0;
+		max-width: rem(720);
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(23);
+		}
+	}
+
+	// CTA anchor (created via +e.A.btn.btn.btn-primary → class sPortfolio__btn)
+	&__btn {
+		flex-shrink: 0;
+		white-space: nowrap;
+		width: 100%;
+
+		@include media-breakpoint-up(sm) {
+			width: auto;
+		}
+	}
+}

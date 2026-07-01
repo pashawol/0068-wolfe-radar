@@ -1,0 +1,96 @@
+mixin sPain()
+	// start sPain
+	+b.SECTION.sPain.section#sPain&attributes(attributes)
+		.container
+			+section-head('05 / БОЛЬ МЕТОДА')
+			+b.section-title
+				h2 ГЛАВНАЯ БОЛЬ ВОЛН ВУЛЬФА
+
+			+e.body
+				//- Lead (two paragraphs, SemiBold 21px, text-secondary)
+				+e.lead
+					+e.P.lead-p Волны Вульфа сильны. Но руками их легко нарисовать неправильно.&nbsp;
+					+e.P.lead-p Чтобы правильно разглядеть паттерн на графике, нужны годы опыта и насмотренности.
+
+				//- Three-trader cards (mobile swiper) — image sprite, 3 crops
+				+e.traders.mobile-swiper--js.swiper(data-swiper-gap="20")
+					.swiper-wrapper
+						+e.trader.swiper-slide
+							+e.trader-img
+								img.sPain__sprite(src="img/wolfe/sPain/trader-charts.webp" alt="" aria-hidden="true")
+							+e.trader-info
+								+e.SPAN.trader-label ПЕРВЫЙ ТРЕЙДЕР
+								+e.P.trader-text увидит сильную торговую ситуацию.
+
+						+e.trader.swiper-slide
+							+e.trader-img
+								img.sPain__sprite(src="img/wolfe/sPain/trader-charts.webp" alt="" aria-hidden="true" data-n="2")
+							+e.trader-info
+								+e.SPAN.trader-label ВТОРОЙ ТРЕЙДЕР
+								+e.P.trader-text построит разметку совсем иначе.
+
+						+e.trader.swiper-slide
+							+e.trader-img
+								img.sPain__sprite(src="img/wolfe/sPain/trader-charts.webp" alt="" aria-hidden="true" data-n="3")
+							+e.trader-info
+								+e.SPAN.trader-label ТРЕТИЙ ТРЕЙДЕР
+								+e.P.trader-text пройдёт мимо и заметит паттерн, когда движение уже началось.
+
+				//- Pain text (28:116) — bold + medium paragraphs, text-strong
+				+e.pain-text
+					+e.P.pain-p.--bold В этом и главная боль метода: Волны Вульфа работают, но находить их на графике невероятно сложно. Для трейдеров-новичков это сущий ад.
+					+e.P.pain-p Именно поэтому большинство людей так и не начинают использовать Волны Вульфа на практике. Не потому, что паттерн плохой. А потому что между теорией и реальной торговлей слишком большая пропасть.
+
+				//- Accent bridge line (28:117)
+				+e.P.accent-line Радар Вульфа эту пропасть убирает.
+
+				//- List box (28:118)
+				+e.list-box
+					+e.P.list-title Почему ручная разметка мешает зарабатывать:
+					+e.list-cols
+						+e.list-col
+							+e.list-item
+								span.sPain__arrow →
+								p легко ошибиться с точками;
+							+e.list-item
+								span.sPain__arrow →
+								p легко увидеть паттерн там, где его нет;
+							+e.list-item
+								span.sPain__arrow →
+								p одну и ту же ситуацию можно разметить по-разному;
+							+e.list-item
+								span.sPain__arrow →
+								p сложно быстро проверить десятки активов и таймфреймов, где сейчас может формироваться волна;
+						+e.list-col
+							+e.list-item
+								span.sPain__arrow →
+								p невозможно постоянно отслеживать формирование точки входа;
+							+e.list-item
+								span.sPain__arrow →
+								p хорошие паттерны редкие, поэтому их легко пропустить;
+							+e.list-item
+								span.sPain__arrow →
+								p чем больше ручной работы, тем больше сомнений перед сделкой.
+
+				//- Two-column editorial text (53:545)
+				+e.two-col
+					+e.col
+						+e.P.col-p.--bold В Рунете сейчас это популярная торговая стратегия. Трейдерские школы кругом учат вручную искать Волны Вульфа.
+						+e.P.col-p Как правило, за большие деньги Вы получите большой подробный видеокурс, возможно, даже покажут, как их искать на реальном рынке.
+						+e.P.col-p Но знать метод — не значит быстро видеть его на десятках инструментов в реальном времени.
+					+e.col
+						+e.P.col-p Одно дело – щелкать вручную графики, пытаться глазами разглядеть 5 точек для построения линий Вульфа, нервничать, ждать, перелистывать активы по кругу… Много денег Вы в таком режиме наторгуете?
+						+e.P.col-p.--bold И другое дело – с помощью Радара Вульфа точно знать, где прямо сейчас формируется паттерн, даже не открывая график актива.
+
+				//- Display/H2-XL heading (53:546)  68px Bold lh 0.98
+				+e.P.xl-title Самая сложная и утомительная часть метода Билла Вульфа теперь работает на автомате:
+
+				//- Body text (53:547) — 21px Medium, text-strong
+				+e.P.body-text поиск паттерна, построение линий, проверка геометрии, визуализация входа, стопа и цели прямо на графике.
+
+				//- Closing accent text (53:548) — 21px Medium, accent
+				+e.accent-close
+					+e.P.close-p Раньше геометрию Волн Вульфа нужно было видеть глазами опытного трейдера.
+					+e.P.close-p Теперь она появляется на графике автоматически.
+
+	// end sPain

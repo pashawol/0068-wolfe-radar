@@ -1,0 +1,10 @@
+mixin header()
+	// start header
+	+b.HEADER.header#header&attributes(attributes)
+		.container
+			+e.inner
+				+e.A.brand(href="#sHero")
+					img.header__logo(src="img/wolfe/ui/logo.svg" alt="Радар Вульфа" width="29" height="25")
+				+e.tagline Автопоиск сделок по Волнам Вульфа в реальном времени
+				+e.A.cta.btn.btn-primary(href="#sForm") Получить Радар быстро
+	// end header

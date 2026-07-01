@@ -1,0 +1,373 @@
+.sKit {
+	background: var(--bg-inverse);
+
+	// Override section-title spacing to match Figma gap (24px between h2 and lead)
+	.section-title {
+		margin-bottom: var(--space-24);
+
+		h2 {
+			font-size: rem(56);
+			line-height: 1.02;
+			letter-spacing: -0.025em;
+		}
+	}
+
+	// Lead paragraph under h2
+	&__lead {
+		display: block;
+		max-width: none;
+		margin-top: 0;
+		margin-bottom: var(--space-40);
+		font-weight: 500;
+		font-size: rem(17);
+		line-height: 1.5;
+		color: var(--text-secondary);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(21);
+		}
+	}
+
+	// === Body ===
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-24);
+	}
+
+	// === Row: left panel + right check list ===
+	&__row {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		border: 1px solid var(--border-strong);
+
+		@include media-breakpoint-up(lg) {
+			flex-direction: row;
+		}
+	}
+
+	// === Panel (left side of row) ===
+	&__panel {
+		flex: none;
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+		padding: var(--space-20) var(--space-28);
+		border-right: 0;
+		border-bottom: 1px solid var(--border-strong);
+
+		@include media-breakpoint-up(lg) {
+			flex: 0 0 rem(553);
+			border-right: 1px solid var(--border-strong);
+			border-bottom: 0;
+		}
+	}
+
+	// Inner wrapper for row-2 panel: grows to fill, pushes bottom text down
+	&__panel-top {
+		flex: 1 1 0;
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+	}
+
+	&__panel-tag {
+		display: block;
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		line-height: 1;
+		letter-spacing: 0.04em;
+		color: var(--accent);
+	}
+
+	&__panel-title {
+		font-family: $font-family-sans-serif;
+		font-weight: 700;
+		font-size: rem(26);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+	}
+
+	&__panel-list {
+		margin: 0;
+		padding: 0 0 0 rem(20);
+		list-style: disc;
+
+		li {
+			font-weight: 500;
+			font-size: rem(16);
+			line-height: 1.45;
+			color: var(--text-secondary);
+			margin-bottom: rem(8);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__panel-desc {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-muted);
+
+		&--strong {
+			color: var(--text-strong);
+		}
+	}
+
+	// === Check list (right side of row) ===
+	&__checks {
+		flex: 1 1 0;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__check-item {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--space-14);
+		padding: var(--space-20) var(--space-28);
+		border-bottom: 1px solid var(--border-strong);
+
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
+
+	&__check-mark {
+		flex-shrink: 0;
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		line-height: 1.45;
+		color: var(--accent);
+	}
+
+	&__check-text {
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-secondary);
+	}
+
+	// === Card row (master-group — left fixed width, right flex-1) ===
+	&__row--equal {
+		border: 0;
+		gap: 0;
+
+		.sKit__card:first-child {
+			flex: none;
+			justify-content: space-between;
+
+			@include media-breakpoint-up(lg) {
+				flex: 0 0 rem(440);
+			}
+			@include media-breakpoint-up(xl) {
+				flex: 0 0 rem(554);
+			}
+		}
+
+		.sKit__card:last-child {
+			flex: 1 1 0;
+			min-width: 0;
+		}
+
+		.sKit__card {
+			&:first-child {
+				border-radius: var(--radius-md) var(--radius-md) 0 0;
+
+				@include media-breakpoint-up(lg) {
+					border-radius: var(--radius-md) 0 0 var(--radius-md);
+				}
+			}
+			&:last-child {
+				border-radius: 0 0 var(--radius-md) var(--radius-md);
+
+				@include media-breakpoint-up(lg) {
+					border-radius: 0 var(--radius-md) var(--radius-md) 0;
+				}
+			}
+		}
+	}
+
+	// === Support row (single full-width card) ===
+	&__row--support {
+		border: 0;
+
+		.sKit__card {
+			flex: 1 1 0;
+			border-radius: var(--radius-md);
+		}
+	}
+
+	// === Card (for master-group & support sections) ===
+	&__card {
+		background: var(--bg-surface);
+		border: 1px solid var(--border-default);
+		border-radius: var(--radius-md);
+		padding: var(--space-30);
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+	}
+
+	// Inner wrapper in left card of row 3 — grows to push bottom text down
+	&__card-inner {
+		flex: 1 1 0;
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+	}
+
+	&__card-title {
+		font-family: $font-family-sans-serif;
+		font-weight: 700;
+		font-size: rem(26);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+	}
+
+	&__card-title--sm {
+		font-family: $font-family-sans-serif;
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		color: var(--text-strong);
+		margin: 0 0 rem(8);
+	}
+
+	&__card-desc {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-muted);
+
+		&--strong {
+			color: var(--text-strong);
+		}
+	}
+
+	&__card-list {
+		margin: 0;
+		padding: 0 0 0 rem(20);
+		list-style: disc;
+
+		li {
+			font-weight: 500;
+			font-size: rem(16);
+			line-height: 1.45;
+			color: var(--text-secondary);
+			margin-bottom: rem(8);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// === CTA Banner ===
+	&__cta-banner {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: var(--space-40);
+		padding: var(--space-24);
+		background: var(--bg-accent-soft);
+		border: 1px solid var(--border-accent);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+
+		@include media-breakpoint-up(md) {
+			padding: var(--space-40);
+		}
+
+		@include media-breakpoint-up(lg) {
+			flex-direction: row;
+			align-items: flex-end;
+		}
+	}
+
+	&__cta-ellipse {
+		// Figma: ellipse bright center sits at the top-right corner of the banner,
+		// concentric rings radiate down-left. Asset bright center ≈ (51%, 41%).
+		position: absolute;
+		right: rem(-210);
+		top: rem(-170);
+		width: rem(420);
+		pointer-events: none;
+		z-index: 0;
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+
+		@include media-breakpoint-up(md) {
+			width: rem(760);
+			right: rem(-380);
+			top: rem(-310);
+		}
+	}
+
+	&__cta-text {
+		position: relative;
+		z-index: 1;
+		flex: 1 1 0;
+		min-width: 0;
+		max-width: rem(640);
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+	}
+
+	&__cta-heading {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(20);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(23);
+		}
+	}
+
+	&__cta-desc {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.5;
+		color: var(--text-secondary);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(18);
+		}
+	}
+
+	// CTA button positioning
+	.btn-primary {
+		position: relative;
+		z-index: 1;
+		flex-shrink: 0;
+		white-space: nowrap;
+		width: 100%;
+		justify-content: center;
+
+		@include media-breakpoint-up(lg) {
+			width: auto;
+		}
+	}
+}

@@ -1,0 +1,347 @@
+// start .sFinal
+.sFinal {
+	// local token — no global var for this negative/danger accent
+	--_danger: #ff4144;
+
+	// Figma node 49:429 fills the section flat with --bg-canvas (= #1d2024 = --bg-inverse)
+	background: var(--bg-inverse);
+
+	// H2 must be ALL CAPS per Figma
+	.section-title h2 {
+		text-transform: uppercase;
+		font-size: rem(30);
+		line-height: 1.02;
+		letter-spacing: -0.025em;
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(42);
+		}
+		@include media-breakpoint-up(xl) {
+			font-size: rem(56);
+		}
+	}
+
+	// ─── Body wrapper ──────────────────────────────────────────────────────────
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: rem(28);
+		padding-top: var(--space-48);
+	}
+
+	// ─── Intro ─────────────────────────────────────────────────────────────────
+	&__intro {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__lead {
+		margin: 0;
+		font-size: rem(17);
+		font-weight: 500;
+		line-height: 1.5;
+		color: var(--text-secondary);
+
+		// Blank-line spacer before grouped paragraphs (matches Figma empty lines)
+		&--group {
+			margin-top: rem(28);
+		}
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(21);
+		}
+	}
+
+	&__lead-accent {
+		color: var(--accent);
+	}
+
+	&__lead-positive {
+		color: var(--positive);
+	}
+
+	// ─── "5 ошибок" heading ────────────────────────────────────────────────────
+	&__errors-head {
+		margin: 0;
+		font-family: $font-family-sans-serif;
+		font-size: rem(19);
+		font-weight: 700;
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(23);
+		}
+	}
+
+	// ─── Error cards ───────────────────────────────────────────────────────────
+	&__errors {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+	}
+
+	&__errors-row {
+		display: flex;
+		flex-direction: column;
+		gap: rem(18);
+		align-items: stretch;
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+		}
+	}
+
+	&__ecard {
+		display: flex;
+		flex-direction: column;
+		gap: rem(12);
+		padding: var(--space-26);
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		min-width: 0;
+
+		// mobile: height by content; md+: equal-width columns in the row
+		@include media-breakpoint-up(md) {
+			flex: 1 0 0;
+		}
+
+		&--quote {
+			background: var(--bg-accent-soft);
+			border-color: var(--border-accent);
+			justify-content: center;
+		}
+	}
+
+	&__ecard-num {
+		font-family: $font-family-grotesk;
+		font-weight: 700;
+		font-size: rem(28);
+		line-height: 1;
+		color: var(--accent);
+	}
+
+	&__ecard-title {
+		margin: 0;
+		font-size: rem(17);
+		font-weight: 700;
+		line-height: 1.2;
+		color: var(--text-strong);
+	}
+
+	&__ecard-body {
+		margin: 0;
+		font-size: rem(16);
+		font-weight: 500;
+		line-height: 1.45;
+		color: var(--text-muted);
+	}
+
+	&__ecard-quote {
+		margin: 0;
+		font-size: rem(18);
+		font-weight: 700;
+		line-height: 1.4;
+		color: var(--accent);
+	}
+
+	// ─── Two-column block ──────────────────────────────────────────────────────
+	&__twin {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+		align-items: stretch;
+
+		@include media-breakpoint-up(lg) {
+			flex-direction: row;
+		}
+	}
+
+	&__twin-col {
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+		padding: var(--space-34);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		min-width: 0;
+
+		// mobile: height by content; lg+: equal-width columns side by side
+		@include media-breakpoint-up(lg) {
+			flex: 1 0 0;
+		}
+
+		&--dark {
+			background: var(--bg-surface);
+			border: 1px solid var(--border-default);
+		}
+
+		&--accent {
+			background: var(--bg-accent-soft);
+			border: 1px solid var(--border-accent);
+		}
+	}
+
+	&__twin-title {
+		margin: 0;
+		font-family: $font-family-sans-serif;
+		font-weight: 700;
+		line-height: 1.3;
+		color: var(--text-strong);
+
+		// Dark col: Heading/Card-lg 26px
+		.sFinal__twin-col--dark & {
+			font-size: rem(20);
+			letter-spacing: -0.01em;
+
+			@include media-breakpoint-up(md) {
+				font-size: rem(26);
+			}
+		}
+
+		// Accent col: Heading/Card 23px
+		.sFinal__twin-col--accent & {
+			font-size: rem(20);
+			letter-spacing: -0.01em;
+
+			@include media-breakpoint-up(md) {
+				font-size: rem(23);
+			}
+		}
+	}
+
+	&__twin-body {
+		margin: 0;
+		font-size: rem(16);
+		font-weight: 500;
+		line-height: 1.45;
+		color: var(--text-muted);
+	}
+
+	&__twin-danger {
+		color: var(--_danger);
+	}
+
+	&__twin-text {
+		margin: 0;
+		font-size: rem(17);
+		font-weight: 500;
+		line-height: 1.5;
+		color: var(--text-primary);
+	}
+
+	&__twin-subhead {
+		margin: 0;
+		font-size: rem(18);
+		font-weight: 700;
+		line-height: 1.4;
+		color: var(--text-strong);
+	}
+
+	&__list {
+		list-style: disc;
+		padding-left: rem(24);
+		margin: 0;
+
+		li {
+			font-size: rem(16);
+			font-weight: 500;
+			line-height: 1.45;
+			color: var(--accent);
+		}
+	}
+
+	&__twin-outro {
+		margin: 0;
+		font-size: rem(18);
+		font-weight: 700;
+		line-height: 1.4;
+		color: var(--text-strong);
+	}
+
+	// ─── CTA block ─────────────────────────────────────────────────────────────
+	&__cta-block {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: rem(24);
+		padding: var(--space-40);
+		background: var(--bg-accent-soft);
+		border: 1px solid var(--border-accent);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+			align-items: flex-end;
+			justify-content: space-between;
+		}
+	}
+
+	&__cta-bg {
+		// Figma 2003:1216 — glow ellipse ~73% of block width, anchored top-right
+		position: absolute;
+		right: rem(-210);
+		top: rem(-230);
+		width: rem(420);
+		pointer-events: none;
+		user-select: none;
+		z-index: 0;
+
+		@include media-breakpoint-up(md) {
+			width: rem(760);
+			right: rem(-380);
+			top: rem(-430);
+		}
+	}
+
+	&__cta-inner {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		max-width: rem(628);
+	}
+
+	&__cta-title {
+		margin: 0;
+		font-family: $font-family-sans-serif;
+		font-size: rem(18);
+		font-weight: 700;
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(23);
+		}
+	}
+
+	&__cta-sub {
+		margin: 0;
+		font-size: rem(16);
+		font-weight: 500;
+		line-height: 1.5;
+		color: var(--text-secondary);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(18);
+		}
+	}
+
+	&__btn {
+		position: relative;
+		z-index: 1;
+		flex-shrink: 0;
+		white-space: nowrap;
+		width: 100%;
+
+		@include media-breakpoint-up(md) {
+			width: auto;
+		}
+	}
+} // end .sFinal

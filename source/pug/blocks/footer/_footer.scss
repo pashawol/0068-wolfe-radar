@@ -1,0 +1,57 @@
+.footer {
+	margin-top: auto;
+	background-color: var(--bg-inverse);
+	border-top: 1px solid var(--border-default);
+	padding-top: rem(40);
+	padding-bottom: rem(40);
+
+	&__inner {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: rem(24) rem(40);
+	}
+
+	&__brand {
+		display: inline-flex;
+		align-items: center;
+		gap: rem(10);
+		flex-shrink: 0;
+	}
+	&__logo { width: rem(29); height: rem(25); display: block; }
+	&__brand-text {
+		font-weight: 700;
+		font-size: rem(16);
+		letter-spacing: 0.04em;
+		color: var(--text-strong);
+		text-transform: uppercase;
+	}
+	&__brand-accent { color: var(--accent); }
+
+	&__nav {
+		display: flex;
+		gap: rem(28);
+		a {
+			font-family: $font-family-code;
+			font-size: rem(12);
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+			color: var(--text-muted);
+			text-decoration: none;
+			&:hover { color: var(--accent); }
+		}
+	}
+
+	&__legal {
+		flex: 1 1 100%;
+		padding-top: rem(20);
+		margin-top: rem(8);
+		border-top: 1px solid var(--border-default);
+		p {
+			margin: 0 0 rem(4);
+			font-size: rem(13);
+			line-height: 1.5;
+			color: var(--text-faint);
+		}
+	}
+}

@@ -1,0 +1,213 @@
+// import Swiper from '../libs/swiper/swiper-bundle.min.mjs';
+// import JSCCommon from "./JSCCommon.js";
+
+function eventHandler() {
+	// const $ = jQuery;
+	window.JSCCommon.init()
+	let navScrollTicking = false
+
+	function whenResize() {
+		window.JSCCommon.setFixedNav()
+	}
+
+	function onScroll() {
+		if (navScrollTicking) return
+		navScrollTicking = true
+		window.requestAnimationFrame(() => {
+			window.JSCCommon.setFixedNav()
+			navScrollTicking = false
+		})
+	}
+
+	window.addEventListener('scroll', onScroll, { passive: true })
+	window.addEventListener('resize', whenResize, { passive: true })
+
+	whenResize()
+
+	const defaultSl = {
+		spaceBetween: 0,
+		lazy: {
+			loadPrevNext: true,
+		},
+		watchOverflow: true,
+		loop: true,
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		pagination: {
+			el: ' .swiper-pagination',
+			type: 'bullets',
+			clickable: true,
+			// renderBullet: function (index, className) {
+			// 	return '<span class="' + className + '">' + (index + 1) + '</span>';
+			// }
+		},
+	}
+
+	new Swiper('.breadcrumb-slider--js', {
+		slidesPerView: 'auto',
+		freeMode: true,
+		watchOverflow: true,
+	})
+
+	new Swiper('.sBanners__slider--js', {
+		// slidesPerView: 5,
+		...defaultSl,
+		slidesPerView: 'auto',
+		freeMode: true,
+		loopFillGroupWithBlank: true,
+		touchRatio: 0.2,
+		slideToClickedSlide: true,
+		freeModeMomentum: true,
+	})
+
+	const defSwipers = document.querySelectorAll('.def-slider-wrap')
+	for (const defSwiper of defSwipers) {
+		new Swiper(defSwiper.querySelector('.swiper'), {
+			slidesPerView: 1,
+			spaceBetween: 24,
+			centeredSlides: true,
+			loop: true,
+			pagination: {
+				el: defSwiper.querySelector('.swiper-pagination'),
+				type: 'fraction',
+			},
+			navigation: {
+				nextEl: defSwiper.querySelector('.swiper-button-next'),
+				prevEl: defSwiper.querySelector('.swiper-button-prev'),
+			},
+		})
+	}
+}
+
+// Universal: converts any .mobile-swiper--js container into a Swiper.
+// data-swiper-gap="24"  — override default 16px spaceBetween
+// data-swiper-bp="991"  — max viewport width to keep Swiper active; above it Swiper is
+//                         destroyed so CSS can revert to normal stacking. Omit (or "0")
+//                         for always-on (use max() formula in CSS for responsive columns).
+function initMobileSwipers() {
+	const instances = new Map()
+
+	function refresh() {
+		document.querySelectorAll('.mobile-swiper--js').forEach((el) => {
+			const gap = parseInt(el.dataset.swiperGap || '16', 10)
+			const bpMax = parseInt(el.dataset.swiperBp || '0', 10)
+			const shouldInit = bpMax === 0 || window.innerWidth <= bpMax
+
+			if (shouldInit) {
+				if (!instances.has(el)) {
+					const sw = new Swiper(el, {
+						slidesPerView: 'auto',
+						spaceBetween: gap,
+						freeMode: true,
+						watchOverflow: true,
+					})
+					instances.set(el, sw)
+				}
+			} else {
+				if (instances.has(el)) {
+					instances.get(el).destroy(true, true)
+					instances.delete(el)
+				}
+			}
+		})
+	}
+
+	refresh()
+	window.addEventListener('resize', refresh, { passive: true })
+}
+
+// Kept for optional use; not wired in this landing (sticky CTA not in design).
+function _initStickyCtaMobile() {
+	const mq = window.matchMedia('(max-width: 991px)')
+	if (!mq.matches) return
+
+	const items = []
+
+	document.querySelectorAll('main .btn-primary').forEach((btn) => {
+		const section = btn.closest('section') || btn.parentElement
+		section.style.position = 'relative'
+
+		const h = btn.offsetHeight || 48
+		const wrap = document.createElement('div')
+		wrap.className = 'btn-sticky-wrap'
+		wrap.style.height = h + 'px'
+		btn.replaceWith(wrap)
+		wrap.appendChild(btn)
+
+		items.push({ btn, section })
+	})
+
+	function update() {
+		const vh = window.innerHeight
+
+		// Pick section with lowest rect.top among those in viewport (most scrolled into)
+		let activeItem = null
+		let lowestTop = Infinity
+
+		items.forEach(({ btn, section }) => {
+			const rect = section.getBoundingClientRect()
+			if (rect.bottom > 0 && rect.top < vh && rect.top < lowestTop) {
+				lowestTop = rect.top
+				activeItem = { btn, section }
+			}
+		})
+
+		// Apply classes
+		items.forEach(({ btn, section }) => {
+			const rect = section.getBoundingClientRect()
+			if (activeItem && activeItem.btn === btn) {
+				if (rect.bottom <= vh - 16) {
+					btn.classList.remove('btn--mobile-fixed')
+					btn.classList.add('is-stopped')
+				} else if (!btn.classList.contains('btn--mobile-fixed')) {
+					btn.classList.remove('is-stopped')
+					btn.style.transform = 'translateY(120%)'
+					btn.style.opacity = '0'
+					btn.classList.add('btn--mobile-fixed')
+					requestAnimationFrame(() => {
+						btn.style.transform = ''
+						btn.style.opacity = ''
+					})
+				}
+			} else {
+				btn.classList.remove('btn--mobile-fixed', 'is-stopped')
+				btn.style.transform = ''
+				btn.style.opacity = ''
+			}
+		})
+	}
+
+	window.addEventListener('scroll', update, { passive: true })
+	window.addEventListener('resize', update, { passive: true })
+	update()
+
+	mq.addEventListener('change', () => {
+		if (!mq.matches) {
+			items.forEach(({ btn }) => btn.classList.remove('btn--mobile-fixed', 'is-stopped'))
+		}
+	})
+}
+
+if (document.readyState !== 'loading') {
+	eventHandler()
+	// initTopLineDock();
+	// initStickyCtaMobile() // disabled: displaced form submit on mobile (not in design)
+	initMobileSwipers()
+} else {
+	document.addEventListener('DOMContentLoaded', () => {
+		eventHandler()
+		// initTopLineDock();
+		// initStickyCtaMobile() // disabled: displaced form submit on mobile (not in design)
+		initMobileSwipers()
+	})
+}
+
+// window.onload = function () {
+// 	document.body.classList.add('loaded_hiding');
+// 	window.setTimeout(function () {
+// 		document.body.classList.add('loaded');
+// 		document.body.classList.remove('loaded_hiding');
+// 	}, 500);
+// }

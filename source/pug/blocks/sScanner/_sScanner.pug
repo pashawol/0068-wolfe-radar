@@ -1,0 +1,63 @@
+mixin sScanner()
+	// start sScanner
+	+b.SECTION.sScanner.section--canvas#sScanner&attributes(attributes)
+		.container
+			+section-head('10 / СКАНЕР')
+			+b.section-title
+				h2 НЕ ЖДИТЕ ОДНУ СДЕЛКУ — СКАНИРУЙТЕ РЫНОК РАДАРОМ
+			+e.body
+				+e.intro
+					+e.P.lead Хорошие Волны Вульфа — редкие. Если сидеть на одном активе и ждать идеальный паттерн, можно пропустить массу возможностей на других инструментах.
+					+e.lead-rich
+						p Радар Вульфа решает эту проблему.
+						p
+							strong Он в реальном времени отслеживает до 100 инструментов,
+							|  чтобы не упустить момент появления понятной геометрии сделки.
+						p Вы можете даже не открывать другие графики. Вся карта торговых возможностей у Вас перед глазами.
+				+e.screen
+					img.sScanner__screen-img(src="img/wolfe/sScanner/scanner-screen.webp" alt="Интерфейс сканера Волн Вульфа" loading="lazy" width="1644" height="842")
+				+e.features
+					+e.P.features-hd Что делает сканер:
+					+e.features-grid
+						+e.features-col
+							+e.feat-item
+								+e.SPAN.feat-arrow →
+								+e.SPAN.feat-text отслеживает до 100 активов и таймфреймов одновременно;
+							+e.feat-item
+								+e.SPAN.feat-arrow →
+								+e.SPAN.feat-text показывает активные и формирующиеся паттерны;
+							+e.feat-item
+								+e.SPAN.feat-arrow →
+								+e.SPAN.feat-text определяет, где в ближайшее время можно ожидать сделку;
+						+e.features-col
+							+e.feat-item
+								+e.SPAN.feat-arrow →
+								+e.SPAN.feat-text помогает найти лучшие активы и временные периоды для торговли;
+							+e.feat-item
+								+e.SPAN.feat-arrow →
+								+e.SPAN.feat-text собирает все сигналы в одном рабочем окне;
+							+e.feat-item
+								+e.SPAN.feat-arrow →
+								+e.SPAN.feat-text помогает управлять портфелем активов.
+				+e.split
+					+e.split-text
+						+e.P.split-hd Не нужно открывать 20 графиков и щёлкать их по кругу.
+						+e.P.split-body Радар покажет, где сейчас формируется паттерн, где уже есть ситуация и какие инструменты заслуживают внимания.
+						+e.P.split-cta
+							strong Смотрите, как работает сканер Волн Вульфа в реальной торговле:
+					+e.split-video
+						+e.video-inner
+							.video-embed
+								iframe(src="https://kinescope.io/rySbxb77QY79weTxUyNBoN" title="Сканер Волн Вульфа в реальной торговле" loading="lazy" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture")
+							+e.video-caption
+								+e.SPAN.video-tag ВИДЕО
+								+e.P.video-title Сканер Волн Вульфа в реальной торговле:
+				+e.cta-bar
+					+e.P.cta-text
+						| Не ищите сделку вручную.
+						br
+						| Пусть рынок сам покажет, где она появилась.
+					+e.A.btn.btn.btn-primary(href="#sForm")
+						span Забрать Радар и сканировать рынки
+						+icon('arrow-right')
+	// end sScanner

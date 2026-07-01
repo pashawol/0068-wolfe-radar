@@ -1,0 +1,131 @@
+mixin sModules()
+	// start sModules
+	+b.SECTION.sModules.section--canvas#sModules&attributes(attributes)
+		.container
+			+section-head('06 / СИСТЕМА')
+			+e.body
+				+e.intro
+					+b.section-title
+						h2 РАДАР ВУЛЬФА
+					+e.pills
+						+e.pill.--dark ИНДИКАТОР
+						span.sModules__pill-sep →
+						+e.pill.--dark СОВЕТНИК
+						span.sModules__pill-sep →
+						+e.pill.--accent ТОРГОВАЯ СИСТЕМА
+					+e.P.lead Радар Вульфа проведёт Вас за руку по всем шагам прибыльной сделки.
+
+				+e.grid
+					+e.grid-row
+						+e.cell
+							+e.cell-icon(style="--ix:-28.16%;--iy:-26.92%;--iw:544.36%;--ih:305.3%")
+								img.sModules__sprite-img(src="img/wolfe/sModules/modules-sprite.webp" alt="")
+							+e.cell-body
+								+e.STRONG.cell-title Авторазметка
+								+e.P.cell-desc сам находит и рисует Волны Вульфа.
+						+e.cell
+							+e.cell-icon(style="--ix:-34.09%;--iy:-168.91%;--iw:566.92%;--ih:317.95%")
+								img.sModules__sprite-img(src="img/wolfe/sModules/modules-sprite.webp" alt="")
+							+e.cell-body
+								+e.STRONG.cell-title Торговый план
+								+e.P.cell-desc сразу показывает вход, стоп, цель и выход по времени.
+					+e.grid-row
+						+e.cell
+							+e.cell-icon(style="--ix:-186.8%;--iy:-26.92%;--iw:606.92%;--ih:340.38%")
+								img.sModules__sprite-img(src="img/wolfe/sModules/modules-sprite.webp" alt="")
+							+e.cell-body
+								+e.STRONG.cell-title Статистика
+								+e.P.cell-desc прямо на графике: как стратегия работала за предыдущий период на этом активе.
+						+e.cell
+							+e.cell-icon(style="--ix:-182.99%;--iy:-191.05%;--iw:606.92%;--ih:340.38%")
+								img.sModules__sprite-img(src="img/wolfe/sModules/modules-sprite.webp" alt="")
+							+e.cell-body
+								+e.STRONG.cell-title Риск-менеджер
+								+e.P.cell-desc рассчитывает объем позиции под заданный риск.
+					+e.grid-row
+						+e.cell
+							+e.cell-icon(style="--ix:-326.5%;--iy:-36.08%;--iw:606.92%;--ih:340.38%")
+								img.sModules__sprite-img(src="img/wolfe/sModules/modules-sprite.webp" alt="")
+							+e.cell-body
+								+e.STRONG.cell-title Сканер
+								+e.P.cell-desc в реальном времени мониторит до 100 активов и таймфреймов.
+						+e.cell
+							+e.cell-icon(style="--ix:-326.5%;--iy:-194.1%;--iw:606.92%;--ih:340.38%")
+								img.sModules__sprite-img(src="img/wolfe/sModules/modules-sprite.webp" alt="")
+							+e.cell-body
+								+e.STRONG.cell-title Уведомления
+								+e.P.cell-desc предупреждают, когда паттерн формируется и когда пора готовиться ко входу.
+					+e.grid-row
+						+e.cell
+							+e.cell-icon(style="--ix:-471.55%;--iy:-39.9%;--iw:606.92%;--ih:340.38%")
+								img.sModules__sprite-img(src="img/wolfe/sModules/modules-sprite.webp" alt="")
+							+e.cell-body
+								+e.STRONG.cell-title Портфель
+								+e.P.cell-desc помогает собрать набор лучших инструментов и отслеживать на них появление паттерна.
+						+e.cell.--summary
+							+e.P.summary-text И всё это — прямо на одном графике.
+
+				+e.showcase
+					+e.showcase-meta
+						+e.STRONG.showcase-title И все это — прямо на одном графике
+						+e.P.showcase-lead Просто перетащите советник на график — и перед Вами уже не хаос, а готовая система торговли по Волнам Вульфа
+					+e.charts
+						+e.chart-row
+							+e.chart-col
+								+e.SPAN.chart-label EUR/USD, H1
+								+e.A.chart-link(data-fancybox="sModules-show" href="img/wolfe/sModules/eur-usd-h1-original.webp")
+									img.sModules__chart-img(src="img/wolfe/sModules/eur-usd-h1-original.webp" alt="EUR/USD H1 исходный" loading="lazy")
+							+e.chart-col
+								+e.SPAN.chart-label Радар Вульфа, паттерн сформировался
+								+e.A.chart-link(data-fancybox="sModules-show" href="img/wolfe/sModules/eur-usd-h1-radar.webp")
+									img.sModules__chart-img(src="img/wolfe/sModules/eur-usd-h1-radar.webp" alt="EUR/USD H1 паттерн" loading="lazy")
+							+e.chart-col
+								+e.SPAN.chart-label Сделка отработала
+								+e.A.chart-link(data-fancybox="sModules-show" href="img/wolfe/sModules/eur-usd-h1-done.webp")
+									img.sModules__chart-img(src="img/wolfe/sModules/eur-usd-h1-done.webp" alt="EUR/USD H1 результат" loading="lazy")
+						+e.chart-row
+							+e.chart-col
+								+e.SPAN.chart-label Золото, H2
+								+e.A.chart-link(data-fancybox="sModules-show" href="img/wolfe/sModules/gold-h2-original.webp")
+									img.sModules__chart-img(src="img/wolfe/sModules/gold-h2-original.webp" alt="Золото H2 исходный" loading="lazy")
+							+e.chart-col
+								+e.SPAN.chart-label Радар Вульфа, паттерн сформировался
+								+e.A.chart-link(data-fancybox="sModules-show" href="img/wolfe/sModules/gold-h2-radar.webp")
+									img.sModules__chart-img(src="img/wolfe/sModules/gold-h2-radar.webp" alt="Золото H2 паттерн" loading="lazy")
+							+e.chart-col
+								+e.SPAN.chart-label Сделка отработала
+								+e.A.chart-link(data-fancybox="sModules-show" href="img/wolfe/sModules/gold-h2-done.webp")
+									img.sModules__chart-img(src="img/wolfe/sModules/gold-h2-done.webp" alt="Золото H2 результат" loading="lazy")
+						+e.chart-row
+							+e.chart-col
+								+e.SPAN.chart-label USD/JPY, M30
+								+e.A.chart-link(data-fancybox="sModules-show" href="img/wolfe/sModules/usd-jpy-m30-original.webp")
+									img.sModules__chart-img(src="img/wolfe/sModules/usd-jpy-m30-original.webp" alt="USD/JPY M30 исходный" loading="lazy")
+							+e.chart-col
+								+e.SPAN.chart-label Радар Вульфа, паттерн сформировался
+								+e.A.chart-link(data-fancybox="sModules-show" href="img/wolfe/sModules/usd-jpy-m30-radar.webp")
+									img.sModules__chart-img(src="img/wolfe/sModules/usd-jpy-m30-radar.webp" alt="USD/JPY M30 паттерн" loading="lazy")
+							+e.chart-col
+								+e.SPAN.chart-label Сделка отработала
+								+e.A.chart-link(data-fancybox="sModules-show" href="img/wolfe/sModules/usd-jpy-m30-done.webp")
+									img.sModules__chart-img(src="img/wolfe/sModules/usd-jpy-m30-done.webp" alt="USD/JPY M30 результат" loading="lazy")
+						+e.chart-row
+							+e.chart-col
+								+e.SPAN.chart-label USD/CAD, M30
+								+e.A.chart-link(data-fancybox="sModules-show" href="img/wolfe/sModules/usd-cad-m30-original.webp")
+									img.sModules__chart-img(src="img/wolfe/sModules/usd-cad-m30-original.webp" alt="USD/CAD M30 исходный" loading="lazy")
+							+e.chart-col
+								+e.SPAN.chart-label Радар Вульфа, паттерн сформировался
+								+e.A.chart-link(data-fancybox="sModules-show" href="img/wolfe/sModules/usd-cad-m30-radar.webp")
+									img.sModules__chart-img(src="img/wolfe/sModules/usd-cad-m30-radar.webp" alt="USD/CAD M30 паттерн" loading="lazy")
+							+e.chart-col
+								+e.SPAN.chart-label Сделка отработала
+								+e.A.chart-link(data-fancybox="sModules-show" href="img/wolfe/sModules/usd-cad-m30-done.webp")
+									img.sModules__chart-img(src="img/wolfe/sModules/usd-cad-m30-done.webp" alt="USD/CAD M30 результат" loading="lazy")
+
+				+e.cta
+					+e.P.cta-text Профессиональный трейдинг никогда ещё не становился настолько лёгкой задачей!
+					+e.A.btn.btn.btn-primary(href="#sForm")
+						| Получить торговую систему
+						+icon('arrow-right')
+	// end sModules

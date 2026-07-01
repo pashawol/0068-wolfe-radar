@@ -1,0 +1,39 @@
+mixin sWhere()
+	// start sWhere
+	+b.SECTION.sWhere.section--canvas#sWhere&attributes(attributes)
+		.container
+			+section-head('16 / СОВМЕСТИМОСТЬ')
+			+b.section-title
+				h2 Где можно использовать Радар?
+			+e.body
+				+e.P.lead Везде, где есть MetaTrader&nbsp;5.
+				+e.cards
+					+e.card
+						+e.P.card-desc Логика Волн Вульфа не привязана к одному рынку. Радар Вульфа можно использовать на разных инструментах, рынках и таймфреймах — главное, чтобы у Вас был доступ к терминалу MetaTrader&nbsp;5.
+						+e.P.card-subtitle Радар работает на:
+						+e.tags
+							+e.SPAN.tag Forex
+							+e.SPAN.tag золото и серебро
+							+e.SPAN.tag криптовалюты
+							+e.SPAN.tag акции
+							+e.SPAN.tag индексы
+							+e.SPAN.tag фьючерсы РФ и США
+						+e.P.card-note Таймфреймы — от М1 до D1.
+						+e.P.card-desc Можно использовать Радар для внутридневной торговли, среднесрочных сделок, исследования рынков, сканирования широкого рынка.
+						+e.P.card-desc Одна логика. Разные рынки. Разные инструменты. Разные стили торговли.
+					+e.card
+						+e.P.card-subtitle Что нужно технически?
+						+e.P.card-desc Терминал MetaTrader&nbsp;5. В России этот терминал можно получить у брокеров:
+						+e.tags
+							+e.SPAN.tag Финам
+							+e.SPAN.tag Альфа-Форекс
+							+e.SPAN.tag.--neutral или другой брокер с доступом к MetaTrader&nbsp;5.
+						+e.P.card-desc За пределами России — подойдет любой брокер, у которого есть MetaTrader&nbsp;5 и нужные Вам инструменты.
+				+e.footer
+					+e.footer-item
+						+e.P.footer-title Для ручного и полуавтоматического режима не нужен мощный компьютер.
+						+e.P.footer-text Достаточно обычного домашнего компьютера или ноутбука, на котором стабильно работает MetaTrader&nbsp;5.
+					+e.footer-item
+						+e.P.footer-title Радар Вульфа не привязывает Вас к одному рынку.
+						+e.P.footer-text Вы сами выбираете, где искать лучшие возможности: на Forex, металлах, криптовалютах, акциях, индексах или фьючерсах.
+	// end sWhere

@@ -1,0 +1,151 @@
+.sWhere {
+	// Re-map dark-theme tokens to canvas-appropriate values (base: --text-canvas = #1d2024)
+	--text-strong: var(--bg-inverse);
+	--text-primary: var(--text-canvas);
+	--text-secondary: color-mix(in srgb, var(--text-canvas) 58%, transparent);
+	--border-default: color-mix(in srgb, var(--text-canvas) 14%, transparent);
+	--border-strong: color-mix(in srgb, var(--text-canvas) 16%, transparent);
+
+	// Figma: H2 → lead → cards → footer all share a uniform 24px gap.
+	// Override the global section-title bottom rhythm to match (was 40–56px).
+	--sTPB: var(--space-24);
+
+	// Section header: add bottom border + hide invisible right tag
+	.section-head {
+		border-bottom: 1px solid var(--border-default);
+		padding-bottom: rem(20);
+
+		&__tag {
+			opacity: 0;
+		}
+	}
+
+	// H2 override: Figma uses 56px, all-caps, tight tracking
+	.section-title h2 {
+		font-size: rem(32);
+		line-height: 1.02;
+		letter-spacing: -0.025em;
+		text-transform: uppercase;
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(44);
+		}
+		@include media-breakpoint-up(xl) {
+			font-size: rem(56);
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+	}
+
+	// Accent lead line
+	&__lead {
+		margin: 0;
+		font-weight: 600;
+		font-size: rem(21);
+		line-height: 1.5;
+		color: var(--accent);
+	}
+
+	// Two-column cards grid
+	&__cards {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: rem(24);
+		padding-top: rem(12);
+
+		@include media-breakpoint-up(md) {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	&__card {
+		display: flex;
+		flex-direction: column;
+		gap: rem(18);
+		padding: rem(34);
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+	}
+
+	&__card-subtitle {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		color: var(--text-strong);
+	}
+
+	&__card-desc {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-secondary);
+	}
+
+	// "Таймфреймы — от М1 до D1."
+	&__card-note {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-secondary);
+	}
+
+	// Tag pill row (markets / brokers)
+	&__tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(10);
+	}
+
+	&__tag {
+		display: inline-flex;
+		padding: rem(10) rem(16);
+		border: 1px solid var(--border-accent);
+		border-radius: var(--radius-sm);
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--accent);
+
+		// Neutral variant: "или другой брокер…"
+		&--neutral {
+			border-color: var(--border-strong);
+			color: var(--text-primary);
+		}
+	}
+
+	// Bottom two-item text block (vertical, no border-top)
+	&__footer {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+	}
+
+	&__footer-item {
+		display: flex;
+		flex-direction: column;
+		gap: rem(8);
+	}
+
+	&__footer-title {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(18);
+		line-height: 1.4;
+		color: var(--text-strong);
+	}
+
+	&__footer-text {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-secondary);
+	}
+}

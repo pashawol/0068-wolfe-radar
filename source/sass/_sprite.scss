@@ -1,0 +1,94 @@
+@use "sass:math";
+
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+
+.icon-arrow-right {
+	$h: 47.24;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(55.74 / #{$h} *1em );
+}
+.icon-basket {
+	$h: 24;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(22 / #{$h} *1em );
+}
+.icon-check {
+	$h: 27;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(27 / #{$h} *1em );
+}
+.icon-check_copy {
+	$h: 27;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(27 / #{$h} *1em );
+}
+.icon-chevron-left {
+	$h: 23;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(22 / #{$h} *1em );
+}
+.icon-chevron-right {
+	$h: 23;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(22 / #{$h} *1em );
+}
+.icon-cloud-check {
+	$h: 55;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(55 / #{$h} *1em );
+}
+.icon-fb {
+	$h: 24;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(24 / #{$h} *1em );
+}
+.icon-icon-x {
+	$h: 16;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(16 / #{$h} *1em );
+}
+.icon-instagram {
+	$h: 24;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(24 / #{$h} *1em );
+}
+.icon-telegram {
+	$h: 16;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(16 / #{$h} *1em );
+}
+.icon-thumbs-down {
+	$h: 16;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(16 / #{$h} *1em );
+}
+.icon-thumbs-up {
+	$h: 16;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(16 / #{$h} *1em );
+}
+.icon-track {
+	$h: 13;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(14 / #{$h} *1em );
+}
+.icon-viber {
+	$h: 16;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(16 / #{$h} *1em );
+}
+.icon-vk {
+	$h: 24;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(24 / #{$h} *1em );
+}
+.icon-whatsapp {
+	$h: 16;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(16 / #{$h} *1em );
+}

@@ -1,0 +1,49 @@
+mixin sProblem()
+	// start sProblem
+	+b.SECTION.sProblem.section--canvas#sProblem&attributes(attributes)
+		.container
+			+section-head('02 / ПРОБЛЕМА')
+			+e.body
+				+b.section-title
+					h2 ВАМ ЭТО ЗНАКОМО?
+				+e.P.lead Вы открываете график и начинаете искать знакомый Вам торговый паттерн.
+				+e.grid
+					+e.grid-cell
+						+e.SPAN.cell-num 01
+						+e.P.cell-text Сомневаетесь в разметке — её всегда можно нанести по-другому.
+					+e.grid-cell
+						+e.SPAN.cell-num 02
+						+e.P.cell-text Рынок — сплошной хаос, Вы не понимаете его логику.
+					+e.grid-cell
+						+e.SPAN.cell-num 03
+						+e.P.cell-text Входите в сделку и уже через минуту начинаете сомневаться.
+					+e.grid-cell
+						+e.SPAN.cell-num 04
+						+e.P.cell-text Нервничаете в позиции и не знаете, когда её закрывать.
+					+e.grid-cell
+						+e.SPAN.cell-num 05
+						+e.P.cell-text А после закрытия: «Надо было делать совсем по-другому…».
+					+e.grid-cell
+						+e.SPAN.cell-num 06
+						+e.P.cell-text Или ещё хуже: «Нафига я вообще сюда входил?»
+				+e.cards
+					+e.card
+						+e.P.card-title Больше времени уходит на поиск и сомнения,#[br] чем на сам трейдинг.
+						+e.P.card-body Пока Вы проверяете один график, хорошие возможности появляются на десятках других.
+					+e.card
+						+e.P.card-title Самое неприятное — когда движение прошло,#[br] а паттерн уже очевиден.
+						+e.P.card-body
+							| Но входить уже поздно.&nbsp;
+							strong Каждый пропущенный сигнал — это деньги, которые рынок был готов отдать
+							| . И чем больше активов Вы отслеживаете вручную, тем чаще это происходит.
+				+e.callout
+					img.sProblem__callout-bg(src="img/wolfe/sProblem/callout-bg.webp" alt="" aria-hidden="true")
+					+e.P.callout-title Большинство трейдеров делают вручную то,#[br] что давно должна делать программа.
+					+e.callout-list
+						+e.callout-item переключают десятки графиков;
+						+e.callout-item глазами ищут формирующийся паттерн;
+						+e.callout-item спорят сами с собой;
+						+e.callout-item боятся пропустить сигнал — и боятся входить;
+						+e.callout-item принимают решения на эмоциях;
+						+e.callout-item тратят часы на то, что алгоритм делает за секунды.
+	// end sProblem

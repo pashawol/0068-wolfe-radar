@@ -1,0 +1,42 @@
+// кнопка по умолчанию — в потоке
+.btn-sticky-wrap {
+	width: 100%;
+}
+
+// кнопка фиксирована у дна экрана (только mobile)
+main .btn-primary.btn--mobile-fixed {
+	position: fixed;
+	bottom: #{rem(16)};
+	left: #{rem(16)};
+	right: #{rem(16)};
+	width: calc(100% - #{rem(32)});
+	text-align: center;
+	z-index: 99;
+	transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+// кнопка остановилась — absolute относительно секции (только mobile)
+main .btn-primary.is-stopped {
+	position: absolute;
+	bottom: #{rem(16)};
+	left: #{rem(16)};
+	right: #{rem(16)};
+	width: calc(100% - #{rem(32)});
+	text-align: center;
+	z-index: 99;
+}
+
+// на десктопе сбрасываем sticky-поведение
+@include media-breakpoint-up(lg) {
+	main .btn-primary.btn--mobile-fixed,
+	main .btn-primary.is-stopped {
+		position: static;
+		width: auto;
+		bottom: auto;
+		left: auto;
+		right: auto;
+		text-align: inherit;
+		z-index: auto;
+		transition: none;
+	}
+}

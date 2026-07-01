@@ -1,0 +1,49 @@
+mixin sForm()
+	// start sForm
+	+b.SECTION.sForm.section#sForm&attributes(attributes)
+		// тот же свечной график, что и в sReliability (общие SVG-файлы)
+		+e.decor(aria-hidden="true")
+			img.sForm__decor-img.--g1(src="img/wolfe/sReliability/decor-g1.svg" alt="" loading="lazy")
+			img.sForm__decor-img.--g2(src="img/wolfe/sReliability/decor-g2.svg" alt="" loading="lazy")
+			img.sForm__decor-img.--g3(src="img/wolfe/sReliability/decor-g3.svg" alt="" loading="lazy")
+			img.sForm__decor-img.--g4(src="img/wolfe/sReliability/decor-g4.svg" alt="" loading="lazy")
+			img.sForm__decor-img.--g5(src="img/wolfe/sReliability/decor-g5.svg" alt="" loading="lazy")
+			img.sForm__decor-img.--g6(src="img/wolfe/sReliability/decor-g6.svg" alt="" loading="lazy")
+			img.sForm__decor-img.--v1(src="img/wolfe/sReliability/decor-v1.svg" alt="" loading="lazy")
+			img.sForm__decor-img.--v2(src="img/wolfe/sReliability/decor-v2.svg" alt="" loading="lazy")
+			img.sForm__decor-img.--v3(src="img/wolfe/sReliability/decor-v3.svg" alt="" loading="lazy")
+		.container
+			+section-head('21 / ЗАКАЗ')
+			+e.body
+				+b.section-title
+					h2 ДО ПОЛУЧЕНИЯ РАДАРА ОСТАЛОСЬ НЕСКОЛЬКО СЕКУНД
+				+e.P.lead Введите Ваши данные, чтобы выбрать подходящий вариант доступа, и начните использовать Радар Вульфа уже сегодня.
+				+e.grid
+					+e.order
+						form.sForm__form.js-form-validate(data-parsley-validate="" action="#" method="post")
+							input(type="hidden" name="order" value="Заявка с сайта «Радар Вульфа»")
+							+e.SPAN.form-title Ваши данные
+							+e.field.form-group
+								input.form-control.sForm__input(type="text" name="fullname" placeholder="Ваши ФИО" required)
+							+e.field.form-group
+								input.form-control.sForm__input(type="email" name="email" placeholder="Ваш e-mail" required)
+							+e.field.form-group
+								input.form-control.sForm__input(type="tel" name="phone" placeholder="Ваш телефон" inputmode="tel" required)
+							+e.LABEL.agree.form-check
+								input.form-check-input.sForm__agree-check(type="checkbox" name="oferta" value="1" checked required)
+								+e.SPAN.agree-text Я согласен с условиями #[a.tdu(href="#" target="_blank") оферты] и лицензионного договора
+							+e.BUTTON.submit.btn.btn-primary(type="submit")
+								span Продолжить
+					+e.kit
+						+e.SPAN.kit-title Что входит в комплект?
+						+e.kit-list
+							each item in ['Радар Вульфа для MetaTrader 5','Автоматическая разметка Волн Вульфа','Сканер рынка до 100 графиков','Статистика стратегии на графике','Визуальный тестер','Риск-менеджер','Уведомления о сигналах','Обучающий видеокурс','Мастер-группа с Владимиром Чаминым','Поддержка на весь срок лицензии']
+								+e.kit-item
+									+e.SPAN.kit-check ✓
+									+e.SPAN.kit-text= item
+				+e.trust
+					each t in ['Официальная лицензия','Оплата юридическому лицу','Чек после оплаты','Служба заботы на связи','Доступ сразу после оплаты']
+						+e.trust-item
+							+e.SPAN.trust-check ✓
+							+e.SPAN.trust-text= t
+	// end sForm

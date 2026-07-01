@@ -1,0 +1,72 @@
+mixin sOnChart()
+	// start sOnChart
+	+b.SECTION.sOnChart.section--canvas#sOnChart&attributes(attributes)
+		.container
+			+section-head('08 / ТОРГОВЫЙ ПЛАН')
+			+b.section-title
+				h2 ВХОД, СТОП, ЦЕЛЬ, ВРЕМЯ, РИСК И СТАТИСТИКА — СРАЗУ НА ГРАФИКЕ
+			+e.body
+				+e.P.lead Радар Вульфа показывает весь маршрут сделки прямо на экране терминала. Вы сразу видите:
+				// grid-scroll = full-bleed дорожка скролла (по ширине экрана); grid = таблица с рамкой
+				+e.grid-scroll
+					+e.grid
+						+e.cell
+							+e.icon-wrap.--entry
+							+e.cell-content
+								+e.P.cell-title Точка входа
+								+e.P.cell-desc где покупать / продавать
+						+e.cell
+							+e.icon-wrap.--stop
+							+e.cell-content
+								+e.P.cell-title Стоп-лосс
+								+e.P.cell-desc где защищать капитал
+						+e.cell
+							+e.icon-wrap.--price
+							+e.cell-content
+								+e.P.cell-title Цель по цене
+								+e.P.cell-desc куда может дойти рынок
+						+e.cell.--row2
+							+e.icon-wrap.--time
+							+e.cell-content
+								+e.P.cell-title Цель по времени
+								+e.P.cell-desc когда движение должно развиться
+						+e.cell.--row2
+							+e.icon-wrap.--potential
+							+e.cell-content
+								+e.P.cell-title Потенциал сделки
+								+e.P.cell-desc стоит ли вообще рассматривать вход
+						+e.cell.--row2
+							+e.icon-wrap.--volume
+							+e.cell-content
+								+e.P.cell-title Объём позиции
+								+e.P.cell-desc каким лотом входить под Ваш риск-менеджмент
+				+e.chart1-wrap
+					img(src="img/wolfe/sOnChart/chart-1.webp" alt="Радар Вульфа: вход, стоп-лосс, цель и риск-менеджмент сразу на графике" width="1328" height="1070" loading="lazy")
+					+e.anno.--price-target(aria-hidden="true")
+						img.sOnChart__anno-arrow.--v14(src="img/wolfe/sOnChart/arrow-v14.svg" alt="" width="62" height="160")
+						span ЦЕЛЬ-линия 1-4
+					+e.anno.--time-target(aria-hidden="true")
+						img.sOnChart__anno-arrow.--v13(src="img/wolfe/sOnChart/arrow-v13.svg" alt="" width="88" height="92")
+						span ЦЕЛЬ по времени
+					+e.anno.--entry-anno(aria-hidden="true")
+						img.sOnChart__anno-arrow.--v11(src="img/wolfe/sOnChart/arrow-v11.svg" alt="" width="71" height="75")
+						span ВХОД&nbsp;В СДЕЛКУ
+					+e.anno.--risk(aria-hidden="true")
+						img.sOnChart__anno-arrow.--v10(src="img/wolfe/sOnChart/arrow-v10.svg" alt="" width="46" height="77")
+						span РИСК, ОБЪЕМ И ПОТЕНЦИАЛ СДЕЛКИ
+					+e.anno.--stoploss(aria-hidden="true")
+						img.sOnChart__anno-arrow.--v11b(src="img/wolfe/sOnChart/arrow-v11.svg" alt="" width="71" height="75")
+						span СТОП-ЛОСС за точку 5
+				+e.P.outro
+					| График превращается в торговый план. Вы не додумываете сделку после сигнала индикатора — Вы сразу видите,&nbsp;
+					| как ее отработать. Входите и забираете деньги:
+				+e.chart-img
+					img(src="img/wolfe/sOnChart/chart-2.webp" alt="Результаты торгового плана по волнам Вульфа" loading="lazy")
+				+e.cta-bar
+					+e.P.cta-text
+						| Собирать прибыль на рынках с таким Радаром —&nbsp;
+						| сплошное удовольствие!
+					+e.A.btn.btn.btn-primary(href="#sForm")
+						span Забрать Радар и собирать прибыль
+						+icon('arrow-right')
+	// end sOnChart

@@ -1,0 +1,264 @@
+// start .sAudience
+.sAudience {
+	background-color: var(--bg-inverse);
+
+	// ---- Intro: title + lead ----
+
+	&__intro {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+	}
+
+	// two intro paragraphs read as one tight text block (no inter-paragraph gap)
+	&__lead-group {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__lead {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(21);
+		line-height: 1.5;
+		color: var(--text-secondary);
+	}
+
+	&__sublead {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(21);
+		line-height: 1.5;
+		color: var(--text-secondary);
+	}
+
+	// ---- Body ----
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: rem(40);
+		padding-top: rem(40);
+	}
+
+	// ---- Cards grid ----
+
+	&__cards {
+		// mobile: horizontal scroll-snap slider (full-bleed to the screen edge)
+		@include slider-x(rem(16), $bleed: true);
+		padding-bottom: rem(2);
+
+		@include media-breakpoint-up(sm) {
+			@include bleed-x-reset();
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: rem(24) rem(18);
+			overflow: visible;
+			padding-bottom: 0;
+		}
+
+		@include media-breakpoint-up(lg) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	&__card {
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+		padding: rem(20);
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		// mobile slider slide (~82vw so the next card peeks)
+		@include slider-slide(82vw);
+		max-width: rem(320);
+
+		@include media-breakpoint-up(sm) {
+			flex: none;
+			max-width: none;
+		}
+
+		@include media-breakpoint-up(md) {
+			padding: rem(28);
+		}
+	}
+
+	// ---- Icon sprite ----
+
+	&__icon {
+		width: rem(150);
+		height: rem(133);
+		overflow: hidden;
+		position: relative;
+		flex-shrink: 0;
+
+		img {
+			position: absolute;
+			// Sprite displayed at ~836×466px within a 150×133 container
+			width: 557.08%;
+			height: 349.89%;
+			max-width: none;
+			pointer-events: none;
+		}
+	}
+
+	// Icon positions from Figma sprite offsets (row 1, top = -52.62%)
+	// NOTE: bemto renders +e.card.--icon-N as "sAudience__card sAudience__card--icon-N"
+	// (single token, no standalone "--icon-N"), so the selector must be &__card--icon-N.
+	&__card--icon-1 .sAudience__icon img { left: -70.04%; top: -52.62%; }
+	&__card--icon-2 .sAudience__icon img { left: -228.14%; top: -52.62%; }
+	&__card--icon-3 .sAudience__icon img { left: -392.18%; top: -52.62%; }
+	// Icon positions (row 2, top ≈ -200%)
+	&__card--icon-4 .sAudience__icon img { left: -70.04%; top: -201.83%; }
+	&__card--icon-5 .sAudience__icon img { left: -228.14%; top: -198.84%; }
+	&__card--icon-6 .sAudience__icon img { left: -392.85%; top: -199.59%; }
+
+	// ---- Card content ----
+
+	&__card-title {
+		margin: 0;
+		font-family: $font-family-sans-serif;
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		color: var(--accent);
+	}
+
+	&__card-body {
+		display: flex;
+		flex-direction: column;
+		gap: rem(12);
+
+		p {
+			margin: 0;
+			font-weight: 500;
+			font-size: rem(16);
+			line-height: 1.45;
+			color: var(--text-secondary);
+		}
+
+		ol {
+			margin: 0;
+			padding-left: rem(20);
+			display: flex;
+			flex-direction: column;
+			gap: rem(4);
+
+			li {
+				font-weight: 500;
+				font-size: rem(16);
+				line-height: 1.45;
+				color: var(--text-secondary);
+			}
+		}
+	}
+
+	// ---- CTA banner ----
+
+	&__cta {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: rem(32);
+		padding: rem(28);
+		border: 1px solid var(--border-accent);
+		border-radius: var(--radius-md);
+		background: var(--bg-accent-soft, rgba(210, 154, 69, 0.08));
+		overflow: hidden;
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+			align-items: flex-end;
+			padding: rem(40);
+		}
+	}
+
+	&__cta-glow {
+		position: absolute;
+		// pushed further right + a bit up so only the right half of the central
+		// core bleeds in past the banner's right edge
+		right: rem(-490);
+		top: rem(-450);
+		width: rem(972);
+		height: rem(1004);
+		pointer-events: none;
+		z-index: 0;
+		display: none;
+
+		@include media-breakpoint-up(md) {
+			display: block;
+		}
+	}
+
+	&__cta-ellipse {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	&__cta-left {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		max-width: rem(628);
+	}
+
+	&__cta-title {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		color: var(--text-strong);
+	}
+
+	&__cta-text {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-secondary);
+	}
+
+	&__cta-list {
+		ol {
+			margin: 0;
+			padding-left: rem(20);
+			display: flex;
+			flex-direction: column;
+			gap: rem(2);
+
+			li {
+				font-weight: 500;
+				font-size: rem(16);
+				line-height: 1.45;
+				color: var(--accent);
+			}
+		}
+	}
+
+	&__cta-sublead {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-secondary);
+	}
+
+	&__cta > .btn {
+		position: relative;
+		z-index: 1;
+		flex-shrink: 0;
+		white-space: nowrap;
+		width: 100%;
+		justify-content: center;
+
+		@include media-breakpoint-up(md) {
+			width: auto;
+			justify-content: initial;
+		}
+	}
+} // end .sAudience

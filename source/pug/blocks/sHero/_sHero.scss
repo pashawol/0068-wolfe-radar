@@ -1,0 +1,461 @@
+.sHero {
+	position: relative;
+	padding-top: rem(24);
+	padding-bottom: 0;
+	overflow: hidden;
+
+	// [ 01 ] ........ TAGLINE
+	&__head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: rem(16);
+		height: rem(60);
+		border-bottom: 1px solid var(--border-default);
+		font-family: $font-family-code;
+		font-weight: 500;
+		font-size: rem(12);
+		letter-spacing: 0.18em;
+		line-height: 1;
+	}
+	&__num {
+		color: var(--accent);
+	}
+	&__tag {
+		color: var(--text-faint);
+	}
+
+	&__content {
+		display: flex;
+		align-items: stretch;
+		flex-direction: column;
+
+		@include media-breakpoint-up(lg) {
+			flex-direction: row;
+		}
+	}
+
+	// ---- left column ----
+	&__left {
+		flex: 1 1 0;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: rem(34);
+		// phone (base): reserve the right side for the pinned author photo
+		padding: rem(40) 0;
+		border-right: 0;
+		border-bottom: 1px solid var(--border-default);
+
+		@include media-breakpoint-up(md) {
+			padding-right: 0;
+		}
+		@include media-breakpoint-up(lg) {
+			padding: rem(56) rem(56) rem(56) 0;
+			border-right: 1px solid var(--border-default);
+			border-bottom: none;
+		}
+	}
+
+	&__title {
+		font-family: $font-family-sans-serif;
+		font-weight: 700;
+		font-size: rem(46);
+		line-height: 0.92;
+		letter-spacing: -0.03em;
+		color: var(--text-strong);
+
+		span {
+			display: block;
+		}
+
+		@include media-breakpoint-up(sm) {
+			font-size: rem(56);
+		}
+		@include media-breakpoint-up(md) {
+			font-size: rem(76);
+		}
+		@include media-breakpoint-up(xl) {
+			font-size: rem(100);
+		}
+	}
+	&__title-accent {
+		color: var(--accent);
+	}
+
+	&__lead {
+		margin: 0;
+		max-width: rem(560);
+		font-weight: 600;
+		// font-size: rem(20);
+		line-height: 1.32;
+		color: var(--text-primary);
+		padding-right: 47%;
+
+		@include media-breakpoint-up(md) {
+			padding-right: 0;
+			font-size: rem(26);
+		}
+	}
+
+	&__stats {
+		border-top: 1px solid var(--border-default);
+	}
+	&__stat {
+		display: flex;
+		gap: rem(20);
+		align-items: baseline;
+		padding: rem(20) 0;
+		border-bottom: 1px solid var(--border-default);
+	}
+	&__stat-value {
+		flex-shrink: 0;
+		min-width: rem(44);
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		letter-spacing: 0.04em;
+		color: var(--accent);
+	}
+	&__stat-text {
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-secondary);
+	}
+
+	&__cta {
+		display: flex;
+		flex-direction: column;
+		gap: rem(18);
+		align-items: flex-start;
+
+		.btn-primary {
+			width: 100%;
+		}
+	}
+	&__note {
+		margin: 0;
+		max-width: rem(576);
+		font-family: $font-family-code;
+		font-weight: 500;
+		font-size: rem(13);
+		line-height: 1.5;
+		color: var(--text-faint);
+	}
+
+	// ---- right column ----
+	&__right {
+		position: static;
+		flex: 1 1 0;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+		padding: rem(28) 0 0;
+		min-height: 0;
+
+		@include media-breakpoint-up(md) {
+			position: relative;
+			padding: rem(40) 0 0;
+			min-height: rem(560);
+		}
+
+		// phone: photo is pinned to .sHero, so this column is normal flow
+		@include media-breakpoint-up(lg) {
+			padding: rem(56) 0 rem(56) rem(56);
+			min-height: 0;
+		}
+	}
+
+	&__chart-card {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		gap: rem(12);
+		padding: rem(20);
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+		// background: rgba(21, 24, 27, 0.6);
+		max-width: rem(560);
+	}
+	&__chart-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__ticker {
+		font-family: $font-family-code;
+		font-weight: 500;
+		font-size: rem(11);
+		letter-spacing: 0.14em;
+		color: var(--text-muted);
+	}
+	&__status {
+		display: inline-flex;
+		align-items: center;
+		gap: rem(7);
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(11);
+		color: var(--accent);
+	}
+	&__status-dot {
+		width: rem(7);
+		height: rem(7);
+		border-radius: 50%;
+		background: var(--accent);
+		box-shadow: 0 0 0 0 rgba(231, 144, 23, 0.6);
+		animation: heroPulse 1.8s infinite;
+	}
+	&__chart {
+		position: relative;
+		height: rem(316);
+	}
+	&__chart-svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	&__chart-label {
+		position: absolute;
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(10);
+		letter-spacing: 0.05em;
+		color: #d29a45;
+	}
+
+	&__author {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		max-width: rem(300);
+		margin-top: auto;
+		padding: rem(16) rem(18);
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+		// background: rgba(21, 24, 27, 0.7);
+	}
+	&__author-info {
+		display: flex;
+		flex-direction: column;
+		gap: rem(4);
+	}
+	&__author-name {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(17);
+		line-height: 1.2;
+		color: var(--text-strong);
+	}
+	&__author-role {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-muted);
+	}
+	&__author-tag {
+		margin-top: rem(4);
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(11);
+		color: var(--accent);
+	}
+
+	&__photo {
+		position: absolute;
+		right: rem(-10);
+		top: rem(78);
+		bottom: auto;
+		left: auto;
+		transform: none;
+		z-index: 2;
+		width: 49%;
+		max-width: rem(260);
+		max-height: none;
+		aspect-ratio: 496 / 757;
+		height: auto;
+		object-fit: cover;
+		object-position: top center;
+		pointer-events: none;
+		margin: 0;
+		display: block;
+
+		// phone: pin the author to the top-right so he is on screen at once
+		@include media-breakpoint-up(sm) {
+			top: rem(82);
+			width: 46%;
+		}
+
+		// tablet: stacked, centered below the right column
+		@include media-breakpoint-up(md) {
+			position: relative;
+			right: auto;
+			top: auto;
+			transform: none;
+			width: auto;
+			height: auto;
+			max-width: rem(360);
+			max-height: rem(520);
+			margin: rem(24) auto 0;
+		}
+
+		@include media-breakpoint-up(lg) {
+			position: absolute;
+			right: rem(-48);
+			top: 50%;
+			transform: translateY(-50%);
+			width: 75%;
+			max-width: rem(496);
+			max-height: none;
+			margin: 0;
+		}
+	}
+
+	// ---- decorative orbit figure (Figma node 2003-1053) ----
+	// Glowing core + 3 concentric orbit rings + dots that circle along the
+	// rings. Sits behind the author photo (z-index 0). Purely decorative.
+	&__figure {
+		--ring-color: rgba(231, 144, 23, 0.16);
+		position: absolute;
+		z-index: 0;
+		pointer-events: none;
+		// Overlay the author photo's box (same anchors + aspect ratio) so the
+		// sphere is centered on the man, then scale up from the center to
+		// surround him. Keeps centering correct across breakpoints.
+		top: rem(78);
+		right: rem(-10);
+		left: auto;
+		width: 49%;
+		max-width: rem(260);
+		aspect-ratio: 496 / 757;
+		transform: scale(1.25);
+
+		@include media-breakpoint-up(sm) {
+			top: rem(82);
+			width: 46%;
+		}
+		@include media-breakpoint-up(md) {
+			top: 50%;
+			right: 50%;
+			width: rem(440);
+			max-width: none;
+			aspect-ratio: 1;
+			transform: translate(50%, -50%) scale(1.05);
+		}
+		@include media-breakpoint-up(lg) {
+			top: 50%;
+			right: rem(-48);
+			width: 75%;
+			max-width: rem(496);
+			aspect-ratio: 496 / 757;
+			transform: translateY(-50%) scale(1.3);
+		}
+
+		// every direct child is centered without transform, so the orbit
+		// wrappers are free to use `rotate` cleanly around the shared center
+		> * {
+			position: absolute;
+			inset: 0;
+			margin: auto;
+			aspect-ratio: 1;
+			border-radius: 50%;
+		}
+	}
+
+	// glowing core sphere (Ellipse 2 ≈ 37.5% of the outer diameter)
+	&__figure-glow {
+		width: 40%;
+		background: radial-gradient(
+			circle at 50% 42%,
+			#f6ad3e 0%,
+			#e79017 58%,
+			#d9850f 100%
+		);
+		box-shadow:
+			0 0 rem(110) rem(30) rgba(231, 144, 23, 0.5),
+			0 0 rem(240) rem(90) rgba(231, 144, 23, 0.26);
+	}
+
+	// orbit rings (radii 202 / 291 / 389 → 52% / 75% / 100%)
+	&__figure-ring {
+		border: 1px solid var(--ring-color);
+
+		&--r1 {
+			width: 52%;
+		}
+		&--r2 {
+			width: 75%;
+		}
+		&--r3 {
+			width: 100%;
+			border-color: rgba(231, 144, 23, 0.1);
+		}
+	}
+
+	// rotating wrapper: the dot pinned to its top edge travels along the ring
+	&__figure-orbit {
+		animation: heroOrbit 20s linear infinite;
+
+		&--mid {
+			width: 75%;
+			animation-delay: -5s;
+		}
+		&--alt {
+			animation-duration: 32s;
+			animation-delay: -14s;
+		}
+		&--outer {
+			width: 100%;
+			animation-duration: 28s;
+			animation-delay: -9s;
+		}
+	}
+
+	&__figure-dot {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: rem(8);
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background: var(--accent);
+		transform: translate(-50%, -50%);
+		box-shadow: 0 0 rem(10) rgba(231, 144, 23, 0.85);
+
+		&--big {
+			width: rem(13);
+		}
+	}
+}
+
+@keyframes heroOrbit {
+	from {
+		rotate: 0deg;
+	}
+	to {
+		rotate: 360deg;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sHero__figure-orbit {
+		animation: none;
+	}
+}
+
+@keyframes heroPulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(231, 144, 23, 0.5);
+	}
+	70% {
+		box-shadow: 0 0 0 6px rgba(231, 144, 23, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba(231, 144, 23, 0);
+	}
+}

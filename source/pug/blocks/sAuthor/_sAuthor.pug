@@ -1,0 +1,107 @@
+mixin sAuthor()
+	// start sAuthor
+	+b.SECTION.sAuthor.section--canvas#sAuthor&attributes(attributes)
+		.container
+			+section-head('18 / АВТОР')
+			+e.body
+				//- ---- Intro: two columns ----
+				+e.intro
+					+e.left
+						+e.decor(aria-hidden="true")
+							+orbitFigure
+						+e.photo-wrap
+							img.sAuthor__photo(
+								src="img/wolfe/sAuthor/author-chamin-full.webp"
+								alt="Владимир Чамин"
+								width="420"
+								loading="lazy"
+							)
+						+e.stat-cards
+							+e.stat-card
+								+e.SPAN.stat-value +253%
+								+e.SPAN.stat-label рекорд доходности, 2014
+							+e.stat-card
+								+e.SPAN.stat-value с 2003
+								+e.SPAN.stat-label в трейдинге
+
+					+e.right
+						+e.SPAN.name ВЛАДИМИР ЧАМИН
+
+						+e.bio-wrap
+							p.
+								Я алготрейдер и управляющий, в трейдинге с 2003 года. И у меня есть принцип: я ненавижу сложность. Я убежден: доход в трейдинге должен приходить комфортно — без паники, без бессмысленных часов у монитора и без постоянного ощущения, что рынок вот-вот накажет.
+							p Поэтому в моих продуктах всегда на первом месте три вещи:
+
+						+e.pills
+							+e.SPAN.pill простота
+							+e.SPAN.pill автоматизация
+							+e.SPAN.pill надёжность
+
+						+e.P.bio-sub Именно с этими постулатами создавался Радар Вульфа.
+
+						+e.P.bio-muted.
+							Это не очередной «черный ящик», где Вы не понимаете, что происходит внутри. Это инструмент, который автоматизирует поиск редкого профессионального паттерна, упрощает торговлю по Волнам Вульфа и позволяет быть уверенным в надежности этого дохода.
+
+						//- --- Fact card ---
+						+e.fact-card
+							+e.SPAN.fact-head Коротко обо мне — по делу
+
+							+e.P.fact-sub Разработал технологии для упрощения автотрейдинга:
+							+e.tags
+								+e.SPAN.tag Радар Вульфа
+								+e.SPAN.tag Арбитр
+								+e.SPAN.tag Титан
+								+e.SPAN.tag Нейробот
+								+e.SPAN.tag Автотренд
+								+e.SPAN.tag TradingVision.PRO
+								+e.SPAN.tag Cyclon
+								+e.SPAN.tag.--muted и другие решения для системной торговли.
+
+							+e.fact-body
+								p.
+									Согласно опросу, 80% учеников заявили, что бросили бы трейдинг, если бы не получили доступ к одной из этих технологий.
+								p
+									| В кризисном 2014 году установил личный рекорд доходности в автоматическом трейдинге:&nbsp;
+									strong +253% прибыли к депозиту.
+								p
+									| Мои ученики&nbsp;
+									strong профессионально управляют капиталом инвесторов.
+								p
+									strong 11 лет руководил офисом Альпари в Екатеринбурге&nbsp;
+									| и знаю индустрию трейдинга изнутри: со стороны трейдеров, брокеров, управляющих и разработчиков торговых систем.
+
+							+e.P.fact-sub.--muted Учился у лучших мировых алготрейдеров:
+							+e.tags
+								+e.SPAN.tag Томас Неснедал (Чехия)
+								+e.SPAN.tag Кевин Дейви (США)
+								+e.SPAN.tag Эрнест Чан (США)
+								+e.SPAN.tag Андреас Кленоу (Швейцария)
+								+e.SPAN.tag Том Бассо (США)
+
+							+e.fact-body
+								p.
+									Мой принцип — убрать «черный ящик» и дать трейдеру контроль: понятные правила, быстрое тестирование, гибкость настроек и возможность управлять портфелем, а не зависеть от одного сигнала.
+								p Радар Вульфа продолжает эту философию.
+								p.
+									Он берет ценный паттерн, который руками сложно искать и размечать, и превращает его в понятный торговый процесс: от поиска сигнала до получения профита.
+								p Ваша задача — жить. Задача торговой системы — искать возможности и приносить Вам прибыль.
+
+				//- ---- Reviews slider ----
+				+e.reviews
+					+e.SPAN.reviews-title Вот что говорят ученики, которые пользуются моими разработками:
+					+e.slider
+						+e.reviews-swiper.swiper
+							.swiper-wrapper
+								- for (var i = 1; i <= 8; i++)
+									.swiper-slide.sAuthor__slide
+										a.sAuthor__review-link(href=`img/wolfe/sAuthor/otzyv-${i}.webp` data-fancybox="sAuthor-reviews" aria-label=`Отзыв ученика ${i}`)
+											img.sAuthor__review-img(src=`img/wolfe/sAuthor/otzyv-${i}.webp` alt=`Отзыв ученика ${i}` loading="lazy")
+						+e.reviews-nav
+							button.sAuthor__nav-btn.sAuthor__nav-btn--prev(type="button" aria-label="Предыдущий")
+								svg(viewBox="0 0 26 26" width="26" height="26" aria-hidden="true")
+									polygon(points="18,5 8,13 18,21" fill="currentColor")
+							.sAuthor__rdots.swiper-pagination
+							button.sAuthor__nav-btn.sAuthor__nav-btn--next(type="button" aria-label="Следующий")
+								svg(viewBox="0 0 26 26" width="26" height="26" aria-hidden="true")
+									polygon(points="8,5 18,13 8,21" fill="currentColor")
+	// end sAuthor

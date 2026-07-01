@@ -1,0 +1,68 @@
+mixin sChange()
+	// start sChange
+	+b.SECTION.sChange.section--canvas#sChange&attributes(attributes)
+		.container
+			+section-head('03 / РЕШЕНИЕ')
+			+b.section-title
+				h2 ЧТО МЕНЯЕТСЯ СРАЗУ ПОСЛЕ УСТАНОВКИ РАДАРА?
+			+e.content
+				+e.P.lead Радар Вульфа превращает график актива в источник профита.
+
+				+e.checks
+					- var checkItems = ['Система сама находит и размечает паттерн — в реальном времени.', 'Сразу весь торговый план сделки — прямо на графике.', 'Никаких «мне кажется» — видите только идеальные паттерны.', 'Сразу видно, как стратегия работала в прошедший период.', 'Сканер следит за 2–100 активами одновременно.', 'Заранее получаете сигнал, что пора готовиться ко входу.', 'Сделку можно отработать вручную или через робота.']
+					each item in checkItems
+						+e.check-cell
+							+e.SPAN.check-icon ✓
+							+e.SPAN.check-text= item
+					+e.check-cell.--result
+						+e.SPAN.result-tag ИТОГ
+						+e.SPAN.result-text График из хаоса превращается в готовую систему.
+
+				+e.compare
+					+e.compare-col
+						+e.P.compare-label График EUR/USD
+						+e.A.compare-link(data-fancybox="sChange-compare" href="img/wolfe/sChange/chart-before.webp")
+							img.sChange__compare-img(
+								src="img/wolfe/sChange/chart-before.webp"
+								alt="График EUR/USD без разметки Радара"
+								loading="lazy"
+							)
+					+e.compare-col
+						+e.P.compare-label Тот же график с включённым Радаром Вульфа
+						+e.A.compare-link(data-fancybox="sChange-compare" href="img/wolfe/sChange/chart-after.webp")
+							img.sChange__compare-img(
+								src="img/wolfe/sChange/chart-after.webp"
+								alt="Тот же график с разметкой Радара Вульфа"
+								loading="lazy"
+							)
+
+				+e.day-card
+					img.sChange__day-bg(
+						src="img/wolfe/sChange/radar-visual.webp"
+						alt=""
+						aria-hidden="true"
+						loading="lazy"
+					)
+					+e.P.day-title Представьте обычный торговый день.
+					+e.P.day-lead Пока большинство вручную листают графики и спорят с разметкой, Радар уже:
+					+e.arrow-list
+						+e.arrow-item
+							+e.SPAN.arrow-icon →
+							+e.SPAN.arrow-text нашёл интересные торговые ситуации;
+						+e.arrow-item
+							+e.SPAN.arrow-icon →
+							+e.SPAN.arrow-text прислал уведомления о паттерне;
+						+e.arrow-item
+							+e.SPAN.arrow-icon →
+							+e.SPAN.arrow-text проверил статистику;
+						+e.arrow-item
+							+e.SPAN.arrow-icon →
+							+e.SPAN.arrow-text показал точки входа;
+						+e.arrow-item
+							+e.SPAN.arrow-icon →
+							+e.SPAN.arrow-text рассчитал риск и потенциал;
+						+e.arrow-item
+							+e.SPAN.arrow-icon →
+							+e.SPAN.arrow-text предупредил о новых возможностях.
+					+e.P.day-result Вам остаётся только принять решение.
+	// end sChange

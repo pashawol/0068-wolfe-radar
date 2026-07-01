@@ -1,0 +1,84 @@
+mixin sPortfolio()
+	+b.SECTION.sPortfolio.section--canvas#sPortfolio&attributes(attributes)
+		.container
+			+section-head('12 / ПОРТФЕЛЬ')
+			+b.section-title
+				h2 ПОРТФЕЛЬ ВОЛН ВУЛЬФА
+			+e.body
+
+				+e.P.lead Пока одна стратегия молчит, портфель продолжает искать прибыль.
+
+				+e.intro
+					p Волны Вульфа — редкий эксклюзивный паттерн.
+					p Хорошие торговые ситуации не обязаны появляться каждый день на одном инструменте. И это не недостаток. Это как раз признак качественной геометрии рынка.
+					p Если торговать только один актив и один таймфрейм, сделки будут редкими. Иногда это 1–3 сделки в месяц, а иногда и меньше.
+
+				+e.approach
+					+e.P.approach-lead Профессиональный подход — не сидеть на одном графике в ожидании сигнала, а собирать портфель инструментов и таймфреймов.
+					+e.P.approach-sub Как это выглядит на практике:
+
+					+e.compare
+						+e.compare-card
+							+e.SPAN.card-decor 1
+							+e.SPAN.card-num 1
+							+e.P.card-text инструмент = редкие сигналы
+						+e.compare-card.--accent
+							+e.SPAN.card-decor 20
+							+e.SPAN.card-num.--accent 20
+							+e.P.card-text инструментов = поток возможностей
+
+					+e.P.approach-note Если у Вас один инструмент — Вы зависите от одного графика. Если у Вас портфель из 20 инструментов, Вы уже можете получать 20–60 потенциальных сигналов в месяц.
+
+				+e.can-box
+					+e.P.can-title Именно здесь сканер превращает Радар Вульфа в настоящий центр управления портфелем. Вы можете:
+					+e.can-cols
+						+e.can-col
+							+e.can-item
+								+e.SPAN.can-arr →
+								+e.SPAN.can-text добавлять и убирать активы;
+							+e.can-item
+								+e.SPAN.can-arr →
+								+e.SPAN.can-text менять таймфреймы;
+							+e.can-item
+								+e.SPAN.can-arr →
+								+e.SPAN.can-text собрать портфель под российский рынок, или Forex, или крипту…;
+						+e.can-col
+							+e.can-item
+								+e.SPAN.can-arr →
+								+e.SPAN.can-text видеть кривую доходности всего портфеля;
+							+e.can-item
+								+e.SPAN.can-arr →
+								+e.SPAN.can-text понимать, какие инструменты тянут результат вниз;
+							+e.can-item
+								+e.SPAN.can-arr →
+								+e.SPAN.can-text заменять слабые элементы портфеля более сильными.
+
+				+e.stat-block
+					+e.stat-top
+						+e.P.stat-heading Соберите портфель из нескольких активов и сразу оцените статистику всего портфеля.
+						+e.P.stat-fact За год портфель из 10 активов заработал в 4 раза больше, чем была максимальная просадка.
+					img.sPortfolio__screenshot(src="img/wolfe/sPortfolio/portfolio-chart.webp" alt="Портфель из 10 активов — статистика сканера" loading="lazy")
+
+				+e.graal
+					+e.graal-top
+						+e.P.graal-label Один сигнал — не грааль. Грааль начинается там, где у Вас есть портфель стратегий.
+						+e.P.graal-desc Вы больше не зависите от одного актива, одного таймфрейма и одной случайной сделки. Пока одна стратегия молчит, другие продолжают искать прибыль.
+					+e.P.graal-big С портфелем активов чаще попадаются сделки, которые хочется сохранить на доску почета.
+
+					+e.charts-block
+						+e.P.charts-label Например, когда одна сделка дает сразу 3 возможности для входа и тройную прибыль:
+						+e.charts-pair
+							img.sPortfolio__chart-img(src="img/wolfe/sPortfolio/chart-triple-2.webp" alt="Тройной заход EURUSD M30 — пример 1" loading="lazy")
+							img.sPortfolio__chart-img(src="img/wolfe/sPortfolio/chart-triple-1.webp" alt="Тройной заход EURUSD M30 — пример 2" loading="lazy")
+
+					+e.charts-block
+						+e.P.charts-label Или, когда Вы получаете 5 прибыльных сделок подряд на одном инструменте:
+						img.sPortfolio__chart-img.sPortfolio__chart-img--wide(src="img/wolfe/sPortfolio/chart-5trades.webp" alt="5 прибыльных сделок подряд на EURUSD" loading="lazy")
+
+				+e.P.orphan-note С портфелем чаще попадаются сделки на доску почёта — тройной вход и тройная прибыль или 5 прибыльных сделок подряд:
+
+				+e.cta-bar
+					+e.P.cta-text Соберите портфель и превратите редкие сигналы Волн Вульфа в регулярный поток эксклюзивных возможностей.
+					+e.A.btn.btn.btn-primary(href="#sForm")
+						span Получить Радар и торговать портфелем
+						+icon('arrow-right')

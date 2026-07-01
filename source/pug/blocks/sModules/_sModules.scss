@@ -1,0 +1,334 @@
+// ============================================================
+//  sModules — Радар Вульфа: модули системы (секция 06)
+//  Светлая секция (section--canvas)
+// ============================================================
+
+.sModules {
+	// Canvas overrides: dark borders and mid-tone text for light background
+	--border-default: rgba(29, 32, 36, 0.14);
+	--border-strong: rgba(29, 32, 36, 0.16);
+	--text-secondary: #5a5e63; // canvas mid-tone (matches Figma token fallback for light bg)
+	--text-primary: #2a2e33; // canvas body text (Figma --text-primary resolved for light bg)
+
+	// Section-head: bottom border + reset margin (spacing handled by body padding)
+	.section-head {
+		margin-bottom: 0;
+		border-bottom: 1px solid var(--border-default);
+	}
+
+	// ---- Body wrapper (flex col, gap between intro/grid/showcase/cta) ----
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: rem(40);
+		padding-top: var(--space-48);
+	}
+
+	// ---- Intro block ----
+	&__intro {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+	}
+
+	.section-title {
+		margin-bottom: 0;
+
+		h2 {
+			max-width: rem(600);
+			font-size: rem(34);
+
+			@include media-breakpoint-up(md) {
+				font-size: rem(46);
+			}
+			@include media-breakpoint-up(xl) {
+				font-size: rem(60);
+			}
+		}
+	}
+
+	// ---- Pill tags row (ИНДИКАТОР → СОВЕТНИК → ТОРГОВАЯ СИСТЕМА) ----
+	&__pills {
+		display: flex;
+		align-items: center;
+		gap: rem(14);
+		flex-wrap: wrap;
+	}
+
+	&__pill-sep {
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		line-height: 1;
+		letter-spacing: 0.04em;
+		color: var(--text-faint);
+	}
+
+	&__pill {
+		display: inline-flex;
+		align-items: center;
+		padding: var(--space-12) var(--space-18);
+		border-radius: var(--radius-sm);
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(17);
+		line-height: 1;
+
+		&--dark {
+			background-color: var(--bg-inverse);
+			color: var(--accent);
+		}
+
+		&--accent {
+			background-color: var(--accent-solid);
+			color: var(--text-on-accent);
+		}
+	}
+
+	&__lead {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(21);
+		line-height: 1.5;
+		color: var(--text-secondary);
+	}
+
+	// ---- Module feature grid (wide table) ----
+	// Scroll track spans the full SCREEN width (bleed-x), not the container.
+	&__grid {
+		@include bleed-x();
+		border-radius: var(--radius-md);
+		overflow-x: auto;
+		overflow-y: hidden;
+		scrollbar-width: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	&__grid-row {
+		display: flex;
+		flex-direction: row;
+	}
+
+	&__cell {
+		flex: 1 0 0;
+		min-width: rem(248);
+		display: flex;
+		align-items: center;
+		gap: rem(16);
+		min-height: rem(110);
+		padding: rem(20);
+		border: 1px solid var(--border-strong);
+
+		&--summary {
+			justify-content: center;
+			background-color: var(--bg-accent-soft);
+			padding: var(--space-30);
+		}
+
+		@include media-breakpoint-up(sm) {
+			min-height: rem(120);
+		}
+
+		@include media-breakpoint-up(md) {
+			min-height: rem(150);
+			padding: var(--space-28);
+		}
+	}
+
+	// ---- Module icon: sprite clipped via CSS custom properties (set inline) ----
+	&__cell-icon {
+		position: relative;
+		flex-shrink: 0;
+		width: rem(72);
+		height: rem(72);
+		overflow: hidden;
+
+		@include media-breakpoint-up(md) {
+			width: rem(104);
+			height: rem(104);
+		}
+	}
+
+	&__sprite-img {
+		position: absolute;
+		width: var(--iw, 100%);
+		height: var(--ih, 100%);
+		left: var(--ix, 0);
+		top: var(--iy, 0);
+		max-width: none;
+		pointer-events: none;
+		display: block;
+	}
+
+	&__cell-body {
+		flex: 1 1 0;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: rem(8);
+	}
+
+	&__cell-title {
+		display: block;
+		font-family: $font-family-sans-serif;
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		color: var(--text-canvas);
+	}
+
+	&__cell-desc {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(17);
+		line-height: 1.5;
+		color: var(--text-primary);
+	}
+
+	&__summary-text {
+		margin: 0;
+		font-family: $font-family-sans-serif;
+		font-weight: 700;
+		font-size: rem(20);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-canvas);
+		text-align: center;
+		width: 100%;
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(26);
+		}
+	}
+
+	// ---- Showcase: chart examples ----
+	&__showcase {
+		display: flex;
+		flex-direction: column;
+		gap: rem(28);
+	}
+
+	&__showcase-meta {
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+	}
+
+	&__showcase-title {
+		display: block;
+		font-family: $font-family-sans-serif;
+		font-weight: 700;
+		font-size: rem(26);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-canvas);
+		max-width: rem(728);
+	}
+
+	&__showcase-lead {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-secondary);
+	}
+
+	// mobile: horizontal scroll-snap slider of chart-rows (full-bleed: скролл по
+	// ширине экрана); md+: stacked column
+	&__charts {
+		@include slider-x(rem(16), $bleed: true);
+
+		@include media-breakpoint-up(md) {
+			@include bleed-x-reset();
+			flex-direction: column;
+			gap: rem(28);
+			overflow: visible;
+		}
+	}
+
+	&__chart-row {
+		display: flex;
+		flex-direction: column;
+		// mobile slide: ~85vw so the next row peeks at the edge
+		@include slider-slide(85vw);
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+			flex: 0 0 auto;
+			max-width: none;
+		}
+	}
+
+	&__chart-col {
+		flex: 1 0 0;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: rem(14);
+		padding: var(--space-16);
+		border: 1px solid var(--border-strong);
+	}
+
+	&__chart-label {
+		display: block;
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		line-height: 1;
+		letter-spacing: 0.04em;
+		color: var(--accent);
+		white-space: nowrap;
+	}
+
+	&__chart-link {
+		display: block;
+		cursor: zoom-in;
+	}
+
+	&__chart-img {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 5 / 4;
+		object-fit: cover;
+	}
+
+	// ---- CTA bar ----
+	&__cta {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: rem(24);
+		padding: rem(32) rem(24);
+		background-color: var(--bg-inverse);
+		border-radius: var(--radius-md);
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+			align-items: center;
+			gap: rem(40);
+			padding: rem(40) var(--space-40);
+		}
+	}
+
+	&__cta-text {
+		flex: 1 0 0;
+		min-width: 0;
+		max-width: rem(720);
+		margin: 0;
+		font-family: $font-family-sans-serif;
+		font-weight: 700;
+		font-size: rem(23);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+	}
+
+	&__btn {
+		white-space: nowrap;
+	}
+}

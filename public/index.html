@@ -1,0 +1,2526 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>Главная</title>
+		<meta name="description" content="о чем страница">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,  shrink-to-fit=no, viewport-fit=cover">
+		<link type="image/ico" href="img/favicon.ico" rel="shortcut icon"><meta name="format-detection" content="telephone=no">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+		<link href="css/custom-bootstrap.min.css" rel="stylesheet"/>
+		<link href="css/main.min.css" rel="stylesheet"/>
+		<script>
+			// Shared part loader for demo mode.
+			// Keeps duplicated blocks visible in templates and avoids repeated fetches.
+			const sharedPartCache = new Map();
+			
+			function addBlock(partName) {
+				const wrap = document.querySelector(`#${partName}Wrap`);
+				if (!wrap) return;
+			
+				const partRequest =
+					sharedPartCache.get(partName) ||
+					fetch(`parts/${partName}.html`)
+						.then(response => (response.ok ? response.text() : ""))
+						.catch(() => "");
+			
+				sharedPartCache.set(partName, partRequest);
+			
+				partRequest.then(text => {
+					if (!text) return;
+					const markerScript = wrap.previousElementSibling;
+					wrap.insertAdjacentHTML("afterend", text);
+					if (markerScript && markerScript.tagName === "SCRIPT") {
+						markerScript.remove();
+					}
+					wrap.remove();
+				});
+			}
+		</script>
+	</head>
+	<body class="main-page" data-bg="">
+		<div class="main-wrapper">
+			<!-- start header-->
+			<header class="header" id="header">
+				<div class="container">
+					<div class="header__inner">
+						<a class="header__brand" href="#sHero"><img class="header__logo" src="img/wolfe/ui/logo.svg" alt="Радар Вульфа" width="29" height="25"/>
+						</a>
+						<div class="header__tagline">Автопоиск сделок по Волнам Вульфа в реальном времени
+						</div>
+						<a class="header__cta btn btn-primary" href="#sForm">Получить Радар быстро
+						</a>
+					</div>
+				</div>
+			</header>
+			<!-- end header-->
+			<main>
+				<!-- start sHero-->
+				<section class="sHero section" id="sHero">
+					<div class="container">
+						<div class="sHero__head"><span class="sHero__num">[ 01 ]</span><span class="sHero__tag">ВОЛНЫ ВУЛЬФА · АВТОПОИСК</span>
+						</div>
+						<div class="sHero__content">
+							<div class="sHero__left">
+								<div class="sHero__title"><span>РАДАР</span><span class="sHero__title-accent">ВУЛЬФА</span>
+								</div>
+								<p class="sHero__lead">Находит готовые сделки раньше большинства трейдеров и сразу показывает весь торговый план прямо на графике.
+								</p>
+								<div class="sHero__stats">
+									<div class="sHero__stat"><span class="sHero__stat-value">100+</span><span class="sHero__stat-text">активов и таймфреймов мониторит в реальном времени.</span>
+									</div>
+									<div class="sHero__stat"><span class="sHero__stat-value">AUTO</span><span class="sHero__stat-text">находит редкий профессиональный паттерн: Волны Вульфа.</span>
+									</div>
+								</div>
+								<div class="sHero__cta">
+									<a class="sHero__btn btn btn-primary" href="#sForm"><span>Забрать Радар Вульфа →</span>
+										<svg class="icon icon-arrow-right ">
+											<use xlink:href="img/svg/sprite.svg#arrow-right"></use>
+										</svg>
+									</a>
+									<p class="sHero__note">Для MetaTrader 5: фьючерсы, акции, Forex, металлы, криптовалюты, индексы.
+									</p>
+								</div>
+							</div>
+							<div class="sHero__right">
+								<div class="sHero__chart-card">
+									<div class="sHero__chart-head"><span class="sHero__ticker">EURUSD · H1</span>
+										<div class="sHero__status"><span class="sHero__status-dot"></span><span class="sHero__status-label">SCANNING</span>
+										</div>
+									</div>
+									<div class="sHero__chart">
+										<svg class="sHero__chart-svg" viewBox="0 0 460 316" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+											<g stroke="rgba(255,255,255,0.06)" stroke-width="1">
+												<line x1="0" y1="40" x2="460" y2="40"></line>
+												<line x1="0" y1="100" x2="460" y2="100"></line>
+												<line x1="0" y1="160" x2="460" y2="160"></line>
+												<line x1="0" y1="220" x2="460" y2="220"></line>
+												<line x1="0" y1="280" x2="460" y2="280"></line>
+											</g>
+											<polyline points="20,150 75,105 130,180 185,135 240,210 295,170" fill="none" stroke="#f4f2ec" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></polyline>
+											<line x1="295" y1="170" x2="438" y2="112" stroke="#d29a45" stroke-width="1.5" stroke-dasharray="5 5"></line>
+											<g fill="#15181b" stroke="#f4f2ec" stroke-width="2">
+												<circle cx="75" cy="105" r="4"></circle>
+												<circle cx="130" cy="180" r="4"></circle>
+												<circle cx="185" cy="135" r="4"></circle>
+												<circle cx="295" cy="170" r="4"></circle>
+											</g>
+											<circle cx="240" cy="210" r="5" fill="#e79017"></circle>
+											<circle cx="438" cy="112" r="5" fill="#e79017"></circle>
+										</svg><span class="sHero__chart-label sHero__chart-label--entry" style="left:46%;top:70%">ВХОД</span><span class="sHero__chart-label sHero__chart-label--target" style="right:2%;top:30%">ЦЕЛЬ</span>
+									</div>
+								</div>
+								<div class="sHero__author">
+									<div class="sHero__author-info">
+										<p class="sHero__author-name">Владимир Чамин
+										</p>
+										<p class="sHero__author-role">разработчик
+										</p>
+										<p class="sHero__author-role">в трейдинге с 2003 г.
+										</p><span class="sHero__author-tag">ИНФОКЛУБ</span>
+									</div>
+								</div>
+								<div class="sHero__figure" aria-hidden="true"><span class="sHero__figure-glow"></span><span class="sHero__figure-ring sHero__figure-ring--r1"></span><span class="sHero__figure-ring sHero__figure-ring--r2"></span><span class="sHero__figure-ring sHero__figure-ring--r3"></span><span class="sHero__figure-orbit sHero__figure-orbit--mid"><span class="sHero__figure-dot sHero__figure-dot--big"></span></span><span class="sHero__figure-orbit sHero__figure-orbit--mid sHero__figure-orbit--alt"><span class="sHero__figure-dot"></span></span><span class="sHero__figure-orbit sHero__figure-orbit--outer"><span class="sHero__figure-dot"></span></span>
+								</div><img class="sHero__photo" src="img/wolfe/hero/author-chamin.webp" alt="Владимир Чамин" width="496" height="757" loading="eager"/>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sHero-->
+				<!-- start sProblem-->
+				<section class="sProblem section section--canvas" id="sProblem">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 02 / ПРОБЛЕМА ]</span>
+						</div>
+						<div class="sProblem__body">
+							<div class="section-title">
+								<h2>ВАМ ЭТО ЗНАКОМО?</h2>
+							</div>
+							<p class="sProblem__lead">Вы открываете график и начинаете искать знакомый Вам торговый паттерн.
+							</p>
+							<div class="sProblem__grid">
+								<div class="sProblem__grid-cell"><span class="sProblem__cell-num">01</span>
+									<p class="sProblem__cell-text">Сомневаетесь в разметке — её всегда можно нанести по-другому.
+									</p>
+								</div>
+								<div class="sProblem__grid-cell"><span class="sProblem__cell-num">02</span>
+									<p class="sProblem__cell-text">Рынок — сплошной хаос, Вы не понимаете его логику.
+									</p>
+								</div>
+								<div class="sProblem__grid-cell"><span class="sProblem__cell-num">03</span>
+									<p class="sProblem__cell-text">Входите в сделку и уже через минуту начинаете сомневаться.
+									</p>
+								</div>
+								<div class="sProblem__grid-cell"><span class="sProblem__cell-num">04</span>
+									<p class="sProblem__cell-text">Нервничаете в позиции и не знаете, когда её закрывать.
+									</p>
+								</div>
+								<div class="sProblem__grid-cell"><span class="sProblem__cell-num">05</span>
+									<p class="sProblem__cell-text">А после закрытия: «Надо было делать совсем по-другому…».
+									</p>
+								</div>
+								<div class="sProblem__grid-cell"><span class="sProblem__cell-num">06</span>
+									<p class="sProblem__cell-text">Или ещё хуже: «Нафига я вообще сюда входил?»
+									</p>
+								</div>
+							</div>
+							<div class="sProblem__cards">
+								<div class="sProblem__card">
+									<p class="sProblem__card-title">Больше времени уходит на поиск и сомнения,<br/> чем на сам трейдинг.
+									</p>
+									<p class="sProblem__card-body">Пока Вы проверяете один график, хорошие возможности появляются на десятках других.
+									</p>
+								</div>
+								<div class="sProblem__card">
+									<p class="sProblem__card-title">Самое неприятное — когда движение прошло,<br/> а паттерн уже очевиден.
+									</p>
+									<p class="sProblem__card-body">Но входить уже поздно.&nbsp;<strong>Каждый пропущенный сигнал — это деньги, которые рынок был готов отдать</strong>. И чем больше активов Вы отслеживаете вручную, тем чаще это происходит.
+									</p>
+								</div>
+							</div>
+							<div class="sProblem__callout"><img class="sProblem__callout-bg" src="img/wolfe/sProblem/callout-bg.webp" alt="" aria-hidden="true"/>
+								<p class="sProblem__callout-title">Большинство трейдеров делают вручную то,<br/> что давно должна делать программа.
+								</p>
+								<div class="sProblem__callout-list">
+									<div class="sProblem__callout-item">переключают десятки графиков;
+									</div>
+									<div class="sProblem__callout-item">глазами ищут формирующийся паттерн;
+									</div>
+									<div class="sProblem__callout-item">спорят сами с собой;
+									</div>
+									<div class="sProblem__callout-item">боятся пропустить сигнал — и боятся входить;
+									</div>
+									<div class="sProblem__callout-item">принимают решения на эмоциях;
+									</div>
+									<div class="sProblem__callout-item">тратят часы на то, что алгоритм делает за секунды.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sProblem-->
+				<!-- start sChange-->
+				<section class="sChange section section--canvas" id="sChange">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 03 / РЕШЕНИЕ ]</span>
+						</div>
+						<div class="section-title">
+							<h2>ЧТО МЕНЯЕТСЯ СРАЗУ ПОСЛЕ УСТАНОВКИ РАДАРА?</h2>
+						</div>
+						<div class="sChange__content">
+							<p class="sChange__lead">Радар Вульфа превращает график актива в источник профита.
+							</p>
+							<div class="sChange__checks">
+								<div class="sChange__check-cell"><span class="sChange__check-icon">✓</span><span class="sChange__check-text">Система сама находит и размечает паттерн — в реальном времени.</span>
+								</div>
+								<div class="sChange__check-cell"><span class="sChange__check-icon">✓</span><span class="sChange__check-text">Сразу весь торговый план сделки — прямо на графике.</span>
+								</div>
+								<div class="sChange__check-cell"><span class="sChange__check-icon">✓</span><span class="sChange__check-text">Никаких «мне кажется» — видите только идеальные паттерны.</span>
+								</div>
+								<div class="sChange__check-cell"><span class="sChange__check-icon">✓</span><span class="sChange__check-text">Сразу видно, как стратегия работала в прошедший период.</span>
+								</div>
+								<div class="sChange__check-cell"><span class="sChange__check-icon">✓</span><span class="sChange__check-text">Сканер следит за 2–100 активами одновременно.</span>
+								</div>
+								<div class="sChange__check-cell"><span class="sChange__check-icon">✓</span><span class="sChange__check-text">Заранее получаете сигнал, что пора готовиться ко входу.</span>
+								</div>
+								<div class="sChange__check-cell"><span class="sChange__check-icon">✓</span><span class="sChange__check-text">Сделку можно отработать вручную или через робота.</span>
+								</div>
+								<div class="sChange__check-cell sChange__check-cell--result"><span class="sChange__result-tag">ИТОГ</span><span class="sChange__result-text">График из хаоса превращается в готовую систему.</span>
+								</div>
+							</div>
+							<div class="sChange__compare">
+								<div class="sChange__compare-col">
+									<p class="sChange__compare-label">График EUR/USD
+									</p>
+									<a class="sChange__compare-link" data-fancybox="sChange-compare" href="img/wolfe/sChange/chart-before.webp"><img class="sChange__compare-img" src="img/wolfe/sChange/chart-before.webp" alt="График EUR/USD без разметки Радара" loading="lazy"/>
+									</a>
+								</div>
+								<div class="sChange__compare-col">
+									<p class="sChange__compare-label">Тот же график с включённым Радаром Вульфа
+									</p>
+									<a class="sChange__compare-link" data-fancybox="sChange-compare" href="img/wolfe/sChange/chart-after.webp"><img class="sChange__compare-img" src="img/wolfe/sChange/chart-after.webp" alt="Тот же график с разметкой Радара Вульфа" loading="lazy"/>
+									</a>
+								</div>
+							</div>
+							<div class="sChange__day-card"><img class="sChange__day-bg" src="img/wolfe/sChange/radar-visual.webp" alt="" aria-hidden="true" loading="lazy"/>
+								<p class="sChange__day-title">Представьте обычный торговый день.
+								</p>
+								<p class="sChange__day-lead">Пока большинство вручную листают графики и спорят с разметкой, Радар уже:
+								</p>
+								<div class="sChange__arrow-list">
+									<div class="sChange__arrow-item"><span class="sChange__arrow-icon">→</span><span class="sChange__arrow-text">нашёл интересные торговые ситуации;</span>
+									</div>
+									<div class="sChange__arrow-item"><span class="sChange__arrow-icon">→</span><span class="sChange__arrow-text">прислал уведомления о паттерне;</span>
+									</div>
+									<div class="sChange__arrow-item"><span class="sChange__arrow-icon">→</span><span class="sChange__arrow-text">проверил статистику;</span>
+									</div>
+									<div class="sChange__arrow-item"><span class="sChange__arrow-icon">→</span><span class="sChange__arrow-text">показал точки входа;</span>
+									</div>
+									<div class="sChange__arrow-item"><span class="sChange__arrow-icon">→</span><span class="sChange__arrow-text">рассчитал риск и потенциал;</span>
+									</div>
+									<div class="sChange__arrow-item"><span class="sChange__arrow-icon">→</span><span class="sChange__arrow-text">предупредил о новых возможностях.</span>
+									</div>
+								</div>
+								<p class="sChange__day-result">Вам остаётся только принять решение.
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sChange-->
+				<!-- start sWolfe-->
+				<section class="sWolfe section section--canvas" id="sWolfe">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 04 / ПАТТЕРН ]</span>
+						</div>
+						<div class="section-title">
+							<h2>ЧТО ТАКОЕ ВОЛНЫ ВУЛЬФА?</h2>
+						</div>
+						<div class="sWolfe__body">
+							<div class="sWolfe__cols">
+								<div class="sWolfe__col-left">
+									<p class="sWolfe__lead"><span class="sWolfe__lead-accent">Волны Вульфа — редкий паттерн</span>, который превращает хаос графика в геометрию сделки.
+									</p>
+									<p class="sWolfe__text">Это модель из 5 точек, которая показывает, где искать вход, где защищать сделку и куда цена может дойти.
+									</p>
+									<p class="sWolfe__note">Метод связывают с трейдером Биллом Вульфом. Его не изобрели, а обнаружили: цена движется волнами спроса и предложения, выходит из баланса и стремится вернуться к равновесию.
+									</p>
+									<div class="sWolfe__callout">
+										<p class="sWolfe__callout-heading">Главное преимущество Волн Вульфа — они дают сделке понятную геометрию. Они показывают конкретно:
+										</p>
+										<div class="sWolfe__chips">
+											<div class="sWolfe__chip">где вход
+											</div><span class="sWolfe__sep">→</span>
+											<div class="sWolfe__chip">где защита
+											</div><span class="sWolfe__sep">→</span>
+											<div class="sWolfe__chip">где цель
+											</div><span class="sWolfe__sep">→</span>
+											<div class="sWolfe__chip">когда движение должно развиться
+											</div>
+										</div>
+									</div>
+									<p class="sWolfe__sub-heading">Волны Вульфа особенно ценят профессиональные трейдеры.
+									</p>
+									<p class="sWolfe__sub-text">Правильно увидеть такой паттерн на живом графике непросто. Это похоже на 3D-картинку: сначала видишь только шум, а потом вдруг проступает четкая фигура сделки.
+									</p>
+								</div>
+								<div class="sWolfe__col-right"><img class="sWolfe__chart-img" src="img/wolfe/sWolfe/pattern-chart.webp" alt="Пример паттерна Волны Вульфа — 5 точек на графике" loading="lazy"/>
+								</div>
+							</div>
+							<p class="sWolfe__complexity">Именно поэтому Волны Вульфа долго оставались инструментом только для очень опытных трейдеров: нужно было уметь находить 5 ключевых точек, понимать геометрию движения, не путать настоящий паттерн с похожими случайными линиями и вовремя увидеть момент формирования точки входа.
+							</p>
+							<h3 class="sWolfe__feature-heading">Почему этот паттерн так интересен для торговли?
+							</h3>
+							<div class="sWolfe__cards">
+								<div class="sWolfe__card">
+									<div class="sWolfe__card-icon"><img class="sWolfe__icon-img" src="img/wolfe/sWolfe/icons-1.webp" alt="" aria-hidden="true" loading="lazy" width="94" height="94"/>
+									</div>
+									<div class="sWolfe__card-body">
+										<p class="sWolfe__card-title">Не Эллиотт и не волновая теория.
+										</p>
+										<p class="sWolfe__card-text">Волны Вульфа — это графический паттерн из 5 точек, он не имеет отношения к волновому анализу.
+										</p>
+									</div>
+								</div>
+								<div class="sWolfe__card">
+									<div class="sWolfe__card-icon"><img class="sWolfe__icon-img" src="img/wolfe/sWolfe/icons-2.webp" alt="" aria-hidden="true" loading="lazy" width="94" height="94"/>
+									</div>
+									<div class="sWolfe__card-body">
+										<p class="sWolfe__card-title">Даёт не только направление, но и цель.
+										</p>
+										<p class="sWolfe__card-text">У сделки появляется расчетная цель, а не просто ожидание «куда-нибудь вверх» или «куда-нибудь вниз».
+										</p>
+									</div>
+								</div>
+								<div class="sWolfe__card">
+									<div class="sWolfe__card-icon"><img class="sWolfe__icon-img" src="img/wolfe/sWolfe/icons-3.webp" alt="" aria-hidden="true" loading="lazy" width="94" height="94"/>
+									</div>
+									<div class="sWolfe__card-body">
+										<p class="sWolfe__card-title">Помогает увидеть разворот раньше толпы.
+										</p>
+										<p class="sWolfe__card-text">Там, где большинство видит пробой, Волны Вульфа показывают точку возврата.
+										</p>
+									</div>
+								</div>
+								<div class="sWolfe__card">
+									<div class="sWolfe__card-icon"><img class="sWolfe__icon-img" src="img/wolfe/sWolfe/icons-4.webp" alt="" aria-hidden="true" loading="lazy" width="94" height="94"/>
+									</div>
+									<div class="sWolfe__card-body">
+										<p class="sWolfe__card-title">Подходит для разных рынков.
+										</p>
+										<p class="sWolfe__card-text">Паттерн работает на фьючерсах МосБиржи, акциях, Forex, металлах, криптовалютах, индексах, на таймфреймах от М1 до D1.
+										</p>
+									</div>
+								</div>
+							</div>
+							<p class="sWolfe__rare"><span class="sWolfe__rare-strong">Это редкая торговая ситуация, но когда она появляется, опытные трейдеры всегда ликуют.</span> Хорошие Волны Вульфа не появляются каждую минуту. Именно поэтому они ценны: это не шум, а осмысленная геометрия рынка, которая отлично отрабатывает в торговле.
+							</p>
+							<div class="sWolfe__display"><span class="sWolfe__display-plain">Один паттерн — три ответа:</span> <span class="sWolfe__display-accent">вход, стоп, цель.</span>
+							</div>
+							<div class="sWolfe__two-cols">
+								<p class="sWolfe__two-col-text">Главная фишка Волн Вульфа – паттерн показывает не только точку входа и уровень стоп-лосса, он показывает еще и расчетную цель – куда придет рынок.
+								</p>
+								<div class="sWolfe__two-col-box">
+									<p class="sWolfe__two-col-bold">И еще более редкая фишка! Этот паттерн показывает не только «куда» дойдет цена, но и «примерно когда».
+									</p>
+									<p class="sWolfe__two-col-note">У Вас появляется еще и ориентир по времени.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sWolfe-->
+				<!-- start sPain-->
+				<section class="sPain section" id="sPain">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 05 / БОЛЬ МЕТОДА ]</span>
+						</div>
+						<div class="section-title">
+							<h2>ГЛАВНАЯ БОЛЬ ВОЛН ВУЛЬФА</h2>
+						</div>
+						<div class="sPain__body">
+							<div class="sPain__lead">
+								<p class="sPain__lead-p">Волны Вульфа сильны. Но руками их легко нарисовать неправильно.&nbsp;
+								</p>
+								<p class="sPain__lead-p">Чтобы правильно разглядеть паттерн на графике, нужны годы опыта и насмотренности.
+								</p>
+							</div>
+							<div class="sPain__traders mobile-swiper mobile-swiper--js swiper" data-swiper-gap="20">
+								<div class="swiper-wrapper">
+									<div class="sPain__trader swiper-slide">
+										<div class="sPain__trader-img"><img class="sPain__sprite" src="img/wolfe/sPain/trader-charts.webp" alt="" aria-hidden="true"/>
+										</div>
+										<div class="sPain__trader-info"><span class="sPain__trader-label">ПЕРВЫЙ ТРЕЙДЕР</span>
+											<p class="sPain__trader-text">увидит сильную торговую ситуацию.
+											</p>
+										</div>
+									</div>
+									<div class="sPain__trader swiper-slide">
+										<div class="sPain__trader-img"><img class="sPain__sprite" src="img/wolfe/sPain/trader-charts.webp" alt="" aria-hidden="true" data-n="2"/>
+										</div>
+										<div class="sPain__trader-info"><span class="sPain__trader-label">ВТОРОЙ ТРЕЙДЕР</span>
+											<p class="sPain__trader-text">построит разметку совсем иначе.
+											</p>
+										</div>
+									</div>
+									<div class="sPain__trader swiper-slide">
+										<div class="sPain__trader-img"><img class="sPain__sprite" src="img/wolfe/sPain/trader-charts.webp" alt="" aria-hidden="true" data-n="3"/>
+										</div>
+										<div class="sPain__trader-info"><span class="sPain__trader-label">ТРЕТИЙ ТРЕЙДЕР</span>
+											<p class="sPain__trader-text">пройдёт мимо и заметит паттерн, когда движение уже началось.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sPain__pain-text">
+								<p class="sPain__pain-p sPain__pain-p--bold">В этом и главная боль метода: Волны Вульфа работают, но находить их на графике невероятно сложно. Для трейдеров-новичков это сущий ад.
+								</p>
+								<p class="sPain__pain-p">Именно поэтому большинство людей так и не начинают использовать Волны Вульфа на практике. Не потому, что паттерн плохой. А потому что между теорией и реальной торговлей слишком большая пропасть.
+								</p>
+							</div>
+							<p class="sPain__accent-line">Радар Вульфа эту пропасть убирает.
+							</p>
+							<div class="sPain__list-box">
+								<p class="sPain__list-title">Почему ручная разметка мешает зарабатывать:
+								</p>
+								<div class="sPain__list-cols">
+									<div class="sPain__list-col">
+										<div class="sPain__list-item"><span class="sPain__arrow">→</span>
+											<p>легко ошибиться с точками;</p>
+										</div>
+										<div class="sPain__list-item"><span class="sPain__arrow">→</span>
+											<p>легко увидеть паттерн там, где его нет;</p>
+										</div>
+										<div class="sPain__list-item"><span class="sPain__arrow">→</span>
+											<p>одну и ту же ситуацию можно разметить по-разному;</p>
+										</div>
+										<div class="sPain__list-item"><span class="sPain__arrow">→</span>
+											<p>сложно быстро проверить десятки активов и таймфреймов, где сейчас может формироваться волна;</p>
+										</div>
+									</div>
+									<div class="sPain__list-col">
+										<div class="sPain__list-item"><span class="sPain__arrow">→</span>
+											<p>невозможно постоянно отслеживать формирование точки входа;</p>
+										</div>
+										<div class="sPain__list-item"><span class="sPain__arrow">→</span>
+											<p>хорошие паттерны редкие, поэтому их легко пропустить;</p>
+										</div>
+										<div class="sPain__list-item"><span class="sPain__arrow">→</span>
+											<p>чем больше ручной работы, тем больше сомнений перед сделкой.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sPain__two-col">
+								<div class="sPain__col">
+									<p class="sPain__col-p sPain__col-p--bold">В Рунете сейчас это популярная торговая стратегия. Трейдерские школы кругом учат вручную искать Волны Вульфа.
+									</p>
+									<p class="sPain__col-p">Как правило, за большие деньги Вы получите большой подробный видеокурс, возможно, даже покажут, как их искать на реальном рынке.
+									</p>
+									<p class="sPain__col-p">Но знать метод — не значит быстро видеть его на десятках инструментов в реальном времени.
+									</p>
+								</div>
+								<div class="sPain__col">
+									<p class="sPain__col-p">Одно дело – щелкать вручную графики, пытаться глазами разглядеть 5 точек для построения линий Вульфа, нервничать, ждать, перелистывать активы по кругу… Много денег Вы в таком режиме наторгуете?
+									</p>
+									<p class="sPain__col-p sPain__col-p--bold">И другое дело – с помощью Радара Вульфа точно знать, где прямо сейчас формируется паттерн, даже не открывая график актива.
+									</p>
+								</div>
+							</div>
+							<p class="sPain__xl-title">Самая сложная и утомительная часть метода Билла Вульфа теперь работает на автомате:
+							</p>
+							<p class="sPain__body-text">поиск паттерна, построение линий, проверка геометрии, визуализация входа, стопа и цели прямо на графике.
+							</p>
+							<div class="sPain__accent-close">
+								<p class="sPain__close-p">Раньше геометрию Волн Вульфа нужно было видеть глазами опытного трейдера.
+								</p>
+								<p class="sPain__close-p">Теперь она появляется на графике автоматически.
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sPain-->
+				<!-- start sModules-->
+				<section class="sModules section section--canvas" id="sModules">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 06 / СИСТЕМА ]</span>
+						</div>
+						<div class="sModules__body">
+							<div class="sModules__intro">
+								<div class="section-title">
+									<h2>РАДАР ВУЛЬФА</h2>
+								</div>
+								<div class="sModules__pills">
+									<div class="sModules__pill sModules__pill--dark">ИНДИКАТОР
+									</div><span class="sModules__pill-sep">→</span>
+									<div class="sModules__pill sModules__pill--dark">СОВЕТНИК
+									</div><span class="sModules__pill-sep">→</span>
+									<div class="sModules__pill sModules__pill--accent">ТОРГОВАЯ СИСТЕМА
+									</div>
+								</div>
+								<p class="sModules__lead">Радар Вульфа проведёт Вас за руку по всем шагам прибыльной сделки.
+								</p>
+							</div>
+							<div class="sModules__grid">
+								<div class="sModules__grid-row">
+									<div class="sModules__cell">
+										<div class="sModules__cell-icon" style="--ix:-28.16%;--iy:-26.92%;--iw:544.36%;--ih:305.3%"><img class="sModules__sprite-img" src="img/wolfe/sModules/modules-sprite.webp" alt=""/>
+										</div>
+										<div class="sModules__cell-body"><strong class="sModules__cell-title">Авторазметка</strong>
+											<p class="sModules__cell-desc">сам находит и рисует Волны Вульфа.
+											</p>
+										</div>
+									</div>
+									<div class="sModules__cell">
+										<div class="sModules__cell-icon" style="--ix:-34.09%;--iy:-168.91%;--iw:566.92%;--ih:317.95%"><img class="sModules__sprite-img" src="img/wolfe/sModules/modules-sprite.webp" alt=""/>
+										</div>
+										<div class="sModules__cell-body"><strong class="sModules__cell-title">Торговый план</strong>
+											<p class="sModules__cell-desc">сразу показывает вход, стоп, цель и выход по времени.
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="sModules__grid-row">
+									<div class="sModules__cell">
+										<div class="sModules__cell-icon" style="--ix:-186.8%;--iy:-26.92%;--iw:606.92%;--ih:340.38%"><img class="sModules__sprite-img" src="img/wolfe/sModules/modules-sprite.webp" alt=""/>
+										</div>
+										<div class="sModules__cell-body"><strong class="sModules__cell-title">Статистика</strong>
+											<p class="sModules__cell-desc">прямо на графике: как стратегия работала за предыдущий период на этом активе.
+											</p>
+										</div>
+									</div>
+									<div class="sModules__cell">
+										<div class="sModules__cell-icon" style="--ix:-182.99%;--iy:-191.05%;--iw:606.92%;--ih:340.38%"><img class="sModules__sprite-img" src="img/wolfe/sModules/modules-sprite.webp" alt=""/>
+										</div>
+										<div class="sModules__cell-body"><strong class="sModules__cell-title">Риск-менеджер</strong>
+											<p class="sModules__cell-desc">рассчитывает объем позиции под заданный риск.
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="sModules__grid-row">
+									<div class="sModules__cell">
+										<div class="sModules__cell-icon" style="--ix:-326.5%;--iy:-36.08%;--iw:606.92%;--ih:340.38%"><img class="sModules__sprite-img" src="img/wolfe/sModules/modules-sprite.webp" alt=""/>
+										</div>
+										<div class="sModules__cell-body"><strong class="sModules__cell-title">Сканер</strong>
+											<p class="sModules__cell-desc">в реальном времени мониторит до 100 активов и таймфреймов.
+											</p>
+										</div>
+									</div>
+									<div class="sModules__cell">
+										<div class="sModules__cell-icon" style="--ix:-326.5%;--iy:-194.1%;--iw:606.92%;--ih:340.38%"><img class="sModules__sprite-img" src="img/wolfe/sModules/modules-sprite.webp" alt=""/>
+										</div>
+										<div class="sModules__cell-body"><strong class="sModules__cell-title">Уведомления</strong>
+											<p class="sModules__cell-desc">предупреждают, когда паттерн формируется и когда пора готовиться ко входу.
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="sModules__grid-row">
+									<div class="sModules__cell">
+										<div class="sModules__cell-icon" style="--ix:-471.55%;--iy:-39.9%;--iw:606.92%;--ih:340.38%"><img class="sModules__sprite-img" src="img/wolfe/sModules/modules-sprite.webp" alt=""/>
+										</div>
+										<div class="sModules__cell-body"><strong class="sModules__cell-title">Портфель</strong>
+											<p class="sModules__cell-desc">помогает собрать набор лучших инструментов и отслеживать на них появление паттерна.
+											</p>
+										</div>
+									</div>
+									<div class="sModules__cell sModules__cell--summary">
+										<p class="sModules__summary-text">И всё это — прямо на одном графике.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="sModules__showcase">
+								<div class="sModules__showcase-meta"><strong class="sModules__showcase-title">И все это — прямо на одном графике</strong>
+									<p class="sModules__showcase-lead">Просто перетащите советник на график — и перед Вами уже не хаос, а готовая система торговли по Волнам Вульфа
+									</p>
+								</div>
+								<div class="sModules__charts">
+									<div class="sModules__chart-row">
+										<div class="sModules__chart-col"><span class="sModules__chart-label">EUR/USD, H1</span>
+											<a class="sModules__chart-link" data-fancybox="sModules-show" href="img/wolfe/sModules/eur-usd-h1-original.webp"><img class="sModules__chart-img" src="img/wolfe/sModules/eur-usd-h1-original.webp" alt="EUR/USD H1 исходный" loading="lazy"/>
+											</a>
+										</div>
+										<div class="sModules__chart-col"><span class="sModules__chart-label">Радар Вульфа, паттерн сформировался</span>
+											<a class="sModules__chart-link" data-fancybox="sModules-show" href="img/wolfe/sModules/eur-usd-h1-radar.webp"><img class="sModules__chart-img" src="img/wolfe/sModules/eur-usd-h1-radar.webp" alt="EUR/USD H1 паттерн" loading="lazy"/>
+											</a>
+										</div>
+										<div class="sModules__chart-col"><span class="sModules__chart-label">Сделка отработала</span>
+											<a class="sModules__chart-link" data-fancybox="sModules-show" href="img/wolfe/sModules/eur-usd-h1-done.webp"><img class="sModules__chart-img" src="img/wolfe/sModules/eur-usd-h1-done.webp" alt="EUR/USD H1 результат" loading="lazy"/>
+											</a>
+										</div>
+									</div>
+									<div class="sModules__chart-row">
+										<div class="sModules__chart-col"><span class="sModules__chart-label">Золото, H2</span>
+											<a class="sModules__chart-link" data-fancybox="sModules-show" href="img/wolfe/sModules/gold-h2-original.webp"><img class="sModules__chart-img" src="img/wolfe/sModules/gold-h2-original.webp" alt="Золото H2 исходный" loading="lazy"/>
+											</a>
+										</div>
+										<div class="sModules__chart-col"><span class="sModules__chart-label">Радар Вульфа, паттерн сформировался</span>
+											<a class="sModules__chart-link" data-fancybox="sModules-show" href="img/wolfe/sModules/gold-h2-radar.webp"><img class="sModules__chart-img" src="img/wolfe/sModules/gold-h2-radar.webp" alt="Золото H2 паттерн" loading="lazy"/>
+											</a>
+										</div>
+										<div class="sModules__chart-col"><span class="sModules__chart-label">Сделка отработала</span>
+											<a class="sModules__chart-link" data-fancybox="sModules-show" href="img/wolfe/sModules/gold-h2-done.webp"><img class="sModules__chart-img" src="img/wolfe/sModules/gold-h2-done.webp" alt="Золото H2 результат" loading="lazy"/>
+											</a>
+										</div>
+									</div>
+									<div class="sModules__chart-row">
+										<div class="sModules__chart-col"><span class="sModules__chart-label">USD/JPY, M30</span>
+											<a class="sModules__chart-link" data-fancybox="sModules-show" href="img/wolfe/sModules/usd-jpy-m30-original.webp"><img class="sModules__chart-img" src="img/wolfe/sModules/usd-jpy-m30-original.webp" alt="USD/JPY M30 исходный" loading="lazy"/>
+											</a>
+										</div>
+										<div class="sModules__chart-col"><span class="sModules__chart-label">Радар Вульфа, паттерн сформировался</span>
+											<a class="sModules__chart-link" data-fancybox="sModules-show" href="img/wolfe/sModules/usd-jpy-m30-radar.webp"><img class="sModules__chart-img" src="img/wolfe/sModules/usd-jpy-m30-radar.webp" alt="USD/JPY M30 паттерн" loading="lazy"/>
+											</a>
+										</div>
+										<div class="sModules__chart-col"><span class="sModules__chart-label">Сделка отработала</span>
+											<a class="sModules__chart-link" data-fancybox="sModules-show" href="img/wolfe/sModules/usd-jpy-m30-done.webp"><img class="sModules__chart-img" src="img/wolfe/sModules/usd-jpy-m30-done.webp" alt="USD/JPY M30 результат" loading="lazy"/>
+											</a>
+										</div>
+									</div>
+									<div class="sModules__chart-row">
+										<div class="sModules__chart-col"><span class="sModules__chart-label">USD/CAD, M30</span>
+											<a class="sModules__chart-link" data-fancybox="sModules-show" href="img/wolfe/sModules/usd-cad-m30-original.webp"><img class="sModules__chart-img" src="img/wolfe/sModules/usd-cad-m30-original.webp" alt="USD/CAD M30 исходный" loading="lazy"/>
+											</a>
+										</div>
+										<div class="sModules__chart-col"><span class="sModules__chart-label">Радар Вульфа, паттерн сформировался</span>
+											<a class="sModules__chart-link" data-fancybox="sModules-show" href="img/wolfe/sModules/usd-cad-m30-radar.webp"><img class="sModules__chart-img" src="img/wolfe/sModules/usd-cad-m30-radar.webp" alt="USD/CAD M30 паттерн" loading="lazy"/>
+											</a>
+										</div>
+										<div class="sModules__chart-col"><span class="sModules__chart-label">Сделка отработала</span>
+											<a class="sModules__chart-link" data-fancybox="sModules-show" href="img/wolfe/sModules/usd-cad-m30-done.webp"><img class="sModules__chart-img" src="img/wolfe/sModules/usd-cad-m30-done.webp" alt="USD/CAD M30 результат" loading="lazy"/>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sModules__cta">
+								<p class="sModules__cta-text">Профессиональный трейдинг никогда ещё не становился настолько лёгкой задачей!
+								</p>
+								<a class="sModules__btn btn btn-primary" href="#sForm">Получить торговую систему
+									<svg class="icon icon-arrow-right ">
+										<use xlink:href="img/svg/sprite.svg#arrow-right"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sModules-->
+				<!-- start sHow-->
+				<section class="sHow section" id="sHow">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 07 / КАК РАБОТАЕТ ]</span>
+						</div>
+						<div class="section-title">
+							<h2>КАК ЭТО РАБОТАЕТ ЗА 5 СЕКУНД</h2>
+						</div>
+						<p class="sHow__lead">Все действительно очень просто.
+						</p>
+						<div class="sHow__body">
+							<div class="sHow__cards mobile-swiper mobile-swiper--js swiper" data-swiper-gap="20">
+								<div class="swiper-wrapper">
+									<div class="sHow__card swiper-slide"><span class="sHow__num">01</span>
+										<p class="sHow__text">Перетаскиваете советник на график любого актива в MetaTrader 5.
+										</p>
+									</div>
+									<div class="sHow__card swiper-slide"><span class="sHow__num">02</span>
+										<p class="sHow__text">Радар сам находит формирующуюся или уже готовую Волну Вульфа и присылает уведомление.
+										</p>
+									</div>
+									<div class="sHow__card swiper-slide"><span class="sHow__num">03</span>
+										<p class="sHow__text">Когда паттерн сформировался, на графике появляется точка входа, уровень для стопа и цель по цене.
+										</p>
+									</div>
+									<div class="sHow__card swiper-slide"><span class="sHow__num">04</span>
+										<p class="sHow__text">Выбираете удобный способ работы: открыть сделку вручную, поставить отложенный ордер или подключить робота.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="sHow__outro">
+								<p class="sHow__outro-text">Вот и все. Не нужно вручную искать точки, чертить линии и гадать, стоит ли вообще входить в сделку. Это действительно просто. Вы легко справитесь.
+								</p>
+							</div>
+							<div class="sHow__gallery">
+								<div class="sHow__gallery-head">
+									<div class="section-title section-title--inner">
+										<h2>Вот так выглядят реальные сделки с помощью Радара Вульфа.</h2>
+									</div>
+									<p class="sHow__gallery-sub">Прямо на графике появляется все, чтобы забирать профит.
+									</p>
+								</div>
+								<div class="sHow__slider">
+									<div class="sHow__gallery-swiper swiper">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-01.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №01"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-01.webp" alt="Реальная сделка с Радаром Вульфа №01" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-02.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №02"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-02.webp" alt="Реальная сделка с Радаром Вульфа №02" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-03.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №03"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-03.webp" alt="Реальная сделка с Радаром Вульфа №03" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-04.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №04"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-04.webp" alt="Реальная сделка с Радаром Вульфа №04" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-05.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №05"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-05.webp" alt="Реальная сделка с Радаром Вульфа №05" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-06.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №06"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-06.webp" alt="Реальная сделка с Радаром Вульфа №06" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-07.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №07"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-07.webp" alt="Реальная сделка с Радаром Вульфа №07" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-08.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №08"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-08.webp" alt="Реальная сделка с Радаром Вульфа №08" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-09.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №09"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-09.webp" alt="Реальная сделка с Радаром Вульфа №09" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-10.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №10"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-10.webp" alt="Реальная сделка с Радаром Вульфа №10" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-11.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №11"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-11.webp" alt="Реальная сделка с Радаром Вульфа №11" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-12.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №12"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-12.webp" alt="Реальная сделка с Радаром Вульфа №12" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-13.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №13"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-13.webp" alt="Реальная сделка с Радаром Вульфа №13" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-14.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №14"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-14.webp" alt="Реальная сделка с Радаром Вульфа №14" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-15.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №15"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-15.webp" alt="Реальная сделка с Радаром Вульфа №15" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-16.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №16"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-16.webp" alt="Реальная сделка с Радаром Вульфа №16" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-17.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №17"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-17.webp" alt="Реальная сделка с Радаром Вульфа №17" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-18.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №18"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-18.webp" alt="Реальная сделка с Радаром Вульфа №18" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-19.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №19"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-19.webp" alt="Реальная сделка с Радаром Вульфа №19" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-20.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №20"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-20.webp" alt="Реальная сделка с Радаром Вульфа №20" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-21.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №21"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-21.webp" alt="Реальная сделка с Радаром Вульфа №21" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-22.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №22"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-22.webp" alt="Реальная сделка с Радаром Вульфа №22" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-23.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №23"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-23.webp" alt="Реальная сделка с Радаром Вульфа №23" loading="lazy"/></a></div>
+											<div class="swiper-slide sHow__slide"><a class="sHow__slide-link" href="img/wolfe/sHow/deals/deal-24.webp" data-fancybox="sHow-deals" aria-label="Реальная сделка №24"><img class="sHow__chart-img" src="img/wolfe/sHow/deals/deal-24.webp" alt="Реальная сделка с Радаром Вульфа №24" loading="lazy"/></a></div>
+										</div>
+									</div>
+									<div class="sHow__gallery-nav">
+										<button class="sHow__nav-btn sHow__nav-btn--prev" type="button" aria-label="Предыдущий">
+											<svg viewBox="0 0 26 26" width="26" height="26" aria-hidden="true">
+												<polygon points="18,5 8,13 18,21" fill="currentColor"></polygon>
+											</svg>
+										</button>
+										<div class="sHow__gdots swiper-pagination"></div>
+										<button class="sHow__nav-btn sHow__nav-btn--next" type="button" aria-label="Следующий">
+											<svg viewBox="0 0 26 26" width="26" height="26" aria-hidden="true">
+												<polygon points="8,5 18,13 8,21" fill="currentColor"></polygon>
+											</svg>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sHow-->
+				<!-- start sOnChart-->
+				<section class="sOnChart section section--canvas" id="sOnChart">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 08 / ТОРГОВЫЙ ПЛАН ]</span>
+						</div>
+						<div class="section-title">
+							<h2>ВХОД, СТОП, ЦЕЛЬ, ВРЕМЯ, РИСК И СТАТИСТИКА — СРАЗУ НА ГРАФИКЕ</h2>
+						</div>
+						<div class="sOnChart__body">
+							<p class="sOnChart__lead">Радар Вульфа показывает весь маршрут сделки прямо на экране терминала. Вы сразу видите:
+							</p>
+							<!-- grid-scroll = full-bleed дорожка скролла (по ширине экрана); grid = таблица с рамкой-->
+							<div class="sOnChart__grid-scroll">
+								<div class="sOnChart__grid">
+									<div class="sOnChart__cell">
+										<div class="sOnChart__icon-wrap sOnChart__icon-wrap--entry">
+										</div>
+										<div class="sOnChart__cell-content">
+											<p class="sOnChart__cell-title">Точка входа
+											</p>
+											<p class="sOnChart__cell-desc">где покупать / продавать
+											</p>
+										</div>
+									</div>
+									<div class="sOnChart__cell">
+										<div class="sOnChart__icon-wrap sOnChart__icon-wrap--stop">
+										</div>
+										<div class="sOnChart__cell-content">
+											<p class="sOnChart__cell-title">Стоп-лосс
+											</p>
+											<p class="sOnChart__cell-desc">где защищать капитал
+											</p>
+										</div>
+									</div>
+									<div class="sOnChart__cell">
+										<div class="sOnChart__icon-wrap sOnChart__icon-wrap--price">
+										</div>
+										<div class="sOnChart__cell-content">
+											<p class="sOnChart__cell-title">Цель по цене
+											</p>
+											<p class="sOnChart__cell-desc">куда может дойти рынок
+											</p>
+										</div>
+									</div>
+									<div class="sOnChart__cell sOnChart__cell--row2">
+										<div class="sOnChart__icon-wrap sOnChart__icon-wrap--time">
+										</div>
+										<div class="sOnChart__cell-content">
+											<p class="sOnChart__cell-title">Цель по времени
+											</p>
+											<p class="sOnChart__cell-desc">когда движение должно развиться
+											</p>
+										</div>
+									</div>
+									<div class="sOnChart__cell sOnChart__cell--row2">
+										<div class="sOnChart__icon-wrap sOnChart__icon-wrap--potential">
+										</div>
+										<div class="sOnChart__cell-content">
+											<p class="sOnChart__cell-title">Потенциал сделки
+											</p>
+											<p class="sOnChart__cell-desc">стоит ли вообще рассматривать вход
+											</p>
+										</div>
+									</div>
+									<div class="sOnChart__cell sOnChart__cell--row2">
+										<div class="sOnChart__icon-wrap sOnChart__icon-wrap--volume">
+										</div>
+										<div class="sOnChart__cell-content">
+											<p class="sOnChart__cell-title">Объём позиции
+											</p>
+											<p class="sOnChart__cell-desc">каким лотом входить под Ваш риск-менеджмент
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sOnChart__chart1-wrap"><img src="img/wolfe/sOnChart/chart-1.webp" alt="Радар Вульфа: вход, стоп-лосс, цель и риск-менеджмент сразу на графике" width="1328" height="1070" loading="lazy"/>
+								<div class="sOnChart__anno sOnChart__anno--price-target" aria-hidden="true"><img class="sOnChart__anno-arrow --v14" src="img/wolfe/sOnChart/arrow-v14.svg" alt="" width="62" height="160"/><span>ЦЕЛЬ-линия 1-4</span>
+								</div>
+								<div class="sOnChart__anno sOnChart__anno--time-target" aria-hidden="true"><img class="sOnChart__anno-arrow --v13" src="img/wolfe/sOnChart/arrow-v13.svg" alt="" width="88" height="92"/><span>ЦЕЛЬ по времени</span>
+								</div>
+								<div class="sOnChart__anno sOnChart__anno--entry-anno" aria-hidden="true"><img class="sOnChart__anno-arrow --v11" src="img/wolfe/sOnChart/arrow-v11.svg" alt="" width="71" height="75"/><span>ВХОД&nbsp;В СДЕЛКУ</span>
+								</div>
+								<div class="sOnChart__anno sOnChart__anno--risk" aria-hidden="true"><img class="sOnChart__anno-arrow --v10" src="img/wolfe/sOnChart/arrow-v10.svg" alt="" width="46" height="77"/><span>РИСК, ОБЪЕМ И ПОТЕНЦИАЛ СДЕЛКИ</span>
+								</div>
+								<div class="sOnChart__anno sOnChart__anno--stoploss" aria-hidden="true"><img class="sOnChart__anno-arrow --v11b" src="img/wolfe/sOnChart/arrow-v11.svg" alt="" width="71" height="75"/><span>СТОП-ЛОСС за точку 5</span>
+								</div>
+							</div>
+							<p class="sOnChart__outro">
+								График превращается в торговый план. Вы не додумываете сделку после сигнала индикатора — Вы сразу видите,&nbsp;
+								как ее отработать. Входите и забираете деньги:
+							</p>
+							<div class="sOnChart__chart-img"><img src="img/wolfe/sOnChart/chart-2.webp" alt="Результаты торгового плана по волнам Вульфа" loading="lazy"/>
+							</div>
+							<div class="sOnChart__cta-bar">
+								<p class="sOnChart__cta-text">
+									Собирать прибыль на рынках с таким Радаром —&nbsp;
+									сплошное удовольствие!
+								</p>
+								<a class="sOnChart__btn btn btn-primary" href="#sForm"><span>Забрать Радар и собирать прибыль</span>
+									<svg class="icon icon-arrow-right ">
+										<use xlink:href="img/svg/sprite.svg#arrow-right"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sOnChart-->
+				<!-- start sStats-->
+				<section class="sStats section" id="sStats">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 09 / ДОКАЗАТЕЛЬСТВО ]</span>
+						</div>
+						<div class="sStats__body">
+							<div class="sStats__intro-block">
+								<div class="section-title">
+									<h2>КАК УДОСТОВЕРИТЬСЯ, ЧТО ЭТО РАБОТАЕТ И ПРИНОСИТ ДЕНЬГИ?</h2>
+								</div>
+								<p class="sStats__lead"><span class="sStats__lead-bold">Просто перетащите Радар Вульфа на график,</span> и Вы сразу увидите, как Волны Вульфа появлялись и отрабатывали на этом активе раньше. Проверьте за мгновение, зарабатывала ли стратегия в этом/прошлом году. Радар Вульфа показывает статистику прямо на графике. Вы сразу понимаете: стоит этот актив и таймфрейм Вашего внимания или нет.
+								</p>
+								<div class="sStats__row-main">
+									<div class="sStats__metrics-card">
+										<div class="sStats__metrics-title">Что показывает статистика:
+										</div>
+										<div class="sStats__metrics-list">
+											<div class="sStats__metrics-item"><span class="sStats__arrow">→</span><span>количество сделок;</span>
+											</div>
+											<div class="sStats__metrics-item"><span class="sStats__arrow">→</span><span>процент прибыльных;</span>
+											</div>
+											<div class="sStats__metrics-item"><span class="sStats__arrow">→</span><span>профит-фактор;</span>
+											</div>
+											<div class="sStats__metrics-item"><span class="sStats__arrow">→</span><span>фактор восстановления;</span>
+											</div>
+											<div class="sStats__metrics-item"><span class="sStats__arrow">→</span><span>максимальную просадку;</span>
+											</div>
+											<div class="sStats__metrics-item"><span class="sStats__arrow">→</span><span>среднюю прибыль в месяц;</span>
+											</div>
+											<div class="sStats__metrics-item"><span class="sStats__arrow">→</span><span>график доходности;</span>
+											</div>
+											<div class="sStats__metrics-item"><span class="sStats__arrow">→</span><span>график просадки.</span>
+											</div>
+										</div>
+										<div class="sStats__metrics-verdict"><span class="sStats__metrics-verdict-title">Вы не гадаете. Вы проверяете.</span>
+											<p class="sStats__metrics-verdict-sub">Уверенность в трейдинге появляется из скорости проверки.
+											</p>
+										</div>
+									</div>
+									<div class="sStats__panel-annotated">
+										<div class="sStats__panel-img-col"><img class="sStats__panel-img" src="img/wolfe/sStats/stats-panel.webp" alt="Панель статистики Радара Вульфа" loading="lazy"/>
+										</div>
+										<div class="sStats__panel-labels">
+											<div class="sStats__panel-label">Период тестирования
+											</div>
+											<div class="sStats__panel-label">Количество сделок (среднее количество в месяц)
+											</div>
+											<div class="sStats__panel-label">Доля прибыльных сделок
+											</div>
+											<div class="sStats__panel-label">Профит-фактор = Общая прибыль / Общий убыток
+											</div>
+											<div class="sStats__panel-label">Фактор восстановления = Чистая прибыль / Просадка
+											</div>
+											<div class="sStats__panel-label">Максимальная просадка в пунктах
+											</div>
+											<div class="sStats__panel-label">Общая прибыль в пунктах (средняя прибыль в месяц)
+											</div>
+											<div class="sStats__panel-label">График доходности
+											</div>
+											<div class="sStats__panel-label">Результат по часам
+											</div>
+											<div class="sStats__panel-label">Наиболее прибыльные и убыточные интервалы
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sStats__reality-card">
+								<div class="sStats__reality-title">Статистика максимально близка к реальности
+								</div>
+								<p class="sStats__reality-intro">Радар Вульфа показывает, как ведёт себя стратегия в реальной торговле. В статистике учитываются:
+								</p>
+								<div class="sStats__reality-tags"><span class="sStats__tag">спреды</span><span class="sStats__tag">комиссии</span><span class="sStats__tag">свопы</span><span class="sStats__tag">гэпы</span><span class="sStats__tag">закрытие по первой цене после выходных</span><span class="sStats__tag">результат в деньгах, а не пунктах</span>
+								</div>
+								<p class="sStats__reality-footer">Вы сразу видите статистику стратегии в реальных условиях, а не подгонку под историю.
+								</p>
+							</div>
+							<div class="sStats__visual-block">
+								<h3 class="sStats__sub-heading">Визуальная отработка паттернов
+								</h3>
+								<div class="sStats__visual-cols">
+									<div class="sStats__visual-col"><span class="sStats__col-bold">Можно просто промотать график влево и сразу увидеть,</span> какие паттерны появлялись и как они отрабатывали.
+									</div>
+									<div class="sStats__visual-col"><span class="sStats__col-bold">Можно запустить торговлю в визуальном режиме и увидеть,</span> как отрабатывали сделки и как изменялся депозит.
+									</div>
+									<div class="sStats__visual-col"><span class="sStats__col-bold">Можно увидеть, как работала стратегия совокупно</span> на всем портфеле активов, которые Вы торгуете.
+									</div>
+								</div>
+							</div>
+							<div class="sStats__instruments-block">
+								<h3 class="sStats__instruments-heading">Где-то Волны Вульфа работают лучше, где-то хуже. Но главное — они работают на всех рынках.
+								</h3>
+								<div class="sStats__instruments-row">
+									<div class="swiper">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<div class="sStats__icard">
+													<div class="sStats__icard-num">01
+													</div>
+													<p class="sStats__icard-name">Фьючерс EUR/USD · 5М
+													</p>
+													<p class="sStats__icard-desc">121 сделка за полтора года. На каждый 1$ убытка стратегия зарабатывала 1,81$ прибыли.
+													</p>
+													<a class="sStats__icard-chart" href="img/wolfe/sStats/chart-eurusd-5m.webp" data-fancybox="sStats-charts" data-caption="Фьючерс EUR/USD · 5М" aria-label="Открыть график: Фьючерс EUR/USD · 5М"><img src="img/wolfe/sStats/chart-eurusd-5m.webp" alt="Фьючерс EUR/USD · 5М" loading="lazy"/>
+													</a>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sStats__icard">
+													<div class="sStats__icard-num">02
+													</div>
+													<p class="sStats__icard-name">Фьючерс EUR/RUB · 15М
+													</p>
+													<p class="sStats__icard-desc">За последний год прибыльными оказались 66,7% сделок. На каждый 1$ убытка стратегия зарабатывала 3,8$ прибыли.
+													</p>
+													<a class="sStats__icard-chart" href="img/wolfe/sStats/chart-eurrub-15m.webp" data-fancybox="sStats-charts" data-caption="Фьючерс EUR/RUB · 15М" aria-label="Открыть график: Фьючерс EUR/RUB · 15М"><img src="img/wolfe/sStats/chart-eurrub-15m.webp" alt="Фьючерс EUR/RUB · 15М" loading="lazy"/>
+													</a>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sStats__icard">
+													<div class="sStats__icard-num">03
+													</div>
+													<p class="sStats__icard-name">Фьючерс золото · 15М
+													</p>
+													<p class="sStats__icard-desc">52,6% прибыльных, прибыль более чем в 2× превышала убытки.
+													</p>
+													<a class="sStats__icard-chart" href="img/wolfe/sStats/chart-gold-15m.webp" data-fancybox="sStats-charts" data-caption="Фьючерс золото · 15М" aria-label="Открыть график: Фьючерс золото · 15М"><img src="img/wolfe/sStats/chart-gold-15m.webp" alt="Фьючерс золото · 15М" loading="lazy"/>
+													</a>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sStats__icard">
+													<div class="sStats__icard-num">04
+													</div>
+													<p class="sStats__icard-name">Биткоин · 30М
+													</p>
+													<p class="sStats__icard-desc">83 сделки за год. На $1 убытка — $3,2, более половины в плюс.
+													</p>
+													<a class="sStats__icard-chart" href="img/wolfe/sStats/chart-btc-30m.webp" data-fancybox="sStats-charts" data-caption="Биткоин · 30М" aria-label="Открыть график: Биткоин · 30М"><img src="img/wolfe/sStats/chart-btc-30m.webp" alt="Биткоин · 30М" loading="lazy"/>
+													</a>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sStats__icard">
+													<div class="sStats__icard-num">05
+													</div>
+													<p class="sStats__icard-name">EUR/USD (Альфа) · 30М
+													</p>
+													<p class="sStats__icard-desc">46 сделок за 1,5 года. На $1 убытка — $1,75 прибыли.
+													</p>
+													<a class="sStats__icard-chart" href="img/wolfe/sStats/chart-eurusd-alpha-30m.webp" data-fancybox="sStats-charts" data-caption="EUR/USD (Альфа) · 30М" aria-label="Открыть график: EUR/USD (Альфа) · 30М"><img src="img/wolfe/sStats/chart-eurusd-alpha-30m.webp" alt="EUR/USD (Альфа) · 30М" loading="lazy"/>
+													</a>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sStats__icard">
+													<div class="sStats__icard-num">06
+													</div>
+													<p class="sStats__icard-name">USD/CAD (Альфа) · H1
+													</p>
+													<p class="sStats__icard-desc">16 сделок за 1,5 года. На $1 убытка — $2,84 прибыли.
+													</p>
+													<a class="sStats__icard-chart" href="img/wolfe/sStats/chart-usdcad-h1.webp" data-fancybox="sStats-charts" data-caption="USD/CAD (Альфа) · H1" aria-label="Открыть график: USD/CAD (Альфа) · H1"><img src="img/wolfe/sStats/chart-usdcad-h1.webp" alt="USD/CAD (Альфа) · H1" loading="lazy"/>
+													</a>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sStats__icard">
+													<div class="sStats__icard-num">07
+													</div>
+													<p class="sStats__icard-name">USD/CHF (Альфа) · H1
+													</p>
+													<p class="sStats__icard-desc">~1 сделка в месяц. На $1 убытка — $4,37 прибыли.
+													</p>
+													<a class="sStats__icard-chart" href="img/wolfe/sStats/chart-usdchf-h1.webp" data-fancybox="sStats-charts" data-caption="USD/CHF (Альфа) · H1" aria-label="Открыть график: USD/CHF (Альфа) · H1"><img src="img/wolfe/sStats/chart-usdchf-h1.webp" alt="USD/CHF (Альфа) · H1" loading="lazy"/>
+													</a>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sStats__icard sStats__icard--accent">
+													<div class="sStats__icard-num">08 · РЕКОРД
+													</div>
+													<p class="sStats__icard-name">USD/JPY (Альфа) · H1
+													</p>
+													<p class="sStats__icard-desc">11 сделок за 1,5 года. На $1 убытка — $4,51 прибыли.
+													</p>
+													<a class="sStats__icard-chart" href="img/wolfe/sStats/chart-usdjpy-h1.webp" data-fancybox="sStats-charts" data-caption="USD/JPY (Альфа) · H1" aria-label="Открыть график: USD/JPY (Альфа) · H1"><img src="img/wolfe/sStats/chart-usdjpy-h1.webp" alt="USD/JPY (Альфа) · H1" loading="lazy"/>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="sStats__slider-nav">
+										<button class="swiper-button-prev" type="button" aria-label="Предыдущий слайд">
+											<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+												<polygon points="18,4 8,13 18,22" fill="currentColor"></polygon>
+											</svg>
+										</button>
+										<div class="swiper-pagination"></div>
+										<button class="swiper-button-next" type="button" aria-label="Следующий слайд">
+											<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+												<polygon points="8,4 18,13 8,22" fill="currentColor"></polygon>
+											</svg>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="sStats__markets-card">
+								<div class="sStats__markets-title">С помощью Радара Вульфа Вы быстро найдете самые техничные инструменты и лучшие временные периоды для торговли. Причем на самых разных рынках:
+								</div>
+								<div class="sStats__markets-tags"><span class="sStats__tag">фьючерсы</span><span class="sStats__tag">акции</span><span class="sStats__tag">Forex</span><span class="sStats__tag">металлы</span><span class="sStats__tag">криптовалюты</span><span class="sStats__tag">индексы</span>
+								</div>
+								<p class="sStats__markets-footer">И на разных таймфреймах: от М1 до D1.
+								</p>
+								<p class="sStats__markets-note">Это показывает надежность не только Радара, как инструмента, но и самого метода торговли по Волнам Вульфа.
+								</p>
+							</div>
+							<div class="sStats__videos-block">
+								<h3 class="sStats__videos-heading">Видеоролики: реальная торговля
+								</h3>
+								<div class="sStats__videos-grid">
+									<div class="sStats__vcard">
+										<div class="sStats__vcard-thumb">
+											<iframe src="https://kinescope.io/ivz7cJyu1Kv5N6a7vsmY6P" title="Реальная торговля с Радаром Вульфа в Альфа-Форексе" loading="lazy" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>
+										</div>
+										<div class="sStats__vcard-info"><span class="sStats__vcard-meta">ВИДЕО · KINESCOPE</span>
+											<p class="sStats__vcard-title">Реальная торговля с Радаром Вульфа в Альфа-Форексе
+											</p>
+										</div>
+									</div>
+									<div class="sStats__vcard">
+										<div class="sStats__vcard-thumb">
+											<iframe src="https://kinescope.io/pjsCaEzan6L4LeERRtdT6W" title="Тестируем Волны Вульфа на 5-минутках фьючерса на доллар/рубль в Финаме" loading="lazy" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>
+										</div>
+										<div class="sStats__vcard-info"><span class="sStats__vcard-meta">ВИДЕО · KINESCOPE</span>
+											<p class="sStats__vcard-title">Тестируем Волны Вульфа на 5-минутках фьючерса на доллар/рубль в Финаме
+											</p>
+										</div>
+									</div>
+									<div class="sStats__vcard">
+										<div class="sStats__vcard-thumb">
+											<iframe src="https://kinescope.io/3q2zsyFjNkgwYj8qqZfeGu" title="Волны Вульфа на 15-минутках Сбербанка" loading="lazy" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>
+										</div>
+										<div class="sStats__vcard-info"><span class="sStats__vcard-meta">ВИДЕО · KINESCOPE</span>
+											<p class="sStats__vcard-title">Волны Вульфа на 15-минутках Сбербанка
+											</p>
+										</div>
+									</div>
+									<div class="sStats__vcard">
+										<div class="sStats__vcard-thumb">
+											<iframe src="https://kinescope.io/w4yivk777JuMbPviRPX6Nm" title="Работают ли Волны Вульфа на криптовалютах?" loading="lazy" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>
+										</div>
+										<div class="sStats__vcard-info"><span class="sStats__vcard-meta">ВИДЕО · KINESCOPE</span>
+											<p class="sStats__vcard-title">Работают ли Волны Вульфа на криптовалютах?
+											</p>
+										</div>
+									</div>
+									<div class="sStats__vcard">
+										<div class="sStats__vcard-thumb">
+											<iframe src="https://kinescope.io/m737zBs3AAGvE5dNMoHycv" title="Как ведет себя Радар Вульфа на золоте в 2026 году?" loading="lazy" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>
+										</div>
+										<div class="sStats__vcard-info"><span class="sStats__vcard-meta">ВИДЕО · KINESCOPE</span>
+											<p class="sStats__vcard-title">Как ведет себя Радар Вульфа на золоте в 2026 году?
+											</p>
+										</div>
+									</div>
+									<div class="sStats__vcard">
+										<div class="sStats__vcard-thumb">
+											<iframe src="https://kinescope.io/fmWed1FsDPm9PrWrVJhC2r" title="USD/JPY на Forex – реальные сделки 2026 года" loading="lazy" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>
+										</div>
+										<div class="sStats__vcard-info"><span class="sStats__vcard-meta">ВИДЕО · KINESCOPE</span>
+											<p class="sStats__vcard-title">USD/JPY на Forex – реальные сделки 2026 года
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sStats__cta-bar">
+								<p class="sStats__cta-bar-text">Не тратьте нервы, беспокоясь, работает это или нет. Проверьте за секунду и убедитесь лично.
+								</p>
+								<a class="sStats__btn btn btn-primary" href="#sForm"><span>Забрать Радар для уверенного трейдинга</span>
+									<svg class="icon icon-arrow-right ">
+										<use xlink:href="img/svg/sprite.svg#arrow-right"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sStats-->
+				<!-- start sScanner-->
+				<section class="sScanner section section--canvas" id="sScanner">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 10 / СКАНЕР ]</span>
+						</div>
+						<div class="section-title">
+							<h2>НЕ ЖДИТЕ ОДНУ СДЕЛКУ — СКАНИРУЙТЕ РЫНОК РАДАРОМ</h2>
+						</div>
+						<div class="sScanner__body">
+							<div class="sScanner__intro">
+								<p class="sScanner__lead">Хорошие Волны Вульфа — редкие. Если сидеть на одном активе и ждать идеальный паттерн, можно пропустить массу возможностей на других инструментах.
+								</p>
+								<div class="sScanner__lead-rich">
+									<p>Радар Вульфа решает эту проблему.</p>
+									<p><strong>Он в реальном времени отслеживает до 100 инструментов,</strong> чтобы не упустить момент появления понятной геометрии сделки.</p>
+									<p>Вы можете даже не открывать другие графики. Вся карта торговых возможностей у Вас перед глазами.</p>
+								</div>
+							</div>
+							<div class="sScanner__screen"><img class="sScanner__screen-img" src="img/wolfe/sScanner/scanner-screen.webp" alt="Интерфейс сканера Волн Вульфа" loading="lazy" width="1644" height="842"/>
+							</div>
+							<div class="sScanner__features">
+								<p class="sScanner__features-hd">Что делает сканер:
+								</p>
+								<div class="sScanner__features-grid">
+									<div class="sScanner__features-col">
+										<div class="sScanner__feat-item"><span class="sScanner__feat-arrow">→</span><span class="sScanner__feat-text">отслеживает до 100 активов и таймфреймов одновременно;</span>
+										</div>
+										<div class="sScanner__feat-item"><span class="sScanner__feat-arrow">→</span><span class="sScanner__feat-text">показывает активные и формирующиеся паттерны;</span>
+										</div>
+										<div class="sScanner__feat-item"><span class="sScanner__feat-arrow">→</span><span class="sScanner__feat-text">определяет, где в ближайшее время можно ожидать сделку;</span>
+										</div>
+									</div>
+									<div class="sScanner__features-col">
+										<div class="sScanner__feat-item"><span class="sScanner__feat-arrow">→</span><span class="sScanner__feat-text">помогает найти лучшие активы и временные периоды для торговли;</span>
+										</div>
+										<div class="sScanner__feat-item"><span class="sScanner__feat-arrow">→</span><span class="sScanner__feat-text">собирает все сигналы в одном рабочем окне;</span>
+										</div>
+										<div class="sScanner__feat-item"><span class="sScanner__feat-arrow">→</span><span class="sScanner__feat-text">помогает управлять портфелем активов.</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sScanner__split">
+								<div class="sScanner__split-text">
+									<p class="sScanner__split-hd">Не нужно открывать 20 графиков и щёлкать их по кругу.
+									</p>
+									<p class="sScanner__split-body">Радар покажет, где сейчас формируется паттерн, где уже есть ситуация и какие инструменты заслуживают внимания.
+									</p>
+									<p class="sScanner__split-cta"><strong>Смотрите, как работает сканер Волн Вульфа в реальной торговле:</strong>
+									</p>
+								</div>
+								<div class="sScanner__split-video">
+									<div class="sScanner__video-inner">
+										<div class="video-embed">
+											<iframe src="https://kinescope.io/rySbxb77QY79weTxUyNBoN" title="Сканер Волн Вульфа в реальной торговле" loading="lazy" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>
+										</div>
+										<div class="sScanner__video-caption"><span class="sScanner__video-tag">ВИДЕО</span>
+											<p class="sScanner__video-title">Сканер Волн Вульфа в реальной торговле:
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sScanner__cta-bar">
+								<p class="sScanner__cta-text">Не ищите сделку вручную.<br/>Пусть рынок сам покажет, где она появилась.
+								</p>
+								<a class="sScanner__btn btn btn-primary" href="#sForm"><span>Забрать Радар и сканировать рынки</span>
+									<svg class="icon icon-arrow-right ">
+										<use xlink:href="img/svg/sprite.svg#arrow-right"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sScanner-->
+				<!-- start sNotify-->
+				<section class="sNotify section" id="sNotify">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 11 / УВЕДОМЛЕНИЯ ]</span>
+						</div>
+						<div class="section-title">
+							<h2>Радар предупреждает заранее, но не гонит в каждую сделку</h2>
+						</div>
+						<div class="sNotify__body">
+							<p class="sNotify__lead">Хорошая сделка не появляется внезапно. Сначала паттерн начинает формироваться. Потом подтверждается. И только после этого появляется понятная ситуация для входа в сделку. Радар Вульфа следит за этим процессом в реальном времени и заранее сообщает, где на рынке может появиться точка входа.
+							</p>
+							<div class="sNotify__notify-block">
+								<p class="sNotify__notify-label">Вы получаете уведомления:
+								</p>
+								<div class="sNotify__cards">
+									<div class="sNotify__card"><span class="sNotify__card-tag">УВЕДОМЛЕНИЕ</span>
+										<p class="sNotify__card-title">О формировании потенциального паттерна
+										</p>
+										<div class="sNotify__card-img"><img src="img/wolfe/sNotify/push-1.webp" alt="Уведомление в Telegram о формировании паттерна" loading="lazy"/>
+										</div>
+									</div>
+									<div class="sNotify__card"><span class="sNotify__card-tag">УВЕДОМЛЕНИЕ</span>
+										<p class="sNotify__card-title">О появлении точки входа
+										</p>
+										<div class="sNotify__card-img"><img src="img/wolfe/sNotify/alert-1.webp" alt="Уведомление о появлении точки входа в MT5" loading="lazy"/>
+										</div>
+									</div>
+								</div>
+								<p class="sNotify__channels">Уведомления могут приходить в Telegram, на email или через push.
+								</p>
+							</div>
+							<div class="sNotify__filter">
+								<div class="sNotify__filter-inner">
+									<p class="sNotify__filter-heading">Важный момент: Радар не заставляет входить в каждый намек на волну.
+									</p>
+									<p class="sNotify__filter-text">Формирующийся паттерн может появиться, а потом исчезнуть — и это нормально. Если структура паттерна не подтверждается графиком цены, система просто снимает такой паттерн с внимания. Это не ошибка. Это фильтр от лишнего шума.
+									</p>
+								</div>
+								<p class="sNotify__filter-heading">После того, как Вы получили уведомление о том, что формируется паттерн, возможны 2 сценария:
+								</p>
+								<div class="sNotify__scenarios">
+									<div class="sNotify__scenario sNotify__scenario--positive"><span class="sNotify__scenario-label">СЦЕНАРИЙ 1</span>
+										<p class="sNotify__scenario-text">формируется паттерн → подтверждается → вход в сделку
+										</p>
+									</div>
+									<div class="sNotify__scenario"><span class="sNotify__scenario-label">СЦЕНАРИЙ 2</span>
+										<p class="sNotify__scenario-text">формируется паттерн → не подтверждается → сигнал снимается
+										</p>
+									</div>
+								</div>
+								<p class="sNotify__filter-text">Не каждый набросок волны становится сделкой. И это важное преимущество перед ручной разметкой. Принимая решения вручную, увидев начало формирования паттерна, Вы его уже не развидите, даже если рынок его не подтвердит. Радар Вульфа помогает Вам заранее подготовиться ко входу и отсеять кривые торговые ситуации.
+								</p>
+							</div>
+							<div class="sNotify__conclusion">Радар не пропустит возможность.<br/>И не втянет Вас в лишние сделки.
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sNotify-->
+				<section class="sPortfolio section section--canvas" id="sPortfolio">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 12 / ПОРТФЕЛЬ ]</span>
+						</div>
+						<div class="section-title">
+							<h2>ПОРТФЕЛЬ ВОЛН ВУЛЬФА</h2>
+						</div>
+						<div class="sPortfolio__body">
+							<p class="sPortfolio__lead">Пока одна стратегия молчит, портфель продолжает искать прибыль.
+							</p>
+							<div class="sPortfolio__intro">
+								<p>Волны Вульфа — редкий эксклюзивный паттерн.</p>
+								<p>Хорошие торговые ситуации не обязаны появляться каждый день на одном инструменте. И это не недостаток. Это как раз признак качественной геометрии рынка.</p>
+								<p>Если торговать только один актив и один таймфрейм, сделки будут редкими. Иногда это 1–3 сделки в месяц, а иногда и меньше.</p>
+							</div>
+							<div class="sPortfolio__approach">
+								<p class="sPortfolio__approach-lead">Профессиональный подход — не сидеть на одном графике в ожидании сигнала, а собирать портфель инструментов и таймфреймов.
+								</p>
+								<p class="sPortfolio__approach-sub">Как это выглядит на практике:
+								</p>
+								<div class="sPortfolio__compare">
+									<div class="sPortfolio__compare-card"><span class="sPortfolio__card-decor">1</span><span class="sPortfolio__card-num">1</span>
+										<p class="sPortfolio__card-text">инструмент = редкие сигналы
+										</p>
+									</div>
+									<div class="sPortfolio__compare-card sPortfolio__compare-card--accent"><span class="sPortfolio__card-decor">20</span><span class="sPortfolio__card-num sPortfolio__card-num--accent">20</span>
+										<p class="sPortfolio__card-text">инструментов = поток возможностей
+										</p>
+									</div>
+								</div>
+								<p class="sPortfolio__approach-note">Если у Вас один инструмент — Вы зависите от одного графика. Если у Вас портфель из 20 инструментов, Вы уже можете получать 20–60 потенциальных сигналов в месяц.
+								</p>
+							</div>
+							<div class="sPortfolio__can-box">
+								<p class="sPortfolio__can-title">Именно здесь сканер превращает Радар Вульфа в настоящий центр управления портфелем. Вы можете:
+								</p>
+								<div class="sPortfolio__can-cols">
+									<div class="sPortfolio__can-col">
+										<div class="sPortfolio__can-item"><span class="sPortfolio__can-arr">→</span><span class="sPortfolio__can-text">добавлять и убирать активы;</span>
+										</div>
+										<div class="sPortfolio__can-item"><span class="sPortfolio__can-arr">→</span><span class="sPortfolio__can-text">менять таймфреймы;</span>
+										</div>
+										<div class="sPortfolio__can-item"><span class="sPortfolio__can-arr">→</span><span class="sPortfolio__can-text">собрать портфель под российский рынок, или Forex, или крипту…;</span>
+										</div>
+									</div>
+									<div class="sPortfolio__can-col">
+										<div class="sPortfolio__can-item"><span class="sPortfolio__can-arr">→</span><span class="sPortfolio__can-text">видеть кривую доходности всего портфеля;</span>
+										</div>
+										<div class="sPortfolio__can-item"><span class="sPortfolio__can-arr">→</span><span class="sPortfolio__can-text">понимать, какие инструменты тянут результат вниз;</span>
+										</div>
+										<div class="sPortfolio__can-item"><span class="sPortfolio__can-arr">→</span><span class="sPortfolio__can-text">заменять слабые элементы портфеля более сильными.</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sPortfolio__stat-block">
+								<div class="sPortfolio__stat-top">
+									<p class="sPortfolio__stat-heading">Соберите портфель из нескольких активов и сразу оцените статистику всего портфеля.
+									</p>
+									<p class="sPortfolio__stat-fact">За год портфель из 10 активов заработал в 4 раза больше, чем была максимальная просадка.
+									</p>
+								</div><img class="sPortfolio__screenshot" src="img/wolfe/sPortfolio/portfolio-chart.webp" alt="Портфель из 10 активов — статистика сканера" loading="lazy"/>
+							</div>
+							<div class="sPortfolio__graal">
+								<div class="sPortfolio__graal-top">
+									<p class="sPortfolio__graal-label">Один сигнал — не грааль. Грааль начинается там, где у Вас есть портфель стратегий.
+									</p>
+									<p class="sPortfolio__graal-desc">Вы больше не зависите от одного актива, одного таймфрейма и одной случайной сделки. Пока одна стратегия молчит, другие продолжают искать прибыль.
+									</p>
+								</div>
+								<p class="sPortfolio__graal-big">С портфелем активов чаще попадаются сделки, которые хочется сохранить на доску почета.
+								</p>
+								<div class="sPortfolio__charts-block">
+									<p class="sPortfolio__charts-label">Например, когда одна сделка дает сразу 3 возможности для входа и тройную прибыль:
+									</p>
+									<div class="sPortfolio__charts-pair"><img class="sPortfolio__chart-img" src="img/wolfe/sPortfolio/chart-triple-2.webp" alt="Тройной заход EURUSD M30 — пример 1" loading="lazy"/><img class="sPortfolio__chart-img" src="img/wolfe/sPortfolio/chart-triple-1.webp" alt="Тройной заход EURUSD M30 — пример 2" loading="lazy"/>
+									</div>
+								</div>
+								<div class="sPortfolio__charts-block">
+									<p class="sPortfolio__charts-label">Или, когда Вы получаете 5 прибыльных сделок подряд на одном инструменте:
+									</p><img class="sPortfolio__chart-img sPortfolio__chart-img--wide" src="img/wolfe/sPortfolio/chart-5trades.webp" alt="5 прибыльных сделок подряд на EURUSD" loading="lazy"/>
+								</div>
+							</div>
+							<p class="sPortfolio__orphan-note">С портфелем чаще попадаются сделки на доску почёта — тройной вход и тройная прибыль или 5 прибыльных сделок подряд:
+							</p>
+							<div class="sPortfolio__cta-bar">
+								<p class="sPortfolio__cta-text">Соберите портфель и превратите редкие сигналы Волн Вульфа в регулярный поток эксклюзивных возможностей.
+								</p>
+								<a class="sPortfolio__btn btn btn-primary" href="#sForm"><span>Получить Радар и торговать портфелем</span>
+									<svg class="icon icon-arrow-right ">
+										<use xlink:href="img/svg/sprite.svg#arrow-right"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- start sReliability-->
+				<section class="sReliability section" id="sReliability">
+					<div class="sReliability__decor" aria-hidden="true"><img class="sReliability__decor-img sReliability__decor-img--g1" src="img/wolfe/sReliability/decor-g1.svg" alt=""/><img class="sReliability__decor-img sReliability__decor-img--g2" src="img/wolfe/sReliability/decor-g2.svg" alt=""/><img class="sReliability__decor-img sReliability__decor-img--g3" src="img/wolfe/sReliability/decor-g3.svg" alt=""/><img class="sReliability__decor-img sReliability__decor-img--g4" src="img/wolfe/sReliability/decor-g4.svg" alt=""/><img class="sReliability__decor-img sReliability__decor-img--g5" src="img/wolfe/sReliability/decor-g5.svg" alt=""/><img class="sReliability__decor-img sReliability__decor-img--g6" src="img/wolfe/sReliability/decor-g6.svg" alt=""/><img class="sReliability__decor-img sReliability__decor-img--v1" src="img/wolfe/sReliability/decor-v1.svg" alt=""/><img class="sReliability__decor-img sReliability__decor-img--v2" src="img/wolfe/sReliability/decor-v2.svg" alt=""/><img class="sReliability__decor-img sReliability__decor-img--v3" src="img/wolfe/sReliability/decor-v3.svg" alt=""/>
+					</div>
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 13 / НАДЁЖНОСТЬ ]</span>
+						</div>
+						<div class="section-title">
+							<h2>ПОЧЕМУ РАДАР НЕ ЛОМАЕТСЯ, КАК ОБЫЧНАЯ «КНОПКА»?</h2>
+						</div>
+						<div class="sReliability__body">
+							<div class="sReliability__compare">
+								<div class="sReliability__card sReliability__card--bad"><span class="sReliability__card-tag">«КНОПКА-БАБЛО»</span>
+									<h3 class="sReliability__card-heading">Завязана на один сигнал, один график, один режим рынка и надежду, что так будет всегда.
+									</h3>
+									<p class="sReliability__card-text">Но рынок меняется. Готова ли Ваша стратегия к завтрашнему рынку?
+									</p>
+								</div>
+								<div class="sReliability__card sReliability__card--good"><span class="sReliability__card-tag">РАДАР ВУЛЬФА</span>
+									<h3 class="sReliability__card-heading">Быстро проверить рынок, отобрать сильные инструменты, заменить слабые и держать портфель в форме.
+									</h3>
+									<p class="sReliability__card-text">Скорость поиска и проверки превращается в уверенность: Вы решаете на основе фактов, а не эмоций.
+									</p>
+								</div>
+							</div>
+							<div class="sReliability__cta-bar">
+								<p class="sReliability__cta-text">Вы сразу видите статистику, риск, потенциал сделки — и принимаете решение спокойно.
+								</p>
+								<a class="sReliability__btn btn btn-primary" href="#sForm"><span>Получить Радар и зарабатывать уверенно</span>
+									<svg class="icon icon-arrow-right ">
+										<use xlink:href="img/svg/sprite.svg#arrow-right"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sReliability-->
+				<!-- start sModes-->
+				<section class="sModes section section--canvas" id="sModes">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 14 / РЕЖИМЫ ]</span>
+						</div>
+						<div class="section-title">
+							<h2>КАК ВСТРОИТЬ РАДАР В МОЙ ТРЕЙДИНГ?</h2>
+						</div><span class="sModes__lead">Выбирайте режим работы под текущие задачи:</span>
+						<div class="sModes__body">
+							<div class="sModes__cards">
+								<div class="sModes__card"><span class="sModes__card-num">РЕЖИМ 1</span>
+									<h3 class="sModes__card-title">Быстрое исследование рынков
+									</h3>
+									<div class="sModes__card-text">
+										<p>Радар Вульфа превращает MetaTrader 5 в исследовательскую лабораторию Волн Вульфа. Вы можете:</p>
+										<ul>
+											<li>быстро проверять любые активы;</li>
+											<li>менять таймфреймы от М1 до D1;</li>
+											<li>находить самые прибыльные рынки для заработка;</li>
+											<li>за секунду получать статистику на любом активе;</li>
+											<li>формировать портфели;</li>
+											<li>собирать коллекцию стратегий под свой стиль торговли.</li>
+										</ul>
+										<p>Не нужно спорить, где Волны Вульфа работают лучше.</p>
+										<p>Исследуйте. Поставили Радар на график — и сразу увидели статистику, сделки, просадку, доходность и качество отработки паттернов.</p>
+									</div>
+								</div>
+								<div class="sModes__card"><span class="sModes__card-num">РЕЖИМ 2</span>
+									<h3 class="sModes__card-title">Визуализация и обучение
+									</h3>
+									<div class="sModes__card-text">
+										<p>Радар поможет быстрее разобраться в логике Волн Вульфа.</p>
+										<p>Вы можете проматывать график или запускать визуальную демонстрацию торговли на истории и смотреть, как формируется паттерн, как стратегия ведет себя в реальной торговле.</p>
+										<p>Это буквально загружает в мозг живую механику паттерна. Вы видите, как Волны Вульфа отрабатывают на реальном графике и прокачиваете свою насмотренность.</p>
+									</div>
+								</div>
+								<div class="sModes__card"><span class="sModes__card-num">РЕЖИМ 3</span>
+									<h3 class="sModes__card-title">Торговля вручную с помощью советника
+									</h3>
+									<div class="sModes__card-text">
+										<p>Это режим: увидел сигнал → поставил отложку → ушел.</p>
+										<p>Радар показывает Вам весь торговый план. Вы сами принимаете решение, вручную ставите отложенные ордера на вход и выход из сделки.</p>
+									</div>
+								</div>
+								<div class="sModes__card"><span class="sModes__card-num">РЕЖИМ 4</span>
+									<h3 class="sModes__card-title">Режим 4. Автоматическая торговля
+									</h3>
+									<div class="sModes__card-text">
+										<p>Когда Вы готовы подключить робота, Радар может работать в автоматическом режиме.</p>
+									</div>
+								</div>
+							</div>
+							<div class="sModes__pair">
+								<div class="orbit-figure sModes__orbit sModes__orbit--pair" aria-hidden="true"><span class="orbit-figure__glow"></span><span class="orbit-figure__ring orbit-figure__ring--r1"></span><span class="orbit-figure__ring orbit-figure__ring--r2"></span><span class="orbit-figure__ring orbit-figure__ring--r3"></span><span class="orbit-figure__orbit orbit-figure__orbit--mid"><span class="orbit-figure__dot orbit-figure__dot--big"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--mid orbit-figure__orbit--alt"><span class="orbit-figure__dot"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--outer"><span class="orbit-figure__dot"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--outer orbit-figure__orbit--alt2"><span class="orbit-figure__dot"></span></span></div>
+								<p class="sModes__pair-title">Создается идеальная пара для трейдинга: Радар + Робот
+								</p>
+								<div class="sModes__pair-cols">
+									<div class="sModes__pair-col">
+										<p>Радар находит торговую ситуацию</p>
+									</div>
+									<div class="sModes__pair-col">
+										<p>Робот открывает и закрывает сделку по заданным правилам</p>
+									</div>
+									<div class="sModes__pair-col">
+										<p>Радар думает, как аналитик</p>
+									</div>
+									<div class="sModes__pair-col">
+										<p>Робот действует, как дисциплинированный коллега-трейдер</p>
+									</div>
+									<div class="sModes__pair-col">
+										<p>Робот не устает. Не сомневается. Не передвигает стоп «на всякий случай». Не входит потому, что «очень хочется». Он просто выполняет правила.</p>
+									</div>
+								</div>
+								<svg class="sModes__pair-wave" viewBox="0 0 1000 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" overflow="visible">
+									<path d="M8,60 C90,60 167,20 250,20 C333,20 417,38 500,38 C583,38 667,20 750,20 C833,20 910,60 992,60" stroke-width="1.5" stroke-dasharray="6 4" fill="none"></path>
+									<circle cx="8" cy="60" r="8" stroke-width="2"></circle>
+									<circle cx="250" cy="20" r="8" stroke-width="2"></circle>
+									<circle cx="500" cy="38" r="8" stroke-width="2"></circle>
+									<circle cx="750" cy="20" r="8" stroke-width="2"></circle>
+									<circle cx="992" cy="60" r="8" stroke-width="2"></circle>
+								</svg>
+							</div>
+							<div class="sModes__outro">
+								<div class="orbit-figure sModes__orbit sModes__orbit--outro" aria-hidden="true"><span class="orbit-figure__glow"></span><span class="orbit-figure__ring orbit-figure__ring--r1"></span><span class="orbit-figure__ring orbit-figure__ring--r2"></span><span class="orbit-figure__ring orbit-figure__ring--r3"></span><span class="orbit-figure__orbit orbit-figure__orbit--mid"><span class="orbit-figure__dot orbit-figure__dot--big"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--mid orbit-figure__orbit--alt"><span class="orbit-figure__dot"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--outer"><span class="orbit-figure__dot"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--outer orbit-figure__orbit--alt2"><span class="orbit-figure__dot"></span></span></div>
+								<div class="sModes__outro-text">
+									<p>Сегодня Вы хотите торговать исключительно вручную, на конкретном рынке?</p>
+									<p>Завтра Вы захотите исследовать новые рынки?</p>
+									<p>Через месяц Вам захочется поставить торговлю на автомат?</p>
+									<p>Радар Вульфа будет полезен в каждом из этих сценариев.</p>
+								</div>
+								<a class="sModes__btn btn btn-primary" href="#sForm"><span>Выбрать свой режим использования Радара</span>
+									<svg class="icon icon-arrow-right ">
+										<use xlink:href="img/svg/sprite.svg#arrow-right"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sModes-->
+				<!-- start sSchedule-->
+				<section class="sSchedule section" id="sSchedule">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 15 / РАСПИСАНИЕ ]</span>
+						</div>
+						<div class="sSchedule__body">
+							<div class="section-title">
+								<h2>ТОРГОВЛЯ ПОД ВАШЕ РАСПИСАНИЕ</h2>
+							</div>
+							<p class="sSchedule__lead">Трейдинг не должен ломать Ваш день. У Вас есть только 2–3 часа утром или вечером? Вы не можете сидеть у графика весь день, но и полностью доверять торговлю роботу пока не готовы?
+							</p>
+							<p class="sSchedule__lead">Радар Вульфа поможет проверить, какие инструменты и таймфреймы дают результат именно в это время.
+							</p>
+							<div class="sSchedule__items">
+								<div class="sSchedule__item"><span class="sSchedule__item-num">01</span>
+									<p class="sSchedule__item-text">Настройте удобное время анализа.
+									</p>
+								</div>
+								<div class="sSchedule__item"><span class="sSchedule__item-num">02</span>
+									<p class="sSchedule__item-text">Ищите сделки утром, днем, вечером, в конкретный промежуток времени.
+									</p>
+								</div>
+								<div class="sSchedule__item"><span class="sSchedule__item-num">03</span>
+									<p class="sSchedule__item-text">Проверьте, как паттерн отрабатывал в Вашем временном режиме.
+									</p>
+								</div>
+								<div class="sSchedule__item"><span class="sSchedule__item-num">04</span>
+									<p class="sSchedule__item-text">Получайте уведомления и подключайтесь только когда есть повод.
+									</p>
+								</div>
+								<div class="sSchedule__item sSchedule__item--full"><span class="sSchedule__item-num">05</span>
+									<p class="sSchedule__item-text">Торгуйте в удобное время, не превращая рынок в круглосуточную вахту.
+									</p>
+								</div>
+							</div>
+							<p class="sSchedule__conclusion">Вы не подстраиваете жизнь под рынок. Вы проверяете, где рынок может работать под Ваше расписание.
+							</p>
+						</div>
+					</div>
+				</section>
+				<!-- end sSchedule-->
+				<!-- start sWhere-->
+				<section class="sWhere section section--canvas" id="sWhere">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 16 / СОВМЕСТИМОСТЬ ]</span>
+						</div>
+						<div class="section-title">
+							<h2>Где можно использовать Радар?</h2>
+						</div>
+						<div class="sWhere__body">
+							<p class="sWhere__lead">Везде, где есть MetaTrader&nbsp;5.
+							</p>
+							<div class="sWhere__cards">
+								<div class="sWhere__card">
+									<p class="sWhere__card-desc">Логика Волн Вульфа не привязана к одному рынку. Радар Вульфа можно использовать на разных инструментах, рынках и таймфреймах — главное, чтобы у Вас был доступ к терминалу MetaTrader&nbsp;5.
+									</p>
+									<p class="sWhere__card-subtitle">Радар работает на:
+									</p>
+									<div class="sWhere__tags"><span class="sWhere__tag">Forex</span><span class="sWhere__tag">золото и серебро</span><span class="sWhere__tag">криптовалюты</span><span class="sWhere__tag">акции</span><span class="sWhere__tag">индексы</span><span class="sWhere__tag">фьючерсы РФ и США</span>
+									</div>
+									<p class="sWhere__card-note">Таймфреймы — от М1 до D1.
+									</p>
+									<p class="sWhere__card-desc">Можно использовать Радар для внутридневной торговли, среднесрочных сделок, исследования рынков, сканирования широкого рынка.
+									</p>
+									<p class="sWhere__card-desc">Одна логика. Разные рынки. Разные инструменты. Разные стили торговли.
+									</p>
+								</div>
+								<div class="sWhere__card">
+									<p class="sWhere__card-subtitle">Что нужно технически?
+									</p>
+									<p class="sWhere__card-desc">Терминал MetaTrader&nbsp;5. В России этот терминал можно получить у брокеров:
+									</p>
+									<div class="sWhere__tags"><span class="sWhere__tag">Финам</span><span class="sWhere__tag">Альфа-Форекс</span><span class="sWhere__tag sWhere__tag--neutral">или другой брокер с доступом к MetaTrader&nbsp;5.</span>
+									</div>
+									<p class="sWhere__card-desc">За пределами России — подойдет любой брокер, у которого есть MetaTrader&nbsp;5 и нужные Вам инструменты.
+									</p>
+								</div>
+							</div>
+							<div class="sWhere__footer">
+								<div class="sWhere__footer-item">
+									<p class="sWhere__footer-title">Для ручного и полуавтоматического режима не нужен мощный компьютер.
+									</p>
+									<p class="sWhere__footer-text">Достаточно обычного домашнего компьютера или ноутбука, на котором стабильно работает MetaTrader&nbsp;5.
+									</p>
+								</div>
+								<div class="sWhere__footer-item">
+									<p class="sWhere__footer-title">Радар Вульфа не привязывает Вас к одному рынку.
+									</p>
+									<p class="sWhere__footer-text">Вы сами выбираете, где искать лучшие возможности: на Forex, металлах, криптовалютах, акциях, индексах или фьючерсах.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sWhere-->
+				<!-- start sAudience-->
+				<section class="sAudience section" id="sAudience">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 17 / КОМУ ]</span>
+						</div>
+						<div class="sAudience__intro">
+							<div class="section-title">
+								<h2>КТО ПОЛУЧИТ МАКСИМАЛЬНУЮ ПОЛЬЗУ УЖЕ В ПЕРВЫЕ НЕДЕЛИ?</h2>
+							</div>
+							<div class="sAudience__lead-group">
+								<p class="sAudience__lead">Тот, кто хочет зарабатывать просто, легко и системно
+								</p>
+								<p class="sAudience__sublead">Радар Вульфа подойдет Вам, если Вы хотите не просто смотреть на график, а видеть понятные торговые ситуации, проверять их статистикой и принимать решения по готовому плану.
+								</p>
+							</div>
+						</div>
+						<div class="sAudience__body">
+							<div class="sAudience__cards">
+								<div class="sAudience__card sAudience__card--icon-1">
+									<div class="sAudience__icon"><img src="img/wolfe/sAudience/magnific-sprite.webp" alt="" aria-hidden="true" loading="lazy"/></div>
+									<p class="sAudience__card-title">Новичок</p>
+									<div class="sAudience__card-body">
+										<p>Не нужно годами учиться ручной разметке Волн Вульфа. Радар прямо на графике покажет ключевые точки паттерна и входа/выхода.</p>
+										<p>Вы быстрее поймете логику сделки и не утонете в линиях, спорных точках и субъективных разметках.</p>
+									</div>
+								</div>
+								<div class="sAudience__card sAudience__card--icon-2">
+									<div class="sAudience__icon"><img src="img/wolfe/sAudience/magnific-sprite.webp" alt="" aria-hidden="true" loading="lazy"/></div>
+									<p class="sAudience__card-title">Занятые люди</p>
+									<div class="sAudience__card-body">
+										<p>Не нужно жить у терминала. Радар следит за рынком, сканирует до 100 графиков и сообщает, когда появляется ситуация, достойная Вашего внимания.</p>
+										<p>Вы можете подключаться только по уведомлению: когда формируется паттерн, появляется точка входа или нужно проверить конкретный актив.</p>
+									</div>
+								</div>
+								<div class="sAudience__card sAudience__card--icon-3">
+									<div class="sAudience__icon"><img src="img/wolfe/sAudience/magnific-sprite.webp" alt="" aria-hidden="true" loading="lazy"/></div>
+									<p class="sAudience__card-title">Опытный трейдер</p>
+									<div class="sAudience__card-body">
+										<p>Опытные трейдеры знают, насколько это ценный паттерн и насколько сложно его отслеживать вручную.</p>
+										<p>Автоматический инструмент, который в реальном времени мониторит рынки и сообщает, на каком активе и таймфрейме сейчас формируется паттерн Волн Вульфа&nbsp;— это мечта, которая исполнилась сегодня.</p>
+									</div>
+								</div>
+								<div class="sAudience__card sAudience__card--icon-4">
+									<div class="sAudience__icon"><img src="img/wolfe/sAudience/magnific-sprite.webp" alt="" aria-hidden="true" loading="lazy"/></div>
+									<p class="sAudience__card-title">Любитель автоматизации</p>
+									<div class="sAudience__card-body">
+										<p>Если Вам нравится системный подход к трейдингу, Радар объединяет в одном месте поиск паттернов, статистику, сканер, уведомления, риск-менеджмент, тестирование и трейдинг с помощью торгового робота.</p>
+									</div>
+								</div>
+								<div class="sAudience__card sAudience__card--icon-5">
+									<div class="sAudience__icon"><img src="img/wolfe/sAudience/magnific-sprite.webp" alt="" aria-hidden="true" loading="lazy"/></div>
+									<p class="sAudience__card-title">Осторожный трейдер</p>
+									<div class="sAudience__card-body">
+										<p>Не обязательно сразу переходить к реальной торговле или включать робота.</p>
+										<p>Можно начать поэтапно:</p>
+										<ol>
+											<li>поставить Радар на график;</li>
+											<li>проверить статистику и убедиться, что это работает;</li>
+											<li>изучить визуальную отработку;</li>
+											<li>проверить разные активы;</li>
+											<li>потренироваться на демо;</li>
+											<li>и только потом переходить к сделкам.</li>
+										</ol>
+										<p>Радар позволяет сначала получить уверенность, а уже потом рисковать деньгами.</p>
+									</div>
+								</div>
+								<div class="sAudience__card sAudience__card--icon-6">
+									<div class="sAudience__icon"><img src="img/wolfe/sAudience/magnific-sprite.webp" alt="" aria-hidden="true" loading="lazy"/></div>
+									<p class="sAudience__card-title">Активный трейдер</p>
+									<div class="sAudience__card-body">
+										<p>Если Вам нужны не случайные входы, а регулярный поток качественных возможностей, используйте портфель активов и торгуйте с помощью сканера.</p>
+										<p>Не нужно выжимать сделки из одного графика. Соберите несколько активов и таймфреймов, отслеживайте их через сканер и выбирайте лучшие ситуации.</p>
+										<p>Так Вы получаете больше потенциальных сигналов не за счет мусорных входов, а за счет ширины обзора рынка.</p>
+									</div>
+								</div>
+							</div>
+							<div class="sAudience__cta">
+								<div class="sAudience__cta-glow">
+									<div class="orbit-figure"><span class="orbit-figure__glow"></span><span class="orbit-figure__ring orbit-figure__ring--r1"></span><span class="orbit-figure__ring orbit-figure__ring--r2"></span><span class="orbit-figure__ring orbit-figure__ring--r3"></span><span class="orbit-figure__orbit orbit-figure__orbit--mid"><span class="orbit-figure__dot orbit-figure__dot--big"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--mid orbit-figure__orbit--alt"><span class="orbit-figure__dot"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--outer"><span class="orbit-figure__dot"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--outer orbit-figure__orbit--alt2"><span class="orbit-figure__dot"></span></span></div>
+								</div>
+								<div class="sAudience__cta-left">
+									<p class="sAudience__cta-title">Монетизируйте свободное время
+									</p>
+									<p class="sAudience__cta-text">У Вас есть час утром, вечер после работы или несколько свободных промежутков в течение дня? Радар помогает использовать это время с пользой:
+									</p>
+									<div class="sAudience__cta-list">
+										<ol>
+											<li>быстро проверить рынок;</li>
+											<li>найти понятную торговую ситуацию;</li>
+											<li>забрать профит.</li>
+										</ol>
+									</div>
+									<p class="sAudience__cta-sublead">Радар Вульфа — гибкий инструмент, который уже в первую неделю выведет Ваш трейдинг на новый уровень.
+									</p>
+								</div>
+								<a class="sAudience__btn btn btn-primary" href="#sForm"><span>Выбрать версию доступа к Радару</span>
+									<svg class="icon icon-arrow-right ">
+										<use xlink:href="img/svg/sprite.svg#arrow-right"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sAudience-->
+				<!-- start sAuthor-->
+				<section class="sAuthor section section--canvas" id="sAuthor">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 18 / АВТОР ]</span>
+						</div>
+						<div class="sAuthor__body">
+							<div class="sAuthor__intro">
+								<div class="sAuthor__left">
+									<div class="sAuthor__decor" aria-hidden="true">
+										<div class="orbit-figure"><span class="orbit-figure__glow"></span><span class="orbit-figure__ring orbit-figure__ring--r1"></span><span class="orbit-figure__ring orbit-figure__ring--r2"></span><span class="orbit-figure__ring orbit-figure__ring--r3"></span><span class="orbit-figure__orbit orbit-figure__orbit--mid"><span class="orbit-figure__dot orbit-figure__dot--big"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--mid orbit-figure__orbit--alt"><span class="orbit-figure__dot"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--outer"><span class="orbit-figure__dot"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--outer orbit-figure__orbit--alt2"><span class="orbit-figure__dot"></span></span></div>
+									</div>
+									<div class="sAuthor__photo-wrap"><img class="sAuthor__photo" src="img/wolfe/sAuthor/author-chamin-full.webp" alt="Владимир Чамин" width="420" loading="lazy"/>
+									</div>
+									<div class="sAuthor__stat-cards">
+										<div class="sAuthor__stat-card"><span class="sAuthor__stat-value">+253%</span><span class="sAuthor__stat-label">рекорд доходности, 2014</span>
+										</div>
+										<div class="sAuthor__stat-card"><span class="sAuthor__stat-value">с 2003</span><span class="sAuthor__stat-label">в трейдинге</span>
+										</div>
+									</div>
+								</div>
+								<div class="sAuthor__right"><span class="sAuthor__name">ВЛАДИМИР ЧАМИН</span>
+									<div class="sAuthor__bio-wrap">
+										<p>Я алготрейдер и управляющий, в трейдинге с 2003 года. И у меня есть принцип: я ненавижу сложность. Я убежден: доход в трейдинге должен приходить комфортно — без паники, без бессмысленных часов у монитора и без постоянного ощущения, что рынок вот-вот накажет.</p>
+										<p>Поэтому в моих продуктах всегда на первом месте три вещи:</p>
+									</div>
+									<div class="sAuthor__pills"><span class="sAuthor__pill">простота</span><span class="sAuthor__pill">автоматизация</span><span class="sAuthor__pill">надёжность</span>
+									</div>
+									<p class="sAuthor__bio-sub">Именно с этими постулатами создавался Радар Вульфа.
+									</p>
+									<p class="sAuthor__bio-muted">
+										Это не очередной «черный ящик», где Вы не понимаете, что происходит внутри. Это инструмент, который автоматизирует поиск редкого профессионального паттерна, упрощает торговлю по Волнам Вульфа и позволяет быть уверенным в надежности этого дохода.
+										
+									</p>
+									<div class="sAuthor__fact-card"><span class="sAuthor__fact-head">Коротко обо мне — по делу</span>
+										<p class="sAuthor__fact-sub">Разработал технологии для упрощения автотрейдинга:
+										</p>
+										<div class="sAuthor__tags"><span class="sAuthor__tag">Радар Вульфа</span><span class="sAuthor__tag">Арбитр</span><span class="sAuthor__tag">Титан</span><span class="sAuthor__tag">Нейробот</span><span class="sAuthor__tag">Автотренд</span><span class="sAuthor__tag">TradingVision.PRO</span><span class="sAuthor__tag">Cyclon</span><span class="sAuthor__tag sAuthor__tag--muted">и другие решения для системной торговли.</span>
+										</div>
+										<div class="sAuthor__fact-body">
+											<p>Согласно опросу, 80% учеников заявили, что бросили бы трейдинг, если бы не получили доступ к одной из этих технологий.</p>
+											<p>В кризисном 2014 году установил личный рекорд доходности в автоматическом трейдинге:&nbsp;<strong>+253% прибыли к депозиту.</strong></p>
+											<p>Мои ученики&nbsp;<strong>профессионально управляют капиталом инвесторов.</strong></p>
+											<p><strong>11 лет руководил офисом Альпари в Екатеринбурге&nbsp;</strong>и знаю индустрию трейдинга изнутри: со стороны трейдеров, брокеров, управляющих и разработчиков торговых систем.</p>
+										</div>
+										<p class="sAuthor__fact-sub sAuthor__fact-sub--muted">Учился у лучших мировых алготрейдеров:
+										</p>
+										<div class="sAuthor__tags"><span class="sAuthor__tag">Томас Неснедал (Чехия)</span><span class="sAuthor__tag">Кевин Дейви (США)</span><span class="sAuthor__tag">Эрнест Чан (США)</span><span class="sAuthor__tag">Андреас Кленоу (Швейцария)</span><span class="sAuthor__tag">Том Бассо (США)</span>
+										</div>
+										<div class="sAuthor__fact-body">
+											<p>Мой принцип — убрать «черный ящик» и дать трейдеру контроль: понятные правила, быстрое тестирование, гибкость настроек и возможность управлять портфелем, а не зависеть от одного сигнала.</p>
+											<p>Радар Вульфа продолжает эту философию.</p>
+											<p>Он берет ценный паттерн, который руками сложно искать и размечать, и превращает его в понятный торговый процесс: от поиска сигнала до получения профита.</p>
+											<p>Ваша задача — жить. Задача торговой системы — искать возможности и приносить Вам прибыль.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sAuthor__reviews"><span class="sAuthor__reviews-title">Вот что говорят ученики, которые пользуются моими разработками:</span>
+								<div class="sAuthor__slider">
+									<div class="sAuthor__reviews-swiper swiper">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide sAuthor__slide"><a class="sAuthor__review-link" href="img/wolfe/sAuthor/otzyv-1.webp" data-fancybox="sAuthor-reviews" aria-label="Отзыв ученика 1"><img class="sAuthor__review-img" src="img/wolfe/sAuthor/otzyv-1.webp" alt="Отзыв ученика 1" loading="lazy"/></a></div>
+											<div class="swiper-slide sAuthor__slide"><a class="sAuthor__review-link" href="img/wolfe/sAuthor/otzyv-2.webp" data-fancybox="sAuthor-reviews" aria-label="Отзыв ученика 2"><img class="sAuthor__review-img" src="img/wolfe/sAuthor/otzyv-2.webp" alt="Отзыв ученика 2" loading="lazy"/></a></div>
+											<div class="swiper-slide sAuthor__slide"><a class="sAuthor__review-link" href="img/wolfe/sAuthor/otzyv-3.webp" data-fancybox="sAuthor-reviews" aria-label="Отзыв ученика 3"><img class="sAuthor__review-img" src="img/wolfe/sAuthor/otzyv-3.webp" alt="Отзыв ученика 3" loading="lazy"/></a></div>
+											<div class="swiper-slide sAuthor__slide"><a class="sAuthor__review-link" href="img/wolfe/sAuthor/otzyv-4.webp" data-fancybox="sAuthor-reviews" aria-label="Отзыв ученика 4"><img class="sAuthor__review-img" src="img/wolfe/sAuthor/otzyv-4.webp" alt="Отзыв ученика 4" loading="lazy"/></a></div>
+											<div class="swiper-slide sAuthor__slide"><a class="sAuthor__review-link" href="img/wolfe/sAuthor/otzyv-5.webp" data-fancybox="sAuthor-reviews" aria-label="Отзыв ученика 5"><img class="sAuthor__review-img" src="img/wolfe/sAuthor/otzyv-5.webp" alt="Отзыв ученика 5" loading="lazy"/></a></div>
+											<div class="swiper-slide sAuthor__slide"><a class="sAuthor__review-link" href="img/wolfe/sAuthor/otzyv-6.webp" data-fancybox="sAuthor-reviews" aria-label="Отзыв ученика 6"><img class="sAuthor__review-img" src="img/wolfe/sAuthor/otzyv-6.webp" alt="Отзыв ученика 6" loading="lazy"/></a></div>
+											<div class="swiper-slide sAuthor__slide"><a class="sAuthor__review-link" href="img/wolfe/sAuthor/otzyv-7.webp" data-fancybox="sAuthor-reviews" aria-label="Отзыв ученика 7"><img class="sAuthor__review-img" src="img/wolfe/sAuthor/otzyv-7.webp" alt="Отзыв ученика 7" loading="lazy"/></a></div>
+											<div class="swiper-slide sAuthor__slide"><a class="sAuthor__review-link" href="img/wolfe/sAuthor/otzyv-8.webp" data-fancybox="sAuthor-reviews" aria-label="Отзыв ученика 8"><img class="sAuthor__review-img" src="img/wolfe/sAuthor/otzyv-8.webp" alt="Отзыв ученика 8" loading="lazy"/></a></div>
+										</div>
+									</div>
+									<div class="sAuthor__reviews-nav">
+										<button class="sAuthor__nav-btn sAuthor__nav-btn--prev" type="button" aria-label="Предыдущий">
+											<svg viewBox="0 0 26 26" width="26" height="26" aria-hidden="true">
+												<polygon points="18,5 8,13 18,21" fill="currentColor"></polygon>
+											</svg>
+										</button>
+										<div class="sAuthor__rdots swiper-pagination"></div>
+										<button class="sAuthor__nav-btn sAuthor__nav-btn--next" type="button" aria-label="Следующий">
+											<svg viewBox="0 0 26 26" width="26" height="26" aria-hidden="true">
+												<polygon points="8,5 18,13 8,21" fill="currentColor"></polygon>
+											</svg>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sAuthor-->
+				<!-- start sKit-->
+				<section class="sKit section" id="sKit">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 19 / КОМПЛЕКТ ]</span>
+						</div>
+						<div class="section-title">
+							<h2>ЧТО ВХОДИТ В КОМПЛЕКТ РАДАРА ВУЛЬФА?</h2>
+						</div>
+						<div class="sKit__lead">Вы получите торговый комбайн, обучение, поддержку и практическое сопровождение, чтобы быстрее встроить Волны Вульфа в свой трейдинг и перейти к получению результатов. В комплект входит:
+						</div>
+						<div class="sKit__body">
+							<div class="sKit__row">
+								<div class="sKit__panel"><span class="sKit__panel-tag">Основной продукт</span>
+									<div class="sKit__panel-title">Радар Вульфа для MetaTrader 5
+									</div>
+									<ul class="sKit__panel-list">
+										<li>автоматическая разметка Волн Вульфа;</li>
+										<li>сканер рынка до 100 графиков;</li>
+										<li>визуальный тестер;</li>
+										<li>статистика стратегии прямо на графике;</li>
+										<li>риск-менеджер для расчета объема позиции;</li>
+										<li>уведомления о формировании паттернов и точках входа;</li>
+									</ul>
+								</div>
+								<div class="sKit__checks">
+									<div class="sKit__check-item"><span class="sKit__check-mark">✓</span><span class="sKit__check-text">обучение работе с системой</span>
+									</div>
+									<div class="sKit__check-item"><span class="sKit__check-mark">✓</span><span class="sKit__check-text">мастер-группа с разбором продвинутых нюансов работы с Радаром Вульфа;</span>
+									</div>
+									<div class="sKit__check-item"><span class="sKit__check-mark">✓</span><span class="sKit__check-text">стратегические хакатоны;</span>
+									</div>
+									<div class="sKit__check-item"><span class="sKit__check-mark">✓</span><span class="sKit__check-text">поддержка на весь срок лицензии лично от Владимира Чамина;</span>
+									</div>
+									<div class="sKit__check-item"><span class="sKit__check-mark">✓</span><span class="sKit__check-text">робот для автоматического исполнения сделок* (*опционально).</span>
+									</div>
+								</div>
+							</div>
+							<div class="sKit__row">
+								<div class="sKit__panel">
+									<div class="sKit__panel-top"><span class="sKit__panel-tag">Обучение</span>
+										<div class="sKit__panel-title">Обучение работе с Радаром
+										</div>
+										<p class="sKit__panel-desc">Чтобы Вы быстро разобрались с системой, в комплект входит видеокурс по установке, настройке и практическому использованию Радара Вульфа.
+										</p>
+									</div>
+									<p class="sKit__panel-desc sKit__panel-desc--strong">Главная задача видеокурса — чтобы Вы по шагам прошли весь путь: от первого запуска и проверки стратегии до портфеля, уведомлений и реальной торговли.
+									</p>
+								</div>
+								<div class="sKit__checks">
+									<div class="sKit__check-item"><span class="sKit__check-mark">✓</span><span class="sKit__check-text">установку и запуск Радара Вульфа;</span>
+									</div>
+									<div class="sKit__check-item"><span class="sKit__check-mark">✓</span><span class="sKit__check-text">поиск прибыльных активов и таймфреймов;</span>
+									</div>
+									<div class="sKit__check-item"><span class="sKit__check-mark">✓</span><span class="sKit__check-text">создание торгового портфеля;</span>
+									</div>
+									<div class="sKit__check-item"><span class="sKit__check-mark">✓</span><span class="sKit__check-text">работу с уведомлениями и сигналами;</span>
+									</div>
+									<div class="sKit__check-item"><span class="sKit__check-mark">✓</span><span class="sKit__check-text">практическую торговлю вручную;</span>
+									</div>
+									<div class="sKit__check-item"><span class="sKit__check-mark">✓</span><span class="sKit__check-text">настройку автоторговли для желающих</span>
+									</div>
+								</div>
+							</div>
+							<div class="sKit__row sKit__row--equal">
+								<div class="sKit__card sKit__card--main">
+									<div class="sKit__card-inner"><span class="sKit__panel-tag">Продвинутая ценность комплекта</span>
+										<div class="sKit__card-title">Мастер-группа с Владимиром Чаминым
+										</div>
+										<p class="sKit__card-desc">Это 6 онлайн-занятий с Владимиром Чаминым, где мы будем практически разбирать рынки, инструменты, таймфреймы и стратегии. Пару занятий мы посвятим продвинутым нюансам работы с Радаром Вульфа и созданию устойчивых портфелей, для надежного заработка.
+										</p>
+									</div>
+									<p class="sKit__card-desc sKit__card-desc--strong">Мастер-группа – это практическая лаборатория, где Вы вместе с автором системы учитесь искать самые интересные возможности и исследовать новые рынки.
+									</p>
+								</div>
+								<div class="sKit__card">
+									<p class="sKit__card-title sKit__card-title--sm">Главный формат остальных занятий — стратегические хакатоны, на которых мы будем:
+									</p>
+									<ul class="sKit__card-list">
+										<li>брать рынки и активы, которые Вам интересны;</li>
+										<li>исследовать их с помощью Радара, прогонять на разных таймфреймах;</li>
+										<li>искать самые сильные связки;</li>
+										<li>детально анализировать статистику;</li>
+										<li>отбирать самые сильные активы/таймфреймы, помечать слабые варианты, на которых торговать не стоит;</li>
+										<li>собирать портфели для разных рынков и брокеров;</li>
+										<li>разбирать реальные счета и реальные торговые ситуации;</li>
+										<li>анализировать торговлю стратегий и корректировать результаты.</li>
+									</ul>
+								</div>
+							</div>
+							<div class="sKit__row sKit__row--support">
+								<div class="sKit__card"><span class="sKit__panel-tag">Поддержка</span>
+									<div class="sKit__card-title">Поддержка на весь срок лицензии
+									</div>
+									<p class="sKit__card-desc">Вы же планируете зарабатывать трейдингом не один год? Вопрос из реальной торговли может возникнуть у Вас и через 2 года трейдинга с Радаром.
+									</p>
+									<p class="sKit__card-desc">Поэтому в комплект входит поддержка лично от Владимира Чамина на весь срок лицензии на Радар Вульфа!
+									</p>
+									<p class="sKit__card-desc">Сам Радар – технологичный инструмент. Вам может понадобиться техническая помощь.
+									</p>
+									<p class="sKit__card-desc">В технических моментах Вам может помочь Служба Заботы Инфоклуба.
+									</p>
+								</div>
+							</div>
+							<div class="sKit__cta-banner">
+								<div class="sKit__cta-ellipse" aria-hidden="true">
+									<div class="orbit-figure"><span class="orbit-figure__glow"></span><span class="orbit-figure__ring orbit-figure__ring--r1"></span><span class="orbit-figure__ring orbit-figure__ring--r2"></span><span class="orbit-figure__ring orbit-figure__ring--r3"></span><span class="orbit-figure__orbit orbit-figure__orbit--mid"><span class="orbit-figure__dot orbit-figure__dot--big"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--mid orbit-figure__orbit--alt"><span class="orbit-figure__dot"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--outer"><span class="orbit-figure__dot"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--outer orbit-figure__orbit--alt2"><span class="orbit-figure__dot"></span></span></div>
+								</div>
+								<div class="sKit__cta-text">
+									<p class="sKit__cta-heading">Мы очень хотим помочь Вам получить высокие результаты.
+									</p>
+									<p class="sKit__cta-desc">Поэтому Вы получите не «голый индикатор», а систему, обучение, практику, поддержку и среду, где можно быстрее прийти к реальным результатам и забирать профит.
+									</p>
+									<p class="sKit__cta-desc">Радар Вульфа дает Вам не только технологию, но и путь внедрения этой технологии в Ваш трейдинг.
+									</p>
+								</div>
+								<a class="sKit__btn btn btn-primary" href="#sForm"><span>Забрать Радар Вульфа в максимальной комплектации!</span>
+									<svg class="icon icon-arrow-right ">
+										<use xlink:href="img/svg/sprite.svg#arrow-right"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sKit-->
+				<!-- start sBenefits-->
+				<section class="sBenefits section section--canvas" id="sBenefits">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 20 / ВЫГОДЫ ]</span>
+						</div>
+						<div class="sBenefits__body">
+							<div class="section-title">
+								<h2>ЧТО ВЫ НА САМОМ ДЕЛЕ ПРИОБРЕТАЕТЕ ВМЕСТЕ С РАДАРОМ ВУЛЬФА?</h2>
+							</div>
+							<p class="sBenefits__lead">Большинство трейдеров приходят на рынок за свободой и дополнительным доходом. А получают совсем другое:
+							</p>
+							<div class="sBenefits__list">
+								<div class="sBenefits__list-item">
+									<div class="sBenefits__list-icon">
+										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+											<path d="M12 4L4 12M4 4L12 12" stroke="#FF4144" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"></path>
+										</svg>
+									</div><span class="sBenefits__list-text">часами смотрят в графики;</span>
+								</div>
+								<div class="sBenefits__list-item">
+									<div class="sBenefits__list-icon">
+										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+											<path d="M12 4L4 12M4 4L12 12" stroke="#FF4144" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"></path>
+										</svg>
+									</div><span class="sBenefits__list-text">сомневаются перед каждой сделкой;</span>
+								</div>
+								<div class="sBenefits__list-item">
+									<div class="sBenefits__list-icon">
+										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+											<path d="M12 4L4 12M4 4L12 12" stroke="#FF4144" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"></path>
+										</svg>
+									</div><span class="sBenefits__list-text">боятся пропустить вход и боятся входить;</span>
+								</div>
+								<div class="sBenefits__list-item">
+									<div class="sBenefits__list-icon">
+										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+											<path d="M12 4L4 12M4 4L12 12" stroke="#FF4144" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"></path>
+										</svg>
+									</div><span class="sBenefits__list-text">не знают, работает ли их стратегия вообще;</span>
+								</div>
+								<div class="sBenefits__list-item">
+									<div class="sBenefits__list-icon">
+										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+											<path d="M12 4L4 12M4 4L12 12" stroke="#FF4144" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"></path>
+										</svg>
+									</div><span class="sBenefits__list-text">торгуют один-два инструмента и выдумывают сделки вместо того, чтобы дожидаться качественных сигналов;</span>
+								</div>
+								<div class="sBenefits__list-item">
+									<div class="sBenefits__list-icon">
+										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+											<path d="M12 4L4 12M4 4L12 12" stroke="#FF4144" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"></path>
+										</svg>
+									</div><span class="sBenefits__list-text">постоянно испытывают стресс из-за неопределённости.</span>
+								</div>
+							</div>
+							<div class="section-title">
+								<h2>РАДАР ВУЛЬФА СОЗДАН ДЛЯ ТОГО, ЧТОБЫ УБРАТЬ ЭТИ ПРОБЛЕМЫ ИЗ ТРЕЙДИНГА</h2>
+							</div>
+							<div class="sBenefits__cards-grid">
+								<div class="sBenefits__cards-row">
+									<div class="sBenefits__card">
+										<p class="sBenefits__card-title">Готовую систему торговли по Волнам Вульфа
+										</p>
+										<p class="sBenefits__card-text">Не нужно самостоятельно изучать сложную разметку паттерна и годами нарабатывать насмотренность. Радар сам найдёт и покажет торговую ситуацию.
+										</p>
+									</div>
+									<div class="sBenefits__card">
+										<p class="sBenefits__card-title">Готовый торговый план по каждой сделке
+										</p>
+										<p class="sBenefits__card-text">Все ключевые точки появляются прямо на графике.
+										</p>
+									</div>
+									<div class="sBenefits__card">
+										<p class="sBenefits__card-title">Уверенность перед входом в сделку
+										</p>
+										<p class="sBenefits__card-text">Вы можете за секунды проверить статистику стратегии на любом активе и таймфрейме, прежде чем рисковать деньгами.
+										</p>
+									</div>
+								</div>
+								<div class="sBenefits__cards-row">
+									<div class="sBenefits__card">
+										<p class="sBenefits__card-title">Экономию огромного количества времени
+										</p>
+										<p class="sBenefits__card-text">Не нужно вручную открывать десятки графиков, искать точки и строить линии. Радар делает это автоматически.
+										</p>
+									</div>
+									<div class="sBenefits__card">
+										<p class="sBenefits__card-title">Защиту от большинства типичных ошибок трейдера
+										</p>
+										<p class="sBenefits__card-text">Ошибки в разметке, эмоциональные входы, отсутствие стопа, торговля «на глаз», попытки угадать рынок — всё это становится значительно менее вероятным.
+										</p>
+									</div>
+									<div class="sBenefits__card">
+										<p class="sBenefits__card-title">Меньше решений — меньше ошибок
+										</p>
+										<p class="sBenefits__card-text">Внимание — ресурс психики человека, он имеет свойство заканчиваться. Радар защищает Вас от когнитивных ошибок, забирая на себя рутинные процессы.
+										</p>
+									</div>
+								</div>
+								<div class="sBenefits__cards-row">
+									<div class="sBenefits__card">
+										<p class="sBenefits__card-title">Возможность торговать тогда, когда удобно Вам
+										</p>
+										<p class="sBenefits__card-text">Утром, вечером, несколько часов после работы или в свободные промежутки дня.
+										</p>
+									</div>
+									<div class="sBenefits__card">
+										<p class="sBenefits__card-title">Постоянный поток торговых возможностей
+										</p>
+										<p class="sBenefits__card-text">Вместо ожидания сигнала на одном графике Вы наблюдаете сразу целый список активов через сканер и портфель инструментов.
+										</p>
+									</div>
+									<div class="sBenefits__card">
+										<p class="sBenefits__card-title">Возможность быстро находить лучшие активы и таймфреймы
+										</p>
+										<p class="sBenefits__card-text">Вы не привязываетесь к одному инструменту. Радар помогает искать там, где сейчас есть наиболее интересные возможности.
+										</p>
+									</div>
+								</div>
+								<div class="sBenefits__cards-row sBenefits__cards-row--four">
+									<div class="sBenefits__card">
+										<p class="sBenefits__card-title">Гибкость в работе
+										</p>
+										<p class="sBenefits__card-text">Можно торговать вручную, использовать уведомления и отложенные ордера или полностью автоматизировать исполнение через робота.
+										</p>
+									</div>
+									<div class="sBenefits__card">
+										<p class="sBenefits__card-title">Один инструмент для разных рынков
+										</p>
+										<p class="sBenefits__card-text">Forex, золото, серебро, криптовалюты, акции, индексы, российские и американские фьючерсы и т.д.
+										</p>
+									</div>
+									<div class="sBenefits__card">
+										<p class="sBenefits__card-title">Быстрый старт даже без опыта в трейдинге
+										</p>
+										<p class="sBenefits__card-text">Если Вы новичок, Радар покажет, где искать вход, где ставить стоп и где фиксировать прибыль.
+										</p>
+									</div>
+									<div class="sBenefits__card">
+										<p class="sBenefits__card-title">Поддержку и обучение
+										</p>
+										<p class="sBenefits__card-text">Вы получаете не просто программу, а готовую систему внедрения Радара Вульфа в свой трейдинг.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="sBenefits__featured">
+								<div class="sBenefits__featured-content"><span class="sBenefits__featured-label">САМАЯ ГЛАВНАЯ ВЫГОДА</span>
+									<p class="sBenefits__featured-heading">Радар Вульфа экономит не только деньги, но и годы обучения.
+									</p>
+									<p class="sBenefits__featured-body">То, что раньше требовало опыта, насмотренности и постоянной ручной работы, теперь доступно через готовую систему поиска и сопровождения сделок.
+									</p>
+									<p class="sBenefits__featured-body">Уже через неделю использования Радара Ваш трейдинг перейдёт на качественно новый уровень. Вы перестанете тратить часы на то, что программа умеет делать за секунды.
+									</p>
+								</div><img class="sBenefits__featured-img" src="img/wolfe/sBenefits/chart-trading.webp" alt="" aria-hidden="true" loading="lazy" width="516" height="522"/><img class="sBenefits__featured-glow" src="img/wolfe/sBenefits/glow.svg" alt="" aria-hidden="true" loading="lazy" width="972" height="1004"/>
+							</div>
+							<div class="sBenefits__closing">
+								<p class="sBenefits__closing-p">Сегодня у Вас есть возможность начать торговать по одному из самых интересных разворотных паттернов рынка. Вы уже понимаете, что получите. Осталось выбрать формат доступа и начать пользоваться Радаром Вульфа уже сегодня.
+								</p>
+								<p class="sBenefits__closing-cta">Всего один шаг. Радар может стать Вашим через секунды… ↓↓↓
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sBenefits-->
+				<!-- start sForm-->
+				<section class="sForm section" id="sForm">
+					<!-- тот же свечной график, что и в sReliability (общие SVG-файлы)-->
+					<div class="sForm__decor" aria-hidden="true"><img class="sForm__decor-img --g1" src="img/wolfe/sReliability/decor-g1.svg" alt="" loading="lazy"/><img class="sForm__decor-img --g2" src="img/wolfe/sReliability/decor-g2.svg" alt="" loading="lazy"/><img class="sForm__decor-img --g3" src="img/wolfe/sReliability/decor-g3.svg" alt="" loading="lazy"/><img class="sForm__decor-img --g4" src="img/wolfe/sReliability/decor-g4.svg" alt="" loading="lazy"/><img class="sForm__decor-img --g5" src="img/wolfe/sReliability/decor-g5.svg" alt="" loading="lazy"/><img class="sForm__decor-img --g6" src="img/wolfe/sReliability/decor-g6.svg" alt="" loading="lazy"/><img class="sForm__decor-img --v1" src="img/wolfe/sReliability/decor-v1.svg" alt="" loading="lazy"/><img class="sForm__decor-img --v2" src="img/wolfe/sReliability/decor-v2.svg" alt="" loading="lazy"/><img class="sForm__decor-img --v3" src="img/wolfe/sReliability/decor-v3.svg" alt="" loading="lazy"/>
+					</div>
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 21 / ЗАКАЗ ]</span>
+						</div>
+						<div class="sForm__body">
+							<div class="section-title">
+								<h2>ДО ПОЛУЧЕНИЯ РАДАРА ОСТАЛОСЬ НЕСКОЛЬКО СЕКУНД</h2>
+							</div>
+							<p class="sForm__lead">Введите Ваши данные, чтобы выбрать подходящий вариант доступа, и начните использовать Радар Вульфа уже сегодня.
+							</p>
+							<div class="sForm__grid">
+								<div class="sForm__order">
+									<form class="sForm__form js-form-validate" data-parsley-validate="" action="#" method="post">
+										<input type="hidden" name="order" value="Заявка с сайта «Радар Вульфа»"/><span class="sForm__form-title">Ваши данные</span>
+										<div class="sForm__field form-group">
+											<input class="form-control sForm__input" type="text" name="fullname" placeholder="Ваши ФИО" required="required"/>
+										</div>
+										<div class="sForm__field form-group">
+											<input class="form-control sForm__input" type="email" name="email" placeholder="Ваш e-mail" required="required"/>
+										</div>
+										<div class="sForm__field form-group">
+											<input class="form-control sForm__input" type="tel" name="phone" placeholder="Ваш телефон" inputmode="tel" required="required"/>
+										</div>
+										<label class="sForm__agree form-check">
+											<input class="form-check-input sForm__agree-check" type="checkbox" name="oferta" value="1" checked="checked" required="required"/><span class="sForm__agree-text">Я согласен с условиями <a class="tdu" href="#" target="_blank">оферты</a> и лицензионного договора</span>
+										</label>
+										<button class="sForm__submit btn btn-primary" type="submit"><span>Продолжить</span>
+										</button>
+									</form>
+								</div>
+								<div class="sForm__kit"><span class="sForm__kit-title">Что входит в комплект?</span>
+									<div class="sForm__kit-list">
+										<div class="sForm__kit-item"><span class="sForm__kit-check">✓</span><span class="sForm__kit-text">Радар Вульфа для MetaTrader 5</span>
+										</div>
+										<div class="sForm__kit-item"><span class="sForm__kit-check">✓</span><span class="sForm__kit-text">Автоматическая разметка Волн Вульфа</span>
+										</div>
+										<div class="sForm__kit-item"><span class="sForm__kit-check">✓</span><span class="sForm__kit-text">Сканер рынка до 100 графиков</span>
+										</div>
+										<div class="sForm__kit-item"><span class="sForm__kit-check">✓</span><span class="sForm__kit-text">Статистика стратегии на графике</span>
+										</div>
+										<div class="sForm__kit-item"><span class="sForm__kit-check">✓</span><span class="sForm__kit-text">Визуальный тестер</span>
+										</div>
+										<div class="sForm__kit-item"><span class="sForm__kit-check">✓</span><span class="sForm__kit-text">Риск-менеджер</span>
+										</div>
+										<div class="sForm__kit-item"><span class="sForm__kit-check">✓</span><span class="sForm__kit-text">Уведомления о сигналах</span>
+										</div>
+										<div class="sForm__kit-item"><span class="sForm__kit-check">✓</span><span class="sForm__kit-text">Обучающий видеокурс</span>
+										</div>
+										<div class="sForm__kit-item"><span class="sForm__kit-check">✓</span><span class="sForm__kit-text">Мастер-группа с Владимиром Чаминым</span>
+										</div>
+										<div class="sForm__kit-item"><span class="sForm__kit-check">✓</span><span class="sForm__kit-text">Поддержка на весь срок лицензии</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sForm__trust">
+								<div class="sForm__trust-item"><span class="sForm__trust-check">✓</span><span class="sForm__trust-text">Официальная лицензия</span>
+								</div>
+								<div class="sForm__trust-item"><span class="sForm__trust-check">✓</span><span class="sForm__trust-text">Оплата юридическому лицу</span>
+								</div>
+								<div class="sForm__trust-item"><span class="sForm__trust-check">✓</span><span class="sForm__trust-text">Чек после оплаты</span>
+								</div>
+								<div class="sForm__trust-item"><span class="sForm__trust-check">✓</span><span class="sForm__trust-text">Служба заботы на связи</span>
+								</div>
+								<div class="sForm__trust-item"><span class="sForm__trust-check">✓</span><span class="sForm__trust-text">Доступ сразу после оплаты</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sForm-->
+				<!-- start sFaq-->
+				<section class="sFaq section section--canvas" id="sFaq">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 22 / FAQ ]</span>
+						</div>
+						<div class="section-title">
+							<h2>ЕСТЬ ВОПРОСЫ? РАЗБЕРЁМ ЧАСТЫЕ</h2>
+						</div>
+						<div class="sFaq__body">
+							<div class="dd-group dd-group-js">
+								<div class="dd-group__item active">
+									<div class="dd-group__head dd-head-js">
+										<div>
+											<div class="dd-group__title">Мне обязательно уметь строить Волны Вульфа вручную?
+											</div>
+											<div class="text-secondary"></div>
+										</div>
+										<div class="dd-group__arrow">
+										</div>
+									</div>
+									<div class="dd-group__content dd-content-js active">
+										<p>Нет. Именно для этого создан Радар. Он самостоятельно находит паттерн, чертит линии и показывает готовый торговый план прямо на графике.</p>
+									</div>
+								</div>
+								<div class="dd-group__item">
+									<div class="dd-group__head dd-head-js">
+										<div>
+											<div class="dd-group__title">Я новичок. Смогу разобраться?
+											</div>
+											<div class="text-secondary"></div>
+										</div>
+										<div class="dd-group__arrow">
+										</div>
+									</div>
+									<div class="dd-group__content dd-content-js">
+										<p>Да. Радар показывает вход, стоп, цель, время выхода и риск прямо на графике. Плюс пошаговое обучение, поддержка и тест на демо.</p>
+									</div>
+								</div>
+								<div class="dd-group__item">
+									<div class="dd-group__head dd-head-js">
+										<div>
+											<div class="dd-group__title">Мне обязательно использовать торгового робота?
+											</div>
+											<div class="text-secondary"></div>
+										</div>
+										<div class="dd-group__arrow">
+										</div>
+									</div>
+									<div class="dd-group__content dd-content-js">
+										<p>Нет. Робот — опция отдельно. Сам Радар подходит для ручной торговли, с неё начинают большинство.</p>
+									</div>
+								</div>
+								<div class="dd-group__item">
+									<div class="dd-group__head dd-head-js">
+										<div>
+											<div class="dd-group__title">Можно ли сначала проверить систему без риска для денег?
+											</div>
+											<div class="text-secondary"></div>
+										</div>
+										<div class="dd-group__arrow">
+										</div>
+									</div>
+									<div class="dd-group__content dd-content-js">
+										<p>Да. Демо-счёт, тесты на истории, изучение статистики и визуальная отработка до реальной торговли.</p>
+									</div>
+								</div>
+								<div class="dd-group__item">
+									<div class="dd-group__head dd-head-js">
+										<div>
+											<div class="dd-group__title">Что если рынок изменится и настройки перестанут работать?
+											</div>
+											<div class="text-secondary"></div>
+										</div>
+										<div class="dd-group__arrow">
+										</div>
+									</div>
+									<div class="dd-group__content dd-content-js">
+										<p>Встроены статистика, тестирование и портфельный подход: быстро проверяете другие рынки и адаптируете портфель.</p>
+									</div>
+								</div>
+								<div class="dd-group__item">
+									<div class="dd-group__head dd-head-js">
+										<div>
+											<div class="dd-group__title">Сколько времени нужно уделять торговле?
+											</div>
+											<div class="text-secondary"></div>
+										</div>
+										<div class="dd-group__arrow">
+										</div>
+									</div>
+									<div class="dd-group__content dd-content-js">
+										<p>Столько, сколько удобно. Кто-то торгует пару часов, кто-то проверяет утром и вечером, кто-то по уведомлениям.</p>
+									</div>
+								</div>
+								<div class="dd-group__item">
+									<div class="dd-group__head dd-head-js">
+										<div>
+											<div class="dd-group__title">Я покупал индикаторы, которые не помогают. Чем Радар отличается?
+											</div>
+											<div class="text-secondary"></div>
+										</div>
+										<div class="dd-group__arrow">
+										</div>
+									</div>
+									<div class="dd-group__content dd-content-js">
+										<p>Радар показывает весь процесс: паттерн, вход, стоп, цель, время, риск, объём, статистику и другие активы с возможностями. Это система принятия решений, а не отдельный сигнал.</p>
+									</div>
+								</div>
+								<div class="dd-group__item">
+									<div class="dd-group__head dd-head-js">
+										<div>
+											<div class="dd-group__title">Мне придётся много сидеть перед графиком?
+											</div>
+											<div class="text-secondary"></div>
+										</div>
+										<div class="dd-group__arrow">
+										</div>
+									</div>
+									<div class="dd-group__content dd-content-js">
+										<p>Нет. Сканер мониторит до 100 активов и пришлёт уведомление, когда появится паттерн или вход.</p>
+									</div>
+								</div>
+								<div class="dd-group__item">
+									<div class="dd-group__head dd-head-js">
+										<div>
+											<div class="dd-group__title">Что делать, если через несколько месяцев или даже лет работы у меня возникнут вопросы?
+											</div>
+											<div class="text-secondary"></div>
+										</div>
+										<div class="dd-group__arrow">
+										</div>
+									</div>
+									<div class="dd-group__content dd-content-js">
+										<p>В комплекте поддержка на весь срок лицензии: Владимир Чамин и Служба Заботы Инфоклуба.</p>
+									</div>
+								</div>
+							</div>
+							<div class="sFaq__lead">
+								<p>Я вообще не понимаю, подойдет ли мне этот стиль торговли.</p>
+								<p>Как мне разобраться, с моими личными вопросами по Радару Вульфа?</p>
+							</div>
+							<div class="sFaq__consult">
+								<div class="sFaq__consult-info">
+									<p class="sFaq__consult-title">Получите бесплатную консультацию специалиста Инфоклуба
+									</p>
+									<div class="sFaq__consult-body">
+										<p>Мы свяжемся с Вами голосом, ответим на любые вопросы, поможем разобраться в возможностях Радара Вульфа и подскажем, подойдет ли этот инструмент именно под Ваши цели, опыт и стиль торговли.</p>
+										<p>Для этого просто оставьте свои контактные данные и дождитесь звонка специалиста.</p>
+									</div>
+								</div>
+								<a class="sFaq__btn btn btn-primary" href="#sForm"><span>Заказать бесплатную консультацию</span>
+									<svg class="icon icon-arrow-right ">
+										<use xlink:href="img/svg/sprite.svg#arrow-right"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sFaq-->
+				<!-- start sFinal-->
+				<section class="sFinal section" id="sFinal">
+					<div class="container">
+						<div class="section-head"><span class="section-head__num">[ 23 / ВЫВОД ]</span>
+						</div>
+						<div class="section-title">
+							<h2>ТРЕЙДИНГ ДАВНО ИЗМЕНИЛСЯ.<br/>МЕНЯЕТСЯ ЛИ ВАШ ПОДХОД?</h2>
+						</div>
+						<div class="sFinal__body">
+							<div class="sFinal__intro">
+								<p class="sFinal__lead">Сегодня трейдеры еще вручную ищут паттерны, перелистывают графики и часами сидят у терминала.<br/>Хотя алгоритмы уже давно умеют делать это быстрее, точнее и без эмоций.<br/>Вопрос уже не в том, стоит ли автоматизировать часть работы.
+								</p>
+								<p class="sFinal__lead sFinal__lead--group">Вопрос в другом.<br/><span class="sFinal__lead-accent">Продолжать делать всё вручную?</span><br/><span class="sFinal__lead-positive">Или использовать инструменты, которые позволяют получать кратно больше возможностей?</span>
+								</p>
+								<p class="sFinal__lead sFinal__lead--group">Радар Вульфа создан, чтобы дать Вам простой, понятный и удобный процесс работы с рынком.<br/>Чтобы Вы тратили меньше времени на поиск сделок и больше времени на то, ради чего вообще пришли в трейдинг.
+								</p>
+							</div>
+							<p class="sFinal__errors-head">5 ошибок, из-за которых Волны Вульфа не приносят результат
+							</p>
+							<div class="sFinal__errors">
+								<div class="sFinal__errors-row">
+									<div class="sFinal__ecard"><span class="sFinal__ecard-num">01</span>
+										<p class="sFinal__ecard-title">Искать Волны Вульфа вручную
+										</p>
+										<p class="sFinal__ecard-body">Хорошие паттерны редки. Их легко пропустить или увидеть там, где их нет.
+										</p>
+									</div>
+									<div class="sFinal__ecard"><span class="sFinal__ecard-num">02</span>
+										<p class="sFinal__ecard-title">Торговать один-два инструмента
+										</p>
+										<p class="sFinal__ecard-body">Редкие сигналы превращаются в месяцы ожидания и упущенные возможности.
+										</p>
+									</div>
+									<div class="sFinal__ecard"><span class="sFinal__ecard-num">03</span>
+										<p class="sFinal__ecard-title">Торговать без статистики
+										</p>
+										<p class="sFinal__ecard-body">Вместо фактов приходится надеяться, что стратегия работает
+										</p>
+									</div>
+								</div>
+								<div class="sFinal__errors-row">
+									<div class="sFinal__ecard"><span class="sFinal__ecard-num">04</span>
+										<p class="sFinal__ecard-title">Принимать решения вручную на реальном капитале
+										</p>
+										<p class="sFinal__ecard-body">Эмоции, усталость, сомнения и ошибки стоят денег.
+										</p>
+									</div>
+									<div class="sFinal__ecard"><span class="sFinal__ecard-num">05</span>
+										<p class="sFinal__ecard-title">Игнорировать время выхода
+										</p>
+										<p class="sFinal__ecard-body">Цена может прийти к цели слишком поздно. Геометрия сделки уже перестала работать. А капитал может зависнуть
+										</p>
+									</div>
+									<div class="sFinal__ecard sFinal__ecard--quote">
+										<p class="sFinal__ecard-quote">После таких ошибок трейдеры говорят: «Волны Вульфа не работают».<br/><br/>Но проблема не в паттерне. Проблема в том, что человек пытается делать то, что алгоритм делает быстрее, точнее и без эмоций.</p>
+									</div>
+								</div>
+							</div>
+							<div class="sFinal__twin">
+								<div class="sFinal__twin-col sFinal__twin-col--dark">
+									<p class="sFinal__twin-title">Человек — самое слабое звено в трейдинге.
+									</p>
+									<p class="sFinal__twin-body">Не потому, что плохой.&nbsp;<span class="sFinal__twin-danger">А потому, что человек устаёт, сомневается, отвлекается, боится, жадничает и не может следить за десятками инструментов сразу.</span></p>
+									<p class="sFinal__twin-text">В трейдинге не нужно героически бороться со своими слабостями. Нужно просто убрать человека из тех задач, где алгоритм объективно сильнее.
+									</p>
+									<p class="sFinal__twin-text">Пусть система ищет, считает, проверяет и отслеживает рынок.<br/>А Вы будете принимать решения, имея перед собой готовую картину.</p>
+								</div>
+								<div class="sFinal__twin-col sFinal__twin-col--accent">
+									<p class="sFinal__twin-title">Представьте, что у Вас появился собственный центр управления трейдингом!
+									</p>
+									<p class="sFinal__twin-subhead">На одном экране Вы видите:
+									</p>
+									<ul class="sFinal__list">
+										<li>где формируется Волна Вульфа;</li>
+										<li>где входить в сделку;</li>
+										<li>где защищать капитал;</li>
+										<li>куда может прийти цена;</li>
+										<li>когда движение должно завершиться;</li>
+										<li>как стратегия работала раньше;</li>
+										<li>где еще прямо сейчас есть интересные возможности.</li>
+									</ul>
+									<p class="sFinal__twin-outro">Вы больше не охотник, который часами высматривает добычу.<br/>У Вас появляется радар, с ним Вы просто собираете профит, который появляется на рынках.
+									</p>
+								</div>
+							</div>
+							<div class="sFinal__cta-block">
+								<div class="orbit-figure sFinal__cta-bg" aria-hidden="true"><span class="orbit-figure__glow"></span><span class="orbit-figure__ring orbit-figure__ring--r1"></span><span class="orbit-figure__ring orbit-figure__ring--r2"></span><span class="orbit-figure__ring orbit-figure__ring--r3"></span><span class="orbit-figure__orbit orbit-figure__orbit--mid"><span class="orbit-figure__dot orbit-figure__dot--big"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--mid orbit-figure__orbit--alt"><span class="orbit-figure__dot"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--outer"><span class="orbit-figure__dot"></span></span><span class="orbit-figure__orbit orbit-figure__orbit--outer orbit-figure__orbit--alt2"><span class="orbit-figure__dot"></span></span></div>
+								<div class="sFinal__cta-inner">
+									<p class="sFinal__cta-title">Радар Вульфа оставляет Вам управление, а сам выполняет всю рутинную работу профессионального трейдера.
+									</p>
+									<p class="sFinal__cta-sub">Включите систему, которая работает вместе с Вами и для Вас.
+									</p>
+								</div>
+								<a class="sFinal__btn btn btn-primary" href="#sForm"><span>Получите Радар Вульфа сейчас</span>
+									<svg class="icon icon-arrow-right ">
+										<use xlink:href="img/svg/sprite.svg#arrow-right"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sFinal-->
+			</main>
+			<footer class="footer section">
+				<div class="footer__container container">
+					<div class="before">
+						<svg class="footer__logo-svg" width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M12.8948 0.112088C9.97445 0.474633 7.30197 1.67077 5.11637 3.59348C2.38099 5.99991 0.672099 9.20686 0.193504 12.8316C-0.114646 15.1659 0.152596 17.5863 0.97475 19.908C1.24314 20.6659 1.92827 22.0408 2.40849 22.7853C2.79872 23.3903 3.3936 24.1738 3.90016 24.7501L4.13195 25.0137L4.16934 24.5638C4.24257 23.6829 4.44544 22.9738 4.8033 22.3478C5.00685 21.9918 5.68155 21.3205 6.05921 21.0983C6.33824 20.934 6.37522 20.8926 6.3891 20.7282C6.4056 20.5322 6.40062 20.524 5.79511 19.7483C5.43772 19.2905 5.07677 18.5585 4.9288 17.9915C4.78994 17.4593 4.73704 16.3405 4.82273 15.7468C4.9046 15.179 5.10165 14.389 5.27273 13.9425C5.52462 13.285 6.06989 12.202 6.42246 11.659L6.76634 11.1294V9.99535C6.76634 9.37163 6.78168 8.8613 6.80044 8.8613C6.81919 8.8613 8.22753 9.33032 9.93013 9.90352C11.6327 10.4768 13.1789 10.9794 13.3662 11.0206C13.8103 11.1182 14.8228 11.1173 15.2257 11.019C15.3985 10.9768 16.9129 10.4769 18.5911 9.90799L21.6422 8.87375V9.98449V11.0953L21.9778 11.5621C22.8181 12.7313 23.4227 14.0054 23.7474 15.2917C23.9054 15.9178 23.918 16.0302 23.915 16.7936C23.9125 17.4644 23.8908 17.6985 23.799 18.0447C23.6361 18.6592 23.2769 19.3544 22.8228 19.9346C22.4667 20.3894 22.4282 20.4611 22.4405 20.6466C22.4534 20.8427 22.4728 20.8637 22.8342 21.0725C24.0452 21.7723 24.6909 22.9244 24.8147 24.6062C24.8346 24.877 24.8624 25.0986 24.8764 25.0986C24.8904 25.0986 25.0376 24.9489 25.2035 24.7659C28.2912 21.3583 29.6123 16.8505 28.865 12.2729C28.4003 9.42604 27.0544 6.7028 25.0807 4.61595C22.8857 2.29502 20.2328 0.833025 17.1637 0.252953C16.4843 0.124545 16.3072 0.113419 14.7543 0.101813C13.8324 0.0949452 12.9956 0.0995769 12.8948 0.112088ZM14.8282 3.53886C15.1893 3.5865 16.6577 4.06473 23.1086 6.23553C24.8361 6.81683 25.0196 6.92778 24.7212 7.21036C24.6464 7.28116 22.9716 7.86896 20.0201 8.86028C15.3481 10.4295 15.2001 10.4757 14.6469 10.5375C13.9734 10.6127 13.697 10.5342 8.92255 8.91102C6.43194 8.06428 4.32093 7.32817 4.23147 7.2752C4.03159 7.15691 3.99434 6.97319 4.14357 6.84164C4.26839 6.73154 4.43659 6.67218 9.64681 4.89822C13.8845 3.45533 13.9884 3.42807 14.8282 3.53886ZM8.28535 12.8776C8.28535 12.9491 8.31123 13.0238 8.34287 13.0436C8.3745 13.0635 8.46879 13.1894 8.55239 13.3234C8.78762 13.7004 8.76772 13.9897 8.48178 14.3476C8.03398 14.908 7.95908 15.0162 7.80131 15.3296C7.56125 15.8066 7.44623 16.2332 7.4137 16.767C7.31339 18.4124 8.35806 19.7845 9.93458 20.0782C10.9901 20.2749 12.1287 19.901 12.9443 19.0899L13.2504 18.7855L13.2844 19.0805C13.3565 19.7042 13.7939 20.6077 14.3294 21.2389L14.5101 21.4519L14.7107 21.2174C15.221 20.6211 15.6668 19.7838 15.7481 19.2692C15.8278 18.764 15.7925 18.7732 16.1967 19.1536C17.265 20.1589 18.7741 20.4119 20.0184 19.7943C20.3091 19.65 20.5151 19.4929 20.8105 19.19C21.431 18.5538 21.6946 17.8844 21.6946 16.9446C21.6946 16.0713 21.402 15.2901 20.8038 14.566C20.6375 14.3645 20.4751 14.1501 20.4432 14.0894C20.3164 13.8487 20.4129 13.4879 20.7038 13.1145C20.9762 12.7651 20.9155 12.7258 20.1611 12.7637C18.9522 12.8243 17.7722 13.1115 16.8495 13.5696C16.1027 13.9403 15.6691 14.3559 15.3565 15.0003C14.9737 15.7898 14.9029 16.5127 15.1222 17.3935C15.1576 17.5353 15.1537 17.5388 15.0187 17.4867C14.836 17.4161 14.1739 17.4167 14.0437 17.4876C13.9225 17.5535 13.921 17.5345 14.0215 17.1978C14.1217 16.862 14.1205 16.1187 14.019 15.6811C13.6545 14.1097 12.232 13.1804 9.64723 12.8253C9.34474 12.7837 8.91454 12.7492 8.6913 12.7487C8.29557 12.7476 8.28535 12.7509 8.28535 12.8776ZM10.5199 14.2359C9.88655 14.9483 9.8644 16.0097 10.4685 16.6914C11.3847 17.7251 13.0519 16.8036 13.0519 15.2635C13.0519 14.935 13.1037 14.9358 13.2702 15.2667C13.5111 15.7457 13.5912 16.4548 13.4667 17.0066C13.2245 18.0804 12.2969 18.9776 11.1781 19.2205C10.8033 19.3017 10.69 19.3058 10.34 19.2506C8.59267 18.9748 7.75862 17.1503 8.63274 15.5159C8.96357 14.8974 9.5662 14.3746 10.2267 14.1332C10.6813 13.9671 10.7403 13.9878 10.5199 14.2359ZM18.9368 14.1535C19.7979 14.4829 20.4255 15.1651 20.7291 16.1016C20.8571 16.4963 20.8565 17.2009 20.7278 17.5922C20.5491 18.1354 20.123 18.6861 19.6735 18.9548C19.4276 19.1017 18.7289 19.2962 18.4518 19.2949C18.126 19.2933 17.5429 19.143 17.2016 18.9727C16.1119 18.4288 15.4153 17.1299 15.6124 16.0091C15.6772 15.6408 15.846 15.212 16.0056 15.0102C16.0857 14.909 16.0883 14.9143 16.0593 15.1167C16.0197 15.3929 16.1573 15.9911 16.3289 16.2886C16.8891 17.2602 18.1299 17.4151 18.7459 16.5905C19.2284 15.9444 19.1652 14.8692 18.6065 14.2225C18.4005 13.984 18.4608 13.9714 18.9368 14.1535Z" fill="var(--text-strong)"></path>
+						</svg>
+					</div>
+					<div class="row">
+						<div class="col-md col-lg-5">
+							<div class="footer__left-col">
+								<div class="footer__txt footer__txt--h6">
+									<p>
+										<script>
+											function InfoDVDCurrentYear(year) {
+												var cur = new Date();
+												if (cur.getFullYear() != year)
+													document.write('© ' + year + '&mdash;' + cur.getFullYear() + " ");
+												else document.write(year);
+											}
+											InfoDVDCurrentYear('2008 ');
+										</script><br>Проект <a href="//www.infoclub.info/" target="_blank">«Инфоклуб»</a><br>
+										
+										<script src="//info-dvd.ru/codes/js/legal.utf8.js"></script>
+									</p>
+								</div>
+								<div class="footer__txt">
+									<p><a class="tdu" href="//info-dvd.ru/professional/" target="_blank" title="экспертам-авторам (инфо-продюсирование)">экспертам-авторам (инфо-продюсирование)</a><br/><a class="tdu" href="//info-dvd.ru/about/partnership" target="_blank" title="партнёрская программа">партнёрская программа</a><br/><a class="tdu" href="//info-dvd.ru/pages/privacy" target="_blank" title="политика конфиденциальности"> политика конфиденциальности</a><br/><a class="tdu" href="//info-dvd.ru/pages/risk-warning" target="_blank" title="предупреждение о рисках"> предупреждение о рисках</a><br/><a class="tdu" href="https://tradingvision.pro/docs/oferta.pdf" target="_blank" title="лицензионный договор-оферта"> лицензионный договор-оферта</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-5 col-lg-4 ms-lg-auto">
+							<div class="footer__right-col">
+								<div class="footer__txt footer__txt--support text-lg-end">
+									<h6>Служба поддержки:</h6>
+									<p><a href="//info.support-desk.ru/form" target="_blank" title="Задать свой вопрос">Задать свой вопрос</a><a href="//info.support-desk.ru/?base=1" target="_blank" title="Частые вопросы и ответы на них">Частые вопросы и ответы на них</a></p>
+								</div>
+								<div class="footer__txt text-lg-end">
+									<h6>Позвоните нам:</h6>
+									<p><span>
+											<script src="//info-dvd.ru/codes/js/telephone-number.js"></script></span><br/>или<a class="tdu" href="//info-dvd.ru/support/apply/" target="_blank">оставьте свой номер</a>&nbsp;и мы вам перезвоним</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+		<!--  start modals-->
+		<div id="modal-call" style="display: none">
+			<div class="modal-win">
+				<div class="form-wrap">
+					<form>
+						<div class="text-center">
+							<div class="form-wrap__title form-data h3 ttu">Обратный звонок
+							</div>
+							<p class="after-headline">Заполните заявку и&nbsp;мы&nbsp;с&nbsp;Вами свяжемся в&nbsp;течение 15&nbsp;минут</p>
+						</div>
+						<div class="form-wrap__input-wrap form-group">
+							<label><span class="form-wrap__input-title">Имя</span><input class="form-wrap__input form-control" inputmode="text" name="text" type="text" placeholder="Ваше Имя" required="required"/>
+							</label>
+						</div>
+						<!-- +e.input-wrap-->
+						<div class="form-wrap__input-wrap form-group">
+							<label><span class="form-wrap__input-title">Телефон</span><input class="form-wrap__input form-control" inputmode="tel" name="tel" type="tel" placeholder="Ваше телефон" required="required"/>
+							</label>
+						</div>
+						<!-- +e.input-wrap-->
+						<button class="form-wrap__btn btn" type="submit">submit
+						</button>
+						<div class="form-wrap__policy">
+							<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><small class="custom-input__text text-secondary">Согласен на обработку и хранение моих персональных данных в соответствии с условиями</small>
+							</label>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- #modal-call-->
+		<!-- end modals-->
+		<script src="libs/jquery/jquery.min.js"></script>
+		<script src="libs/@fancyapps/ui/fancybox/fancybox.umd.js"> </script>
+		<script src="libs/swiper/swiper-bundle.min.js"> </script>
+		<script src="libs/inputmask/inputmask.min.js"></script>
+		<script src="js/JSCCommon.js"></script>
+		<script src="js/common.js"></script>
+	</body>
+</html>

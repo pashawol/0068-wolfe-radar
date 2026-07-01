@@ -1,0 +1,320 @@
+// start .sPain
+.sPain {
+	background: var(--bg-inverse);
+
+	// h2 override: Display/H2 = 60px Bold lh 1 tracking -1.5px, uppercase
+	.section-title {
+		h2 {
+			font-size: rem(32);
+			line-height: 1;
+			letter-spacing: -0.025em;
+			text-transform: uppercase;
+
+			@include media-breakpoint-up(md) {
+				font-size: rem(44);
+			}
+
+			@include media-breakpoint-up(lg) {
+				font-size: rem(60);
+			}
+		}
+	}
+
+	// ---------- body wrapper (gap-40 from Figma) ----------
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-40);
+	}
+
+	// ---------- lead (two paragraphs, SemiBold 21px, text-secondary) ----------
+	&__lead {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__lead-p {
+		margin: 0;
+		font-weight: 600;
+		font-size: rem(21);
+		line-height: 1.5;
+		color: var(--text-secondary);
+	}
+
+	// ---------- trader cards row ----------
+	&__traders {
+		// mobile: constrain the swiper to the container so the wrapper overflows
+		// and Swiper can actually scroll (otherwise it grows to fit all slides)
+		width: 100%;
+		min-width: 0;
+		overflow: hidden;
+		padding-top: var(--space-16);
+
+		@include media-breakpoint-up(md) {
+			overflow: visible;
+		}
+	}
+
+	.swiper-slide {
+		height: auto;
+		// mobile: card ~80% of the screen so the NEXT slide peeks in (drag to scroll)
+		max-width: 80vw;
+
+		// desktop: equal 3 columns → (100% - 2×20px gap) / 3
+		@include media-breakpoint-up(md) {
+			--maw: calc((100% - 40px) / 3);
+			max-width: max(rem(260), var(--maw));
+		}
+	}
+
+	&__trader {
+		display: flex;
+		align-items: center;
+		gap: var(--space-24);
+		padding: var(--space-28);
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+		height: 100%;
+	}
+
+	// image sprite container — 73×76px, clipping viewport
+	&__trader-img {
+		position: relative;
+		overflow: hidden;
+		flex-shrink: 0;
+		width: rem(73);
+		height: rem(76);
+	}
+
+	// sprite — full width of the 3-panel image, positioned per card
+	&__sprite {
+		position: absolute;
+		width: 424.61%;
+		height: 115.09%;
+		max-width: none;
+		top: -7.17%;
+		left: -18.75%; // card 1 (default, no data-n)
+
+		&[data-n="2"] {
+			left: -161.97%;
+		}
+
+		&[data-n="3"] {
+			left: -312.35%;
+		}
+	}
+
+	&__trader-info {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-14);
+		flex: 1 0 0;
+		min-width: 0;
+	}
+
+	&__trader-label {
+		display: block;
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		line-height: 1;
+		letter-spacing: 0.04em;
+		color: var(--accent);
+		white-space: nowrap;
+	}
+
+	&__trader-text {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(17);
+		line-height: 1.5;
+		color: var(--text-primary);
+	}
+
+	// ---------- pain text (28:116) ----------
+	&__pain-text {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	&__pain-p {
+		margin: 0 0 rem(21);
+		font-weight: 500;
+		font-size: rem(21);
+		line-height: 1.5;
+		color: var(--text-strong);
+
+		&--bold {
+			font-weight: 700;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// ---------- accent bridge (28:117) ----------
+	&__accent-line {
+		margin: 0;
+		font-weight: 600;
+		font-size: rem(21);
+		line-height: 1.5;
+		color: var(--accent);
+	}
+
+	// ---------- list box (28:118) ----------
+	&__list-box {
+		padding: var(--space-24) var(--space-20);
+		background: var(--bg-surface);
+		border: 1px solid var(--border-default);
+		border-radius: var(--radius-md);
+
+		@include media-breakpoint-up(md) {
+			padding: var(--space-40) var(--space-44);
+		}
+	}
+
+	&__list-title {
+		margin: 0 0 var(--space-24);
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		color: var(--text-strong);
+	}
+
+	&__list-cols {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		align-items: flex-start;
+
+		@include media-breakpoint-up(lg) {
+			flex-direction: row;
+			gap: var(--space-48);
+		}
+	}
+
+	&__list-col {
+		flex: 1 0 0;
+		min-width: 0;
+	}
+
+	&__list-item {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--space-14);
+		min-height: rem(24);
+		padding: rem(10) 0;
+		border-bottom: 1px solid var(--border-default);
+
+		&:first-child {
+			border-top: 1px solid var(--border-default);
+		}
+
+		@include media-breakpoint-up(lg) {
+			padding: rem(8) 0;
+			border-bottom: none;
+
+			&:first-child {
+				border-top: none;
+			}
+		}
+
+		p {
+			margin: 0;
+			font-weight: 500;
+			font-size: rem(16);
+			line-height: 1.45;
+			color: var(--text-secondary);
+			flex: 1 0 0;
+			min-width: 0;
+		}
+	}
+
+	&__arrow {
+		flex-shrink: 0;
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		line-height: 1;
+		color: var(--accent);
+		padding-top: rem(2);
+	}
+
+	// ---------- two-column editorial text (53:545) ----------
+	&__two-col {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-24);
+		align-items: flex-start;
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+		}
+	}
+
+	&__col {
+		flex: 1 0 0;
+		min-width: 0;
+	}
+
+	&__col-p {
+		margin: 0 0 rem(12);
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-strong);
+
+		&--bold {
+			font-weight: 700;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// ---------- XL display heading (53:546) Display/H2-XL 68px ----------
+	&__xl-title {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(34);
+		line-height: 1.05;
+		letter-spacing: -0.03em;
+		color: var(--text-strong);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(48);
+		}
+
+		@include media-breakpoint-up(xl) {
+			font-size: rem(68);
+			line-height: 0.98;
+		}
+	}
+
+	// ---------- body text (53:547) 21px Medium text-strong ----------
+	&__body-text {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(21);
+		line-height: 1.5;
+		color: var(--text-strong);
+	}
+
+	// ---------- closing accent text (53:548) ----------
+	&__accent-close {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__close-p {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(21);
+		line-height: 1.5;
+		color: var(--accent);
+	}
+
+} // end .sPain

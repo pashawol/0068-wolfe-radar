@@ -1,0 +1,262 @@
+.sNotify {
+	background: var(--bg-inverse);
+	// Override section-title margin to match Figma's 24px h2→lead gap
+	--sTPB: #{rem(24)};
+
+	// Section header: border-bottom + combined label left, channels right (invisible)
+	.section-head {
+		border-bottom: 1px solid var(--border-default);
+		height: rem(60);
+		padding-top: rem(20);
+		padding-bottom: rem(20);
+	}
+	.section-head__tag {
+		opacity: 0;
+	}
+
+	// Override section-title h2 for this block
+	.section-title {
+		h2 {
+			font-size: rem(28);
+			line-height: 1.02;
+			letter-spacing: -0.025em;
+			text-transform: uppercase;
+
+			@include media-breakpoint-up(sm) { font-size: rem(36); }
+			@include media-breakpoint-up(md) { font-size: rem(44); }
+			@include media-breakpoint-up(lg) { font-size: rem(56); }
+		}
+	}
+
+	// ---- body ----
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: rem(32);
+		padding-top: 0;
+
+		@include media-breakpoint-up(md) {
+			gap: rem(40);
+		}
+	}
+
+	// ---- lead paragraph ----
+	&__lead {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-secondary);
+
+		@include media-breakpoint-up(md) { font-size: rem(21); }
+	}
+
+	// ---- notify block ----
+	&__notify-block {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+	}
+
+	&__notify-label {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-secondary);
+
+		@include media-breakpoint-up(md) { font-size: rem(21); }
+	}
+
+	// ---- notification cards ----
+	&__cards {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: rem(16);
+
+		@include media-breakpoint-up(md) {
+			grid-template-columns: 1fr 1fr;
+			gap: rem(24);
+		}
+	}
+
+	&__card {
+		display: flex;
+		flex-direction: column;
+		gap: rem(14);
+		padding: rem(32);
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+	}
+
+	&__card-tag {
+		display: block;
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		line-height: 1;
+		letter-spacing: 0.04em;
+		color: var(--accent);
+		text-transform: uppercase;
+	}
+
+	&__card-title {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		color: var(--text-strong);
+	}
+
+	&__card-img {
+		flex: 1 1 0;
+		min-height: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: rem(4);
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	// Card 1 – push notification: crop to 512×263 window (matches Figma, hides
+	// the android nav bar at the bottom of the source screenshot)
+	&__card:first-child &__card-img img {
+		width: 100%;
+		max-width: rem(512);
+		height: auto;
+		aspect-ratio: 512 / 263;
+		object-fit: cover;
+		object-position: center top;
+		border-radius: rem(23);
+	}
+
+	// Card 2 – MT5 alert screenshot (full width, landscape aspect ratio)
+	&__card:last-child &__card-img {
+		flex: none;
+	}
+	&__card:last-child &__card-img img {
+		aspect-ratio: 832 / 460;
+		border-radius: rem(7);
+		object-fit: cover;
+	}
+
+	// ---- channels note ----
+	&__channels {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-secondary);
+
+		@include media-breakpoint-up(md) { font-size: rem(21); }
+	}
+
+	// ---- filter box ----
+	&__filter {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+		padding: rem(28) rem(24);
+		background: var(--bg-surface);
+		border: 1px solid var(--border-default);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+
+		@include media-breakpoint-up(md) {
+			padding: rem(40) rem(44);
+		}
+	}
+
+	&__filter-inner {
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+	}
+
+	&__filter-heading {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		color: var(--text-strong);
+	}
+
+	&__filter-text {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-secondary);
+	}
+
+	// ---- scenarios ----
+	&__scenarios {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: rem(12);
+
+		@include media-breakpoint-up(sm) {
+			grid-template-columns: 1fr 1fr;
+			gap: rem(20);
+		}
+	}
+
+	&__scenario {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		padding: rem(24);
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+
+		&--positive {
+			background: rgba(95, 174, 132, 0.08);
+			border-color: var(--positive);
+		}
+	}
+
+	&__scenario-label {
+		display: block;
+		font-family: $font-family-code;
+		font-weight: 500;
+		font-size: rem(11);
+		line-height: 1;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+
+		.sNotify__scenario--positive & {
+			color: var(--positive);
+		}
+	}
+
+	&__scenario-text {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(18);
+		line-height: 1.4;
+		color: var(--text-primary);
+	}
+
+	// ---- conclusion ----
+	&__conclusion {
+		font-family: $font-family-grotesk;
+		font-weight: 700;
+		font-size: rem(24);
+		line-height: 1.02;
+		letter-spacing: -0.025em;
+		text-align: center;
+		text-transform: uppercase;
+		color: var(--accent);
+
+		@include media-breakpoint-up(sm) { font-size: rem(32); }
+		@include media-breakpoint-up(md) { font-size: rem(44); }
+		@include media-breakpoint-up(lg) { font-size: rem(56); }
+	}
+}

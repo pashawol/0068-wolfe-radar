@@ -1,0 +1,63 @@
+extends ../layout/main.pug
+
+include ../blocks/header/_header.pug
+include ../blocks/footer/_footerInfoclub.pug
+include ../blocks/sHero/_sHero.pug
+include ../blocks/sProblem/_sProblem.pug
+include ../blocks/sChange/_sChange.pug
+include ../blocks/sWolfe/_sWolfe.pug
+include ../blocks/sPain/_sPain.pug
+include ../blocks/sModules/_sModules.pug
+include ../blocks/sHow/_sHow.pug
+include ../blocks/sOnChart/_sOnChart.pug
+include ../blocks/sStats/_sStats.pug
+include ../blocks/sScanner/_sScanner.pug
+include ../blocks/sNotify/_sNotify.pug
+include ../blocks/sPortfolio/_sPortfolio.pug
+include ../blocks/sReliability/_sReliability.pug
+include ../blocks/sModes/_sModes.pug
+include ../blocks/sSchedule/_sSchedule.pug
+include ../blocks/sWhere/_sWhere.pug
+include ../blocks/sAudience/_sAudience.pug
+include ../blocks/sAuthor/_sAuthor.pug
+include ../blocks/sKit/_sKit.pug
+include ../blocks/sBenefits/_sBenefits.pug
+include ../blocks/sForm/_sForm.pug
+include ../blocks/sFaq/_sFaq.pug
+include ../blocks/sFinal/_sFinal.pug
+
+block variables
+	- let mainPage = 'main-page'
+	- let bg = ''
+
+block title
+	- let title = index.head.title
+	title= title
+
+block pagecontent
+	+header
+	main
+		+sHero
+		+sProblem
+		+sChange
+		+sWolfe
+		+sPain
+		+sModules
+		+sHow
+		+sOnChart
+		+sStats
+		+sScanner
+		+sNotify
+		+sPortfolio
+		+sReliability
+		+sModes
+		+sSchedule
+		+sWhere
+		+sAudience
+		+sAuthor
+		+sKit
+		+sBenefits
+		+sForm
+		+sFaq
+		+sFinal
+	+footer

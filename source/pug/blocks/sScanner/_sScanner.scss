@@ -1,0 +1,255 @@
+.sScanner {
+	// H2 sits in the same 24px-gap group as the intro lead in Figma (node 2003:591)
+	.section-title {
+		margin-bottom: rem(24);
+	}
+
+	// body wrapper — flex column with consistent gap between all sub-blocks
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: rem(40);
+	}
+
+	// ---- Intro text group ----
+	&__intro {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+	}
+
+	// Lead paragraph (single sentence)
+	&__lead {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(21);
+		}
+	}
+
+	// Rich text block with inline bold
+	&__lead-rich {
+		p {
+			margin: 0;
+			font-weight: 500;
+			font-size: rem(18);
+			line-height: 1.5;
+
+			strong {
+				font-weight: 700;
+			}
+		}
+
+		@include media-breakpoint-up(md) {
+			p {
+				font-size: rem(21);
+			}
+		}
+	}
+
+	// Scanner screenshot
+	&__screen {
+		border-radius: var(--radius-md);
+		overflow: hidden;
+	}
+	&__screen-img {
+		display: block;
+		width: 100%;
+		height: auto;
+		mix-blend-mode: darken; // blends white bg of screenshot with --bg-canvas
+	}
+
+	// ---- Features dark card ----
+	&__features {
+		background: var(--bg-inverse);
+		border-radius: var(--radius-md);
+		padding: rem(28) rem(20);
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+		overflow: hidden;
+
+		@include media-breakpoint-up(sm) {
+			padding: rem(40) rem(44);
+		}
+	}
+	&__features-hd {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		color: var(--text-strong);
+		max-width: rem(275);
+	}
+	&__features-grid {
+		display: flex;
+		flex-direction: column;
+		gap: rem(8);
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+			gap: rem(48);
+		}
+	}
+	&__features-col {
+		flex: 1 0 0;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+	}
+	&__feat-item {
+		display: flex;
+		align-items: center;
+		gap: rem(14);
+		min-height: rem(24);
+	}
+	&__feat-arrow {
+		flex-shrink: 0;
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		line-height: 1;
+		color: var(--accent);
+	}
+	&__feat-text {
+		flex: 1 0 0;
+		min-width: 0;
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-secondary);
+	}
+
+	// ---- Text + Video split ----
+	&__split {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+		align-items: flex-start;
+		padding-left: 0;
+
+		@include media-breakpoint-up(lg) {
+			flex-direction: row;
+			padding-left: rem(44);
+		}
+	}
+	&__split-text {
+		flex: 1 0 0;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+	}
+	&__split-hd {
+		margin: 0 0 rem(20);
+		font-family: $font-family-grotesk;
+		font-weight: 700;
+		font-size: rem(28);
+		line-height: 1.02;
+		letter-spacing: -0.025em;
+		color: var(--text-canvas);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(40);
+			margin: 0 0 rem(32);
+		}
+	}
+	&__split-body {
+		margin: 0 0 rem(20);
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-canvas);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(21);
+			margin: 0 0 rem(32);
+		}
+	}
+	&__split-cta {
+		margin: 0;
+		font-size: rem(18);
+		line-height: 1.5;
+
+		strong {
+			font-weight: 700;
+			color: var(--text-canvas);
+		}
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(21);
+		}
+	}
+
+	&__split-video {
+		flex: 1 0 0;
+		min-width: 0;
+	}
+	&__video-inner {
+		position: relative;
+		border: 1px solid rgba(29, 32, 36, 0.16);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+	}
+	// video frame uses the shared .video-embed (16:9) from _components.scss
+	&__video-caption {
+		display: flex;
+		flex-direction: column;
+		gap: rem(8);
+		padding: rem(16) rem(18);
+		background: var(--bg-canvas);
+	}
+	&__video-tag {
+		font-family: $font-family-code;
+		font-weight: 500;
+		font-size: rem(11);
+		line-height: 1;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--text-faint);
+	}
+	&__video-title {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(17);
+		line-height: 1.2;
+		color: var(--text-canvas);
+	}
+
+	// ---- CTA bar ----
+	&__cta-bar {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: rem(24);
+		padding: rem(28) rem(24);
+		background: var(--bg-inverse);
+		border-radius: var(--radius-md);
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+			align-items: center;
+			padding: rem(40);
+		}
+	}
+	&__cta-text {
+		flex: 1 0 0;
+		min-width: 0;
+		max-width: rem(720);
+		margin: 0;
+		font-family: $font-family-sans-serif;
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(23);
+		}
+	}
+}

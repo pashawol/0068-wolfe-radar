@@ -1,0 +1,82 @@
+include ../../_assets/bemto/bemto
+- set_bemto_settings({ modifier: "--" })
+include components/menu.pug
+include components/icon.pug
+include components/breadcrumb.pug
+include components/pugination.pug
+include components/soc.pug
+include components/pic.pug
+include components/img.pug
+include components/btn.pug
+
+include components/ddgroup.pug
+include components/badge.pug
+
+mixin arrow()
+	.swiper-button-hand.swiper-button-hand-prev.swiper-button-prev
+		+icon('chevron-left')
+	.swiper-button-hand.swiper-button-hand-next.swiper-button-next
+		+icon('chevron-right')
+//- /arrow for swiper-slider
+
+
+mixin addblock()
+	+b.addBlock
+		+e.btn--minus(type="button")
+		input(type="text" value="1"  inputmode='numeric')
+		+e.btn--plus(type="button")
+
+mixin search()
+	+b.search-block
+		form
+			input(type="text" placeholder="Поиск по номеру или названию запчасти" inputmode='search')
+			button 
+				+icon("search")
+
+mixin page-head(t,...items)
+	+b.page-head
+		- let l = items.length
+		.container
+			+breadcrumb('Главная',...items)
+
+			h1= t
+
+mixin parts(elem)
+	script.
+		addBlock(`#{elem}`)
+	div(id=`${elem}Wrap`)
+
+
+mixin defSlider()
+	+b.def-slider-wrap
+		+b.def-slider.def-swiper-js
+			.swiper
+				.swiper-wrapper
+					block
+		+arrow()
+		.control-wrap
+			.swiper-pagination
+
+//- section index header:  [ NN ]            TAGLINE
+mixin section-head(num, tag)
+	.section-head
+		span.section-head__num= '[ ' + num + ' ]'
+		if tag
+			span.section-head__tag= tag
+
+//- decorative orbit sphere (glowing core + rings + circling dots).
+//- size & position via .orbit-figure in the block scss. styles: _components.scss
+mixin orbitFigure()
+	.orbit-figure&attributes(attributes)
+		span.orbit-figure__glow
+		span.orbit-figure__ring.orbit-figure__ring--r1
+		span.orbit-figure__ring.orbit-figure__ring--r2
+		span.orbit-figure__ring.orbit-figure__ring--r3
+		span.orbit-figure__orbit.orbit-figure__orbit--mid
+			span.orbit-figure__dot.orbit-figure__dot--big
+		span.orbit-figure__orbit.orbit-figure__orbit--mid.orbit-figure__orbit--alt
+			span.orbit-figure__dot
+		span.orbit-figure__orbit.orbit-figure__orbit--outer
+			span.orbit-figure__dot
+		span.orbit-figure__orbit.orbit-figure__orbit--outer.orbit-figure__orbit--alt2
+			span.orbit-figure__dot

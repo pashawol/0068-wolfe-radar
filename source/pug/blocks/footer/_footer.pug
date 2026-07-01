@@ -1,0 +1,15 @@
+mixin footer()
+	+b.FOOTER.footer
+		.container
+			+e.inner
+				+e.brand
+					img.footer__logo(src="img/wolfe/ui/logo.svg" alt="Радар Вульфа" width="29" height="25")
+					+e.SPAN.brand-text
+						| РАДАР #[span.footer__brand-accent ВУЛЬФА]
+				+e.nav
+					a(href="#sForm") Заказать
+					a(href="#sFaq") FAQ
+					a(href="#sAuthor") Автор
+				+e.legal
+					p © 2025 Радар Вульфа. Индикатор для MetaTrader 5.
+					p Торговля сопряжена с рисками. Прошлые результаты не гарантируют будущую доходность.

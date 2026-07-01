@@ -1,0 +1,121 @@
+:root {
+	--animate-delay: 1.2s;
+	--bs-body-font-size: #{$em-base};
+
+	// === Wolfe Radar design tokens (Figma) ===
+	--accent: #e79017;
+	--accent-solid: #e79017;
+	--bg-surface: #15181b;
+	--bg-surface-raised: #23272c;
+	--bg-inverse: #1d2024;
+	--bg-canvas: #ecebe5;
+	--bg-accent-soft: #d29a451f;
+
+	--text-strong: #ffffff;
+	--text-primary: #dcdad4;
+	--text-secondary: #c7c5bf;
+	--text-muted: #8b9296;
+	--text-faint: #6b7176;
+	--text-on-accent: #1d2024;
+	--text-canvas: #1d2024; // dark text for light sections
+	--txt1: #f4f2ec;
+
+	--border-default: #ffffff1a;
+	--border-strong: #ffffff1f;
+	--border-accent: #d29a4566;
+	--positive: #5fae84;
+
+	--radius-sm: 2px;
+	--radius-md: 3px;
+
+	// spacing scale
+	--space-10: #{rem(10)};
+	--space-12: #{rem(12)};
+	--space-14: #{rem(14)};
+	--space-16: #{rem(16)};
+	--space-18: #{rem(18)};
+	--space-20: #{rem(20)};
+	--space-24: #{rem(24)};
+	--space-26: #{rem(26)};
+	--space-28: #{rem(28)};
+	--space-30: #{rem(30)};
+	--space-32: #{rem(32)};
+	--space-34: #{rem(34)};
+	--space-40: #{rem(40)};
+	--space-44: #{rem(44)};
+	--space-48: #{rem(48)};
+	--space-56: #{rem(56)};
+	--space-96: #{rem(96)};
+
+	--sPT: #{rem(64)};
+	--sPB: #{rem(64)};
+	--sTPB: #{rem(40 * 0.7)};
+
+	--fancybox-content-color: var(--bs-body-color);
+	--swiperArrowSize: #{rem(68)};
+	--swiperArrowPosition: calc(-1 * var(--swiperArrowSize) / 2);
+	--swiperBorderColorDef: var(--bs-primary);
+	--swiperColorDef: var(--bs-primary);
+	--swiperBgDef: #ffffff;
+
+	--swiperBorderColorDefHover: var(--bs-primary);
+	--swiperColorDefHover: var(--bs-primary);
+	--swiperBgDefHover: #ffffff;
+
+	//  --carousel-button-width: 48px;
+	//  --carousel-button-height: 48px;
+
+	//  --carousel-button-svg-width: 24px;
+	//  --carousel-button-svg-height: 24px;
+
+	//  --carousel-button-svg-stroke-width: 2.5;
+	//  --carousel-button-svg-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0/ 0.4));
+
+	@include media-breakpoint-up(md) {
+		--sPT: #{rem(96)};
+		--sPB: #{rem(96)};
+		--sTPB: #{rem(48)};
+	}
+	@include media-breakpoint-up(xl) {
+		--sPT: #{rem(120)};
+		--sPB: #{rem(120)};
+		--sTPB: #{rem(56)};
+	}
+}
+.fancybox__container {
+	--fancybox-bg: rgba(58, 59, 60, 0.77);
+}
+@include media-breakpoint-up(xl) {
+}
+
+@include media-breakpoint-up(lg) {
+}
+
+@include media-breakpoint-up(md) {
+}
+
+@include media-breakpoint-up(sm) {
+}
+
+@include media-breakpoint-up(xs) {
+}
+
+//
+@include media-breakpoint-between(md, xl) {
+}
+
+//
+@include media-breakpoint-only(xs) {
+}
+
+@include media-breakpoint-only(sm) {
+}
+
+@include media-breakpoint-only(md) {
+}
+
+@include media-breakpoint-only(lg) {
+}
+
+@include media-breakpoint-only(xl) {
+}

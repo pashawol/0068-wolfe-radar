@@ -1,0 +1,238 @@
+.sHow {
+
+	// main title → lead gap = 24px in Figma (override default --sTPB)
+	> .container > .section-title {
+		margin-bottom: var(--space-24);
+	}
+
+	// ---- lead ----
+	&__lead {
+		margin: 0 0 var(--space-40);
+		max-width: rem(760);
+		font-weight: 600;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-secondary);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(21);
+		}
+	}
+
+	// ---- body ----
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: rem(48);
+	}
+
+	// ---- 4 step cards ----
+	&__cards {
+		overflow: hidden;
+
+		@include media-breakpoint-up(md) {
+			overflow: visible;
+		}
+	}
+
+	// scoped to the steps cards only — must NOT leak into the gallery slider's
+	// .swiper-slide (which Swiper sizes to full width for slidesPerView:1)
+	&__cards .swiper-slide {
+		height: auto;
+		// 4 cols, gap 20px: (100% - 3*20) / 4
+		--maw: calc((100% - 60px) / 4);
+		max-width: max(rem(220), var(--maw));
+	}
+
+	&__card {
+		display: flex;
+		flex-direction: column;
+		gap: rem(18);
+		padding: rem(28);
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+		height: 100%;
+		box-sizing: border-box;
+	}
+
+	&__num {
+		display: block;
+		font-family: $font-family-grotesk;
+		font-weight: 700;
+		font-size: rem(40);
+		line-height: 1;
+		color: var(--accent);
+	}
+
+	&__text {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-primary);
+	}
+
+	// ---- outro block ----
+	&__outro {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	&__outro-text {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-muted);
+	}
+
+	// ---- gallery ----
+	&__gallery {
+		display: flex;
+		flex-direction: column;
+		gap: rem(28);
+	}
+
+	&__gallery-head {
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+
+		// Figma Heading/Card-lg = 26px bold lh1.3; override base --inner (32px)
+		.section-title--inner {
+			margin-bottom: 0;
+
+			h2 {
+				font-size: rem(22);
+				line-height: 1.3;
+				letter-spacing: -0.01em;
+
+				@include media-breakpoint-up(md) {
+					font-size: rem(26);
+				}
+			}
+		}
+	}
+
+	&__gallery-sub {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-secondary);
+	}
+
+	// ---- gallery slider (self-contained Swiper: 1-up; dots + arrows below) ----
+	// Swiper bundle CSS isn't loaded globally, so the minimal core is provided here
+	// (scoped). Each slide is an <a data-fancybox> → image opens full-screen in Fancybox.
+	&__slider {
+		position: relative;
+	}
+
+	&__gallery-swiper {
+		overflow: hidden;
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+		background: var(--bg-surface);
+
+		.swiper-wrapper {
+			display: flex;
+			align-items: center;
+		}
+		// let Swiper set each slide's inline width (slidesPerView:1); do NOT set
+		// flex-basis/width here or it overrides Swiper's sizing and breaks 1-up
+		.swiper-slide {
+			flex-shrink: 0;
+			height: auto;
+		}
+	}
+
+	// slide is a plain div so Swiper drags on the whole area; the fancybox <a>
+	// is inside and only catches the click
+	&__slide {
+		display: block;
+	}
+
+	&__slide-link {
+		display: block;
+		width: 100%;
+		cursor: zoom-in;
+	}
+
+	&__chart-img {
+		display: block;
+		width: 100%;
+		height: auto;
+		object-fit: contain;
+	}
+
+	// ---- controls row:  [<]   • • •   [>]   centred below the slider ----
+	&__gallery-nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: rem(20);
+		margin-top: rem(24);
+	}
+
+	&__nav-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(26);
+		height: rem(26);
+		padding: 0;
+		background: none;
+		border: none;
+		cursor: pointer;
+		color: var(--text-faint);
+		transition: color 0.2s ease;
+		flex-shrink: 0;
+
+		&:hover {
+			color: var(--accent);
+		}
+		&--next {
+			color: var(--accent);
+		}
+		svg {
+			display: block;
+		}
+	}
+
+	// dots — base bullet look is in _base.scss; here: dynamic-bullets (compact
+	// sliding window so 24 slides don't produce 24 dots) + accent active colour.
+	&__gdots {
+		width: auto;
+
+		&.swiper-pagination-bullets-dynamic {
+			overflow: hidden;
+			white-space: nowrap;
+			font-size: 0;
+		}
+		.swiper-pagination-bullet {
+			margin: 0 rem(4);
+			background: var(--text-faint);
+			transition: transform 0.2s, background 0.2s, left 0.2s;
+		}
+		.swiper-pagination-bullet-active {
+			background: var(--accent);
+		}
+		&.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+			position: relative;
+			transform: scale(0.33);
+		}
+		.swiper-pagination-bullet-active-main {
+			transform: scale(1);
+		}
+		.swiper-pagination-bullet-active-prev,
+		.swiper-pagination-bullet-active-next {
+			transform: scale(0.66);
+		}
+		.swiper-pagination-bullet-active-prev-prev,
+		.swiper-pagination-bullet-active-next-next {
+			transform: scale(0.33);
+		}
+	}
+}

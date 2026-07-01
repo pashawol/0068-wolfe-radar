@@ -1,0 +1,350 @@
+.sWolfe {
+	// main section title sits 40px above body (Figma body gap rhythm)
+	.section-title {
+		margin-bottom: var(--space-40);
+	}
+
+	// body stack — Figma uses 40px rhythm between blocks
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-40);
+	}
+
+	// secondary heading "Почему этот паттерн…" — Heading/Card 23px (NOT 32px)
+	&__feature-heading {
+		margin: 0;
+		font-family: $font-family-sans-serif;
+		font-weight: 700;
+		font-size: rem(23);
+		line-height: 1.3;
+		letter-spacing: -0.04em;
+		color: var(--text-canvas);
+	}
+
+	// ---- two-column intro ----
+	&__cols {
+		display: flex;
+		flex-direction: column;
+		gap: rem(40);
+		align-items: flex-start;
+
+		@include media-breakpoint-up(lg) {
+			flex-direction: row;
+		}
+	}
+
+	&__col-left {
+		flex: 1 1 0;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-18);
+	}
+
+	&__col-right {
+		flex: 1 1 0;
+		min-width: 0;
+		width: 100%;
+
+		@include media-breakpoint-up(lg) {
+			width: auto;
+		}
+	}
+
+	&__chart-img {
+		display: block;
+		width: 100%;
+		height: auto;
+		mix-blend-mode: darken; // blend chart PNG on canvas bg
+	}
+
+	// ---- text elements ----
+	&__lead {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-canvas);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(21);
+		}
+	}
+
+	&__lead-accent {
+		color: var(--accent);
+	}
+
+	&__text {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-canvas);
+	}
+
+	&__note {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(17);
+		line-height: 1.5;
+		color: var(--text-canvas);
+		opacity: 0.65;
+	}
+
+	// ---- dark callout box ----
+	&__callout {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-18);
+		@include media-breakpoint-up(md) {
+			padding: var(--space-28);
+		}
+		padding: var(--space-20);
+		background-color: var(--bg-inverse);
+		border-radius: var(--radius-md);
+	}
+
+	&__callout-heading {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(18);
+		line-height: 1.4;
+		color: var(--text-strong);
+	}
+
+	&__chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(12);
+		align-items: center;
+	}
+
+	&__chip {
+		padding: var(--space-10) var(--space-14);
+		border: 1px solid var(--border-accent);
+		border-radius: var(--radius-sm);
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		letter-spacing: 0.04em;
+		color: var(--accent);
+		white-space: nowrap;
+	}
+
+	&__sep {
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		letter-spacing: 0.04em;
+		color: var(--text-faint);
+	}
+
+	&__sub-heading {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(23);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-canvas);
+	}
+
+	&__sub-text {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-canvas);
+	}
+
+	// ---- complexity (full-width paragraph) ----
+	&__complexity {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-canvas);
+		opacity: 0.65;
+	}
+
+	// ---- feature cards 2×2 ----
+	&__cards {
+		// mobile: horizontal scroll-snap slider (pure CSS, no JS) — same pattern
+		// as sProblem__grid: drag left/right, next card peeks off the screen edge
+		display: flex;
+		gap: rem(12);
+		overflow-x: auto;
+		overflow-y: hidden;
+		scroll-snap-type: x proximity;
+		-webkit-overflow-scrolling: touch;
+		// bleed the right edge out to the viewport so the next card peeks off-screen
+		margin-right: calc(50% - 50vw);
+		padding-right: rem(16);
+		padding-bottom: rem(2);
+		scrollbar-width: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		// desktop: 2-column grid
+		@include media-breakpoint-up(md) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			column-gap: rem(20);
+			row-gap: rem(24);
+			overflow: visible;
+			margin-right: 0;
+			padding-right: 0;
+			padding-bottom: 0;
+		}
+	}
+
+	&__card {
+		display: flex;
+		gap: var(--space-10);
+		align-items: center;
+		padding: var(--space-20);
+		// dark semi-transparent border for canvas (light) background
+		border: 1px solid rgba(29, 32, 36, 0.16);
+		border-radius: var(--radius-md);
+		// mobile slider card: ~80vw so the next card peeks; equal height
+		flex: 0 0 80vw;
+		max-width: rem(340);
+		scroll-snap-align: start;
+
+		@include media-breakpoint-up(md) {
+			flex: none;
+			max-width: none;
+			padding: var(--space-28);
+		}
+	}
+
+	// ---- card icons (individual 94×94 images, replaced the old sprite) ----
+	&__card-icon {
+		flex-shrink: 0;
+		width: rem(94);
+		height: rem(94);
+	}
+
+	&__icon-img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	&__card-body {
+		flex: 1 1 0;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+	}
+
+	&__card-title {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		color: var(--text-canvas);
+	}
+
+	&__card-text {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-canvas);
+		opacity: 0.65;
+	}
+
+	// ---- rare closing paragraph ----
+	&__rare {
+		margin: 0;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-canvas);
+	}
+
+	&__rare-strong {
+		font-weight: 700;
+	}
+
+	// ---- display heading: Один паттерн — три ответа ----
+	&__display {
+		font-family: $font-family-sans-serif;
+		font-weight: 700;
+		font-size: rem(36);
+		line-height: 0.92;
+		letter-spacing: -0.03em;
+
+		@include media-breakpoint-up(sm) {
+			font-size: rem(48);
+		}
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(72);
+		}
+
+		@include media-breakpoint-up(xl) {
+			font-size: rem(100);
+		}
+	}
+
+	&__display-plain {
+		color: var(--text-canvas);
+	}
+
+	&__display-accent {
+		color: var(--accent);
+	}
+
+	// ---- two-column closing text ----
+	&__two-cols {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+		align-items: flex-start;
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+		}
+	}
+
+	&__two-col-text {
+		flex: 1 1 0;
+		min-width: 0;
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-canvas);
+	}
+
+	&__two-col-box {
+		flex: 1 1 0;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: rem(12);
+	}
+
+	&__two-col-bold {
+		margin: 0;
+		font-weight: 700;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-canvas);
+	}
+
+	&__two-col-note {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1.5;
+		color: var(--text-canvas);
+		opacity: 0.65;
+	}
+}

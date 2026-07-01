@@ -1,0 +1,220 @@
+mixin sStats()
+	// start sStats
+	+b.SECTION.sStats.section#sStats&attributes(attributes)
+		.container
+			+section-head('09 / ДОКАЗАТЕЛЬСТВО')
+			+e.body
+
+				//- ===== Intro: H2 + lead + metrics/panel row =====
+				+e.intro-block
+					+b.section-title
+						h2 КАК УДОСТОВЕРИТЬСЯ, ЧТО ЭТО РАБОТАЕТ И ПРИНОСИТ ДЕНЬГИ?
+					+e.P.lead
+						+e.SPAN.lead-bold Просто перетащите Радар Вульфа на график,
+						|  и Вы сразу увидите, как Волны Вульфа появлялись и отрабатывали на этом активе раньше. Проверьте за мгновение, зарабатывала ли стратегия в этом/прошлом году. Радар Вульфа показывает статистику прямо на графике. Вы сразу понимаете: стоит этот актив и таймфрейм Вашего внимания или нет.
+					+e.row-main
+						+e.metrics-card
+							+e.metrics-title Что показывает статистика:
+							+e.metrics-list
+								+e.metrics-item
+									+e.SPAN.arrow →
+									span количество сделок;
+								+e.metrics-item
+									+e.SPAN.arrow →
+									span процент прибыльных;
+								+e.metrics-item
+									+e.SPAN.arrow →
+									span профит-фактор;
+								+e.metrics-item
+									+e.SPAN.arrow →
+									span фактор восстановления;
+								+e.metrics-item
+									+e.SPAN.arrow →
+									span максимальную просадку;
+								+e.metrics-item
+									+e.SPAN.arrow →
+									span среднюю прибыль в месяц;
+								+e.metrics-item
+									+e.SPAN.arrow →
+									span график доходности;
+								+e.metrics-item
+									+e.SPAN.arrow →
+									span график просадки.
+							+e.metrics-verdict
+								+e.SPAN.metrics-verdict-title Вы не гадаете. Вы проверяете.
+								+e.P.metrics-verdict-sub Уверенность в трейдинге появляется из скорости проверки.
+						+e.panel-annotated
+							+e.panel-img-col
+								img.sStats__panel-img(src="img/wolfe/sStats/stats-panel.webp" alt="Панель статистики Радара Вульфа" loading="lazy")
+							+e.panel-labels
+								+e.panel-label Период тестирования
+								+e.panel-label Количество сделок (среднее количество в месяц)
+								+e.panel-label Доля прибыльных сделок
+								+e.panel-label Профит-фактор = Общая прибыль / Общий убыток
+								+e.panel-label Фактор восстановления = Чистая прибыль / Просадка
+								+e.panel-label Максимальная просадка в пунктах
+								+e.panel-label Общая прибыль в пунктах (средняя прибыль в месяц)
+								+e.panel-label График доходности
+								+e.panel-label Результат по часам
+								+e.panel-label Наиболее прибыльные и убыточные интервалы
+
+				//- ===== Reality card =====
+				+e.reality-card
+					+e.reality-title Статистика максимально близка к реальности
+					+e.P.reality-intro Радар Вульфа показывает, как ведёт себя стратегия в реальной торговле. В статистике учитываются:
+					+e.reality-tags
+						+e.SPAN.tag спреды
+						+e.SPAN.tag комиссии
+						+e.SPAN.tag свопы
+						+e.SPAN.tag гэпы
+						+e.SPAN.tag закрытие по первой цене после выходных
+						+e.SPAN.tag результат в деньгах, а не пунктах
+					+e.P.reality-footer Вы сразу видите статистику стратегии в реальных условиях, а не подгонку под историю.
+
+				//- ===== Visual patterns =====
+				+e.visual-block
+					+e.H3.sub-heading Визуальная отработка паттернов
+					+e.visual-cols
+						+e.visual-col
+							+e.SPAN.col-bold Можно просто промотать график влево и сразу увидеть,
+							|  какие паттерны появлялись и как они отрабатывали.
+						+e.visual-col
+							+e.SPAN.col-bold Можно запустить торговлю в визуальном режиме и увидеть,
+							|  как отрабатывали сделки и как изменялся депозит.
+						+e.visual-col
+							+e.SPAN.col-bold Можно увидеть, как работала стратегия совокупно
+							|  на всем портфеле активов, которые Вы торгуете.
+
+				//- ===== Instruments slider (peek carousel — own Swiper init) =====
+				+e.instruments-block
+					+e.H3.instruments-heading Где-то Волны Вульфа работают лучше, где-то хуже. Но главное — они работают на всех рынках.
+					+e.instruments-row
+						.swiper
+							.swiper-wrapper
+								.swiper-slide
+									+e.icard
+										+e.icard-num 01
+										+e.P.icard-name Фьючерс EUR/USD · 5М
+										+e.P.icard-desc 121 сделка за полтора года. На каждый 1$ убытка стратегия зарабатывала 1,81$ прибыли.
+										+e.A.icard-chart(href="img/wolfe/sStats/chart-eurusd-5m.webp" data-fancybox="sStats-charts" data-caption="Фьючерс EUR/USD · 5М" aria-label="Открыть график: Фьючерс EUR/USD · 5М")
+											img(src="img/wolfe/sStats/chart-eurusd-5m.webp" alt="Фьючерс EUR/USD · 5М" loading="lazy")
+								.swiper-slide
+									+e.icard
+										+e.icard-num 02
+										+e.P.icard-name Фьючерс EUR/RUB · 15М
+										+e.P.icard-desc За последний год прибыльными оказались 66,7% сделок. На каждый 1$ убытка стратегия зарабатывала 3,8$ прибыли.
+										+e.A.icard-chart(href="img/wolfe/sStats/chart-eurrub-15m.webp" data-fancybox="sStats-charts" data-caption="Фьючерс EUR/RUB · 15М" aria-label="Открыть график: Фьючерс EUR/RUB · 15М")
+											img(src="img/wolfe/sStats/chart-eurrub-15m.webp" alt="Фьючерс EUR/RUB · 15М" loading="lazy")
+								.swiper-slide
+									+e.icard
+										+e.icard-num 03
+										+e.P.icard-name Фьючерс золото · 15М
+										+e.P.icard-desc 52,6% прибыльных, прибыль более чем в 2× превышала убытки.
+										+e.A.icard-chart(href="img/wolfe/sStats/chart-gold-15m.webp" data-fancybox="sStats-charts" data-caption="Фьючерс золото · 15М" aria-label="Открыть график: Фьючерс золото · 15М")
+											img(src="img/wolfe/sStats/chart-gold-15m.webp" alt="Фьючерс золото · 15М" loading="lazy")
+								.swiper-slide
+									+e.icard
+										+e.icard-num 04
+										+e.P.icard-name Биткоин · 30М
+										+e.P.icard-desc 83 сделки за год. На $1 убытка — $3,2, более половины в плюс.
+										+e.A.icard-chart(href="img/wolfe/sStats/chart-btc-30m.webp" data-fancybox="sStats-charts" data-caption="Биткоин · 30М" aria-label="Открыть график: Биткоин · 30М")
+											img(src="img/wolfe/sStats/chart-btc-30m.webp" alt="Биткоин · 30М" loading="lazy")
+								.swiper-slide
+									+e.icard
+										+e.icard-num 05
+										+e.P.icard-name EUR/USD (Альфа) · 30М
+										+e.P.icard-desc 46 сделок за 1,5 года. На $1 убытка — $1,75 прибыли.
+										+e.A.icard-chart(href="img/wolfe/sStats/chart-eurusd-alpha-30m.webp" data-fancybox="sStats-charts" data-caption="EUR/USD (Альфа) · 30М" aria-label="Открыть график: EUR/USD (Альфа) · 30М")
+											img(src="img/wolfe/sStats/chart-eurusd-alpha-30m.webp" alt="EUR/USD (Альфа) · 30М" loading="lazy")
+								.swiper-slide
+									+e.icard
+										+e.icard-num 06
+										+e.P.icard-name USD/CAD (Альфа) · H1
+										+e.P.icard-desc 16 сделок за 1,5 года. На $1 убытка — $2,84 прибыли.
+										+e.A.icard-chart(href="img/wolfe/sStats/chart-usdcad-h1.webp" data-fancybox="sStats-charts" data-caption="USD/CAD (Альфа) · H1" aria-label="Открыть график: USD/CAD (Альфа) · H1")
+											img(src="img/wolfe/sStats/chart-usdcad-h1.webp" alt="USD/CAD (Альфа) · H1" loading="lazy")
+								.swiper-slide
+									+e.icard
+										+e.icard-num 07
+										+e.P.icard-name USD/CHF (Альфа) · H1
+										+e.P.icard-desc ~1 сделка в месяц. На $1 убытка — $4,37 прибыли.
+										+e.A.icard-chart(href="img/wolfe/sStats/chart-usdchf-h1.webp" data-fancybox="sStats-charts" data-caption="USD/CHF (Альфа) · H1" aria-label="Открыть график: USD/CHF (Альфа) · H1")
+											img(src="img/wolfe/sStats/chart-usdchf-h1.webp" alt="USD/CHF (Альфа) · H1" loading="lazy")
+								.swiper-slide
+									+e.icard.--accent
+										+e.icard-num 08 · РЕКОРД
+										+e.P.icard-name USD/JPY (Альфа) · H1
+										+e.P.icard-desc 11 сделок за 1,5 года. На $1 убытка — $4,51 прибыли.
+										+e.A.icard-chart(href="img/wolfe/sStats/chart-usdjpy-h1.webp" data-fancybox="sStats-charts" data-caption="USD/JPY (Альфа) · H1" aria-label="Открыть график: USD/JPY (Альфа) · H1")
+											img(src="img/wolfe/sStats/chart-usdjpy-h1.webp" alt="USD/JPY (Альфа) · H1" loading="lazy")
+						+e.slider-nav
+							button.swiper-button-prev(type="button" aria-label="Предыдущий слайд")
+								svg(width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true")
+									polygon(points="18,4 8,13 18,22" fill="currentColor")
+							.swiper-pagination
+							button.swiper-button-next(type="button" aria-label="Следующий слайд")
+								svg(width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true")
+									polygon(points="8,4 18,13 8,22" fill="currentColor")
+
+				//- ===== Markets card =====
+				+e.markets-card
+					+e.markets-title С помощью Радара Вульфа Вы быстро найдете самые техничные инструменты и лучшие временные периоды для торговли. Причем на самых разных рынках:
+					+e.markets-tags
+						+e.SPAN.tag фьючерсы
+						+e.SPAN.tag акции
+						+e.SPAN.tag Forex
+						+e.SPAN.tag металлы
+						+e.SPAN.tag криптовалюты
+						+e.SPAN.tag индексы
+					+e.P.markets-footer И на разных таймфреймах: от М1 до D1.
+					+e.P.markets-note Это показывает надежность не только Радара, как инструмента, но и самого метода торговли по Волнам Вульфа.
+
+				//- ===== Video cards =====
+				+e.videos-block
+					+e.H3.videos-heading Видеоролики: реальная торговля
+					+e.videos-grid
+						+e.vcard
+							+e.vcard-thumb
+								iframe(src="https://kinescope.io/ivz7cJyu1Kv5N6a7vsmY6P" title="Реальная торговля с Радаром Вульфа в Альфа-Форексе" loading="lazy" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture")
+							+e.vcard-info
+								+e.SPAN.vcard-meta ВИДЕО · KINESCOPE
+								+e.P.vcard-title Реальная торговля с Радаром Вульфа в Альфа-Форексе
+						+e.vcard
+							+e.vcard-thumb
+								iframe(src="https://kinescope.io/pjsCaEzan6L4LeERRtdT6W" title="Тестируем Волны Вульфа на 5-минутках фьючерса на доллар/рубль в Финаме" loading="lazy" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture")
+							+e.vcard-info
+								+e.SPAN.vcard-meta ВИДЕО · KINESCOPE
+								+e.P.vcard-title Тестируем Волны Вульфа на 5-минутках фьючерса на доллар/рубль в Финаме
+						+e.vcard
+							+e.vcard-thumb
+								iframe(src="https://kinescope.io/3q2zsyFjNkgwYj8qqZfeGu" title="Волны Вульфа на 15-минутках Сбербанка" loading="lazy" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture")
+							+e.vcard-info
+								+e.SPAN.vcard-meta ВИДЕО · KINESCOPE
+								+e.P.vcard-title Волны Вульфа на 15-минутках Сбербанка
+						+e.vcard
+							+e.vcard-thumb
+								iframe(src="https://kinescope.io/w4yivk777JuMbPviRPX6Nm" title="Работают ли Волны Вульфа на криптовалютах?" loading="lazy" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture")
+							+e.vcard-info
+								+e.SPAN.vcard-meta ВИДЕО · KINESCOPE
+								+e.P.vcard-title Работают ли Волны Вульфа на криптовалютах?
+						+e.vcard
+							+e.vcard-thumb
+								iframe(src="https://kinescope.io/m737zBs3AAGvE5dNMoHycv" title="Как ведет себя Радар Вульфа на золоте в 2026 году?" loading="lazy" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture")
+							+e.vcard-info
+								+e.SPAN.vcard-meta ВИДЕО · KINESCOPE
+								+e.P.vcard-title Как ведет себя Радар Вульфа на золоте в 2026 году?
+						+e.vcard
+							+e.vcard-thumb
+								iframe(src="https://kinescope.io/fmWed1FsDPm9PrWrVJhC2r" title="USD/JPY на Forex – реальные сделки 2026 года" loading="lazy" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture")
+							+e.vcard-info
+								+e.SPAN.vcard-meta ВИДЕО · KINESCOPE
+								+e.P.vcard-title USD/JPY на Forex – реальные сделки 2026 года
+
+
+				//- ===== CTA bar =====
+				+e.cta-bar
+					+e.P.cta-bar-text Не тратьте нервы, беспокоясь, работает это или нет. Проверьте за секунду и убедитесь лично.
+					+e.A.btn.btn.btn-primary(href="#sForm")
+						span Забрать Радар для уверенного трейдинга
+						+icon('arrow-right')
+	// end sStats

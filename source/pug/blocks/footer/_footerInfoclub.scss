@@ -1,0 +1,138 @@
+// Footer — общий корпоративный (InfoClub / info-dvd), адаптирован под тёмную тему «Радар Вульфа».
+// Структура взята из 0066-arbitr, перекрашено на дизайн-токены.
+.footer {
+	position: relative;
+	z-index: 2;
+	padding: rem(40) 0;
+	background-color: var(--bg-surface);
+	border-top: 1px solid var(--border-default);
+	color: var(--text-secondary);
+
+	@include media-breakpoint-up(lg) {
+		padding: rem(56) 0 rem(80);
+	}
+
+	&__container {
+		position: relative;
+	}
+
+	.before {
+		display: block;
+		margin-bottom: rem(24);
+
+		.footer__logo-svg {
+			display: block;
+			width: rem(40);
+			height: auto;
+		}
+
+		@include media-breakpoint-up(lg) {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			margin-bottom: 0;
+			z-index: 0;
+			opacity: 0.12;
+			pointer-events: none;
+
+			.footer__logo-svg {
+				width: rem(180);
+			}
+		}
+	}
+
+	.row {
+		--bs-gutter-y: #{rem(20)};
+		position: relative;
+		z-index: 1;
+	}
+
+	a {
+		color: var(--text-secondary);
+		text-decoration: none;
+		transition: color 0.2s ease, border-color 0.2s ease;
+		display: inline-block;
+
+		&:hover {
+			color: var(--accent);
+		}
+
+		&.tdu {
+			border-bottom: 1px solid currentColor;
+
+			&:hover {
+				border-bottom-color: transparent;
+			}
+		}
+	}
+
+	&__txt {
+		line-height: 1.4;
+
+		p {
+			margin-bottom: 0;
+			font-feature-settings:
+				"pnum" on,
+				"lnum" on;
+		}
+
+		h6 {
+			color: var(--text-strong);
+			text-transform: none;
+			font-size: rem(16);
+			font-weight: 600;
+			margin-bottom: rem(14);
+		}
+
+		&--h6 {
+			font-size: rem(18);
+			font-weight: 600;
+			margin-bottom: rem(24);
+			color: var(--text-primary);
+
+			@include media-breakpoint-up(lg) {
+				margin-bottom: rem(36);
+			}
+
+			a {
+				font-size: rem(18);
+				font-weight: 600;
+				line-height: 1.1;
+				color: var(--text-strong);
+
+				&:hover {
+					color: var(--accent);
+				}
+			}
+		}
+
+		&--support {
+			margin-bottom: rem(20);
+
+			@include media-breakpoint-up(lg) {
+				margin-bottom: rem(56);
+			}
+
+			a {
+				@include media-breakpoint-up(lg) {
+					display: block;
+					max-width: max-content;
+					margin-left: auto;
+				}
+			}
+		}
+	}
+
+	&__left-col {
+		a {
+			display: inline;
+		}
+	}
+
+	.text-lg-end {
+		@include media-breakpoint-up(lg) {
+			text-align: right;
+		}
+	}
+}

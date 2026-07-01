@@ -1,0 +1,41 @@
+/*==========  Mobile First  ==========*/
+@include media-breakpoint-up(xl) {
+}
+@include media-breakpoint-up(lg) {
+}
+@include media-breakpoint-up(md) {
+}
+@include media-breakpoint-up(sm) {
+}
+@include media-breakpoint-up(xs) {
+}
+
+// Legacy perf utility: kill CSS animations/transforms on small screens.
+// Kept as max-width on purpose — it's a global mobile kill-switch, not a layout query.
+@include media-breakpoint-down(md) {
+	.animated {
+		/*CSS transitions*/
+		-o-transition-property: none !important;
+		-moz-transition-property: none !important;
+		-ms-transition-property: none !important;
+		-webkit-transition-property: none !important;
+		transition-property: none !important;
+		/*CSS transforms*/
+		-o-transform: none !important;
+		-moz-transform: none !important;
+		-ms-transform: none !important;
+		-webkit-transform: none !important;
+		transform: none !important;
+		/*CSS animations*/
+		-webkit-animation: none !important;
+		-moz-animation: none !important;
+		-o-animation: none !important;
+		-ms-animation: none !important;
+		animation: none !important;
+	}
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+	/**/
+}

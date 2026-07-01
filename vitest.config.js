@@ -1,0 +1,9 @@
+import { defineConfig } from 'vitest/config'
+
+export default defineConfig({
+	test: {
+		environment: 'node',
+		include: ['tests/**/*.test.js', 'tests/**/*.test.ts', 'source/pug/blocks/**/*.test.js'],
+		globals: true,
+	},
+})

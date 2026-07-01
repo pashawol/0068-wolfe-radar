@@ -1,0 +1,55 @@
+mixin sHow()
+	// start sHow
+	+b.SECTION.sHow.section#sHow&attributes(attributes)
+		.container
+			+section-head('07 / КАК РАБОТАЕТ')
+			+b.section-title
+				h2 КАК ЭТО РАБОТАЕТ ЗА 5 СЕКУНД
+			+e.P.lead Все действительно очень просто.
+
+			+e.body
+				//- --- 4 steps ---
+				+e.cards.mobile-swiper--js.swiper(data-swiper-gap="20")
+					.swiper-wrapper
+						+e.card.swiper-slide
+							+e.SPAN.num 01
+							+e.P.text Перетаскиваете советник на график любого актива в MetaTrader 5.
+						+e.card.swiper-slide
+							+e.SPAN.num 02
+							+e.P.text Радар сам находит формирующуюся или уже готовую Волну Вульфа и присылает уведомление.
+						+e.card.swiper-slide
+							+e.SPAN.num 03
+							+e.P.text Когда паттерн сформировался, на графике появляется точка входа, уровень для стопа и цель по цене.
+						+e.card.swiper-slide
+							+e.SPAN.num 04
+							+e.P.text Выбираете удобный способ работы: открыть сделку вручную, поставить отложенный ордер или подключить робота.
+
+				//- --- Outro ---
+				+e.outro
+					+e.P.outro-text Вот и все. Не нужно вручную искать точки, чертить линии и гадать, стоит ли вообще входить в сделку. Это действительно просто. Вы легко справитесь.
+
+				//- --- Gallery ---
+				+e.gallery
+					+e.gallery-head
+						+b.section-title.--inner
+							h2 Вот так выглядят реальные сделки с помощью Радара Вульфа.
+						+e.P.gallery-sub Прямо на графике появляется все, чтобы забирать профит.
+					- var deals = []
+					- for (var d = 1; d <= 24; d++) deals.push(('0' + d).slice(-2))
+					//- Swiper-галерея реальных сделок: точки+стрелки по свайперу, клик по картинке — Fancybox
+					.sHow__slider
+						.sHow__gallery-swiper.swiper
+							.swiper-wrapper
+								each nn in deals
+									.swiper-slide.sHow__slide
+										a.sHow__slide-link(href=`img/wolfe/sHow/deals/deal-${nn}.webp` data-fancybox="sHow-deals" aria-label=`Реальная сделка №${nn}`)
+											img.sHow__chart-img(src=`img/wolfe/sHow/deals/deal-${nn}.webp` alt=`Реальная сделка с Радаром Вульфа №${nn}` loading="lazy")
+						.sHow__gallery-nav
+							button.sHow__nav-btn.sHow__nav-btn--prev(type="button" aria-label="Предыдущий")
+								svg(viewBox="0 0 26 26" width="26" height="26" aria-hidden="true")
+									polygon(points="18,5 8,13 18,21" fill="currentColor")
+							.sHow__gdots.swiper-pagination
+							button.sHow__nav-btn.sHow__nav-btn--next(type="button" aria-label="Следующий")
+								svg(viewBox="0 0 26 26" width="26" height="26" aria-hidden="true")
+									polygon(points="8,5 18,13 8,21" fill="currentColor")
+	// end sHow

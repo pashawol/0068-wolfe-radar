@@ -1,0 +1,64 @@
+.header {
+	position: sticky;
+	top: 0;
+	z-index: 1020;
+	background-color: var(--bg-surface);
+	border-bottom: 1px solid var(--border-default);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: rem(20);
+		padding-top: rem(16);
+		padding-bottom: rem(16);
+	}
+
+	&__brand {
+		display: inline-flex;
+		align-items: center;
+		flex-shrink: 0;
+		text-decoration: none;
+	}
+
+	&__logo {
+		width: rem(29);
+		height: rem(25);
+		display: block;
+	}
+
+	&__tagline {
+		display: none;
+
+		@include media-breakpoint-up(lg) {
+			display: block;
+			font-family: $font-family-sans-serif;
+			font-weight: 500;
+			font-size: rem(16);
+			line-height: 1.45;
+			color: var(--text-secondary);
+			text-align: center;
+			white-space: nowrap;
+		}
+	}
+
+	&__cta {
+		flex-shrink: 0;
+		// Figma header CTA: white text (text-strong), radius-sm, 13px, 12/24 padding
+		--bs-btn-color: var(--text-strong);
+		--bs-btn-hover-color: var(--text-strong);
+		--bs-btn-active-color: var(--text-strong);
+		border-radius: var(--radius-sm);
+		min-height: auto;
+		padding: rem(10) rem(16);
+		font-size: rem(12);
+		font-weight: 700;
+		line-height: normal;
+
+		@include media-breakpoint-up(sm) {
+			font-size: rem(13);
+			padding: rem(12) rem(24);
+		}
+	}
+}

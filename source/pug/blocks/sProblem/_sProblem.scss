@@ -1,0 +1,243 @@
+// start .sProblem
+.sProblem {
+	// Canvas-specific colour tokens (dark-transparent variants for light bg)
+	--canvas-border: rgba(29, 32, 36, 0.14);
+	--canvas-border-strong: rgba(29, 32, 36, 0.16);
+	--canvas-text-secondary: #5a5e63; // --text-secondary value in canvas context (Figma)
+	--callout-surface: #252428; // dark callout card bg (unique, no matching token)
+
+	padding-top: rem(48);
+	padding-bottom: rem(64);
+
+	@include media-breakpoint-up(md) {
+		padding-top: rem(72);
+		padding-bottom: var(--space-96);
+	}
+
+	// --- Section head: canvas overrides ---
+	.section-head {
+		border-bottom: 1px solid var(--canvas-border);
+		padding: var(--space-20) 0;
+		margin-bottom: 0; // spacing handled by &__body padding-top
+	}
+	.section-head__tag {
+		opacity: 0; // invisible in Figma (decorative slot)
+	}
+
+	// --- Body flex container ---
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-32);
+		padding-top: var(--space-32);
+
+		@include media-breakpoint-up(md) {
+			gap: var(--space-40);
+			padding-top: var(--space-48);
+		}
+	}
+
+	// --- Section title h2 size override (68px per Figma, base is 60px) ---
+	.section-title {
+		margin-bottom: 0; // gap handled by &__body flex gap
+		h2 {
+			font-size: rem(38);
+			line-height: 0.98;
+			letter-spacing: -0.02em;
+
+			@include media-breakpoint-up(md) {
+				font-size: rem(52);
+				letter-spacing: -0.03em;
+			}
+			@include media-breakpoint-up(xl) {
+				font-size: rem(68);
+			}
+		}
+	}
+
+	// --- Lead subtitle ---
+	&__lead {
+		margin: 0;
+		margin-top: 0;
+		font-size: rem(17);
+		font-weight: 600;
+		line-height: 1.5;
+		color: var(--canvas-text-secondary);
+
+		@include media-breakpoint-up(md) {
+			margin-top: calc(-1 * var(--space-40) + var(--space-24)); // tighten gap: 40→24px from h2
+			font-size: rem(21);
+		}
+	}
+
+	// --- 3×2 problem grid (accent borders, shared via gap technique) ---
+	&__grid {
+		// mobile: horizontal scroll-snap slider (pure CSS, no JS) — drag left/right,
+		// first card aligns to content, next card peeks off the screen edge
+		@include slider-x(rem(12), $bleed: true); // full-bleed: скролл по ширине экрана
+		padding-bottom: rem(2);
+
+		// desktop: bordered 3-col grid (gap colour = accent → shared 1px borders)
+		@include media-breakpoint-up(md) {
+			@include bleed-x-reset();
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1px;
+			background: var(--accent);
+			border: 1px solid var(--accent);
+			border-radius: var(--radius-md);
+			overflow: hidden;
+			padding-bottom: 0;
+		}
+	}
+
+	&__grid-cell {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-14);
+		padding: var(--space-28);
+		background: var(--bg-canvas);
+		// mobile slider card: ~80vw so the next card peeks; own accent border
+		@include slider-slide(80vw);
+		max-width: rem(340); // cap above mixin's 80vw on wider mobiles
+		border: 1px solid var(--accent);
+		border-radius: var(--radius-md);
+
+		@include media-breakpoint-up(md) {
+			flex: none;
+			max-width: none;
+			border: 0;
+			border-radius: 0;
+		}
+	}
+
+	&__cell-num {
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		letter-spacing: 0.04em;
+		line-height: 1;
+		color: var(--accent);
+	}
+
+	&__cell-text {
+		margin: 0;
+		font-size: rem(17);
+		font-weight: 500;
+		line-height: 1.5;
+		color: var(--text-canvas);
+	}
+
+	// --- Two bottom summary cards ---
+	&__cards {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-24);
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+		}
+	}
+
+	&__card {
+		flex: 1;
+		border: 1px solid var(--canvas-border-strong);
+		border-radius: var(--radius-md);
+		padding: var(--space-28);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-10);
+	}
+
+	&__card-title {
+		margin: 0;
+		font-size: rem(19);
+		font-weight: 700;
+		line-height: 1.3;
+		color: var(--text-canvas);
+	}
+
+	&__card-body {
+		margin: 0;
+		font-size: rem(16);
+		font-weight: 500;
+		line-height: 1.45;
+		color: var(--canvas-text-secondary);
+
+		strong {
+			font-weight: 700;
+			color: var(--text-canvas);
+		}
+	}
+
+	// --- Dark callout card with background image ---
+	&__callout {
+		position: relative;
+		background-color: var(--callout-surface);
+		border-radius: var(--radius-md);
+		padding: var(--space-32) var(--space-28);
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-26);
+
+		@include media-breakpoint-up(md) {
+			padding: var(--space-40) var(--space-44);
+		}
+	}
+
+	&__callout-bg {
+		position: absolute;
+		left: 0;
+		top: rem(-119);
+		width: rem(1385);
+		height: rem(773);
+		object-fit: cover;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	&__callout-title {
+		position: relative;
+		z-index: 1;
+		margin: 0;
+		font-size: rem(20);
+		font-weight: 700;
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+
+		@include media-breakpoint-up(md) {
+			font-size: rem(26);
+		}
+	}
+
+	&__callout-list {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-18);
+	}
+
+	&__callout-item {
+		display: flex;
+		align-items: center;
+		gap: var(--space-14);
+		min-height: rem(24);
+		font-size: rem(16);
+		font-weight: 500;
+		line-height: 1.45;
+		color: var(--text-secondary);
+
+		&::before {
+			content: '→';
+			font-family: $font-family-code;
+			font-weight: 700;
+			font-size: rem(14);
+			color: var(--accent);
+			flex-shrink: 0;
+		}
+	}
+}
+// end .sProblem

@@ -1,0 +1,577 @@
+// start .sStats
+.sStats {
+	// Figma section root bg = --bg-canvas(#1d2024) in the design system = our --bg-inverse
+	background-color: var(--bg-inverse);
+
+	// ---- Override section-title spacing (h2 is inside body, gap handled by flex) ----
+	.section-title {
+		--sTPB: 0;
+	}
+
+	// ---- Body layout ----
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: rem(40);
+		padding-top: rem(48);
+	}
+
+	// ---- Intro block (H2 + lead + row-main) ----
+	&__intro-block {
+		display: flex;
+		flex-direction: column;
+		gap: rem(28);
+	}
+
+	// ---- Lead text ----
+	&__lead {
+		font-weight: 500;
+		font-size: rem(21);
+		line-height: 1.5;
+		color: var(--text-secondary);
+		margin: 0;
+	}
+
+	&__lead-bold {
+		font-weight: 700;
+		// inherits text-secondary color from parent
+	}
+
+	// ---- Row: metrics card + annotated panel ----
+	&__row-main {
+		display: flex;
+		flex-direction: column;
+		gap: rem(32);
+		align-items: flex-start;
+		overflow: hidden;
+
+		@include media-breakpoint-up(lg) {
+			flex-direction: row;
+		}
+	}
+
+	// ---- Metrics card ----
+	&__metrics-card {
+		flex: none;
+		width: 100%;
+		min-width: 0;
+		background: var(--bg-surface);
+		border: 1px solid var(--border-default);
+		border-radius: var(--radius-md);
+		padding: rem(40) rem(44);
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+
+		@include media-breakpoint-up(lg) {
+			flex: 1 0 0;
+			width: auto;
+		}
+	}
+
+	&__metrics-title {
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		color: var(--text-strong);
+	}
+
+	&__metrics-list {
+		display: flex;
+		flex-direction: column;
+		gap: rem(8);
+	}
+
+	&__metrics-item {
+		display: flex;
+		align-items: center;
+		gap: rem(14);
+		min-height: rem(24);
+	}
+
+	&__arrow {
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		color: var(--accent);
+		flex-shrink: 0;
+	}
+
+	&__metrics-item span {
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-secondary);
+	}
+
+	&__metrics-verdict {
+		display: flex;
+		flex-direction: column;
+		gap: rem(8);
+	}
+
+	&__metrics-verdict-title {
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		color: var(--accent);
+	}
+
+	&__metrics-verdict-sub {
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-muted);
+		margin: 0;
+	}
+
+	// ---- Annotated panel (stats screenshot + labels) ----
+	&__panel-annotated {
+		flex: none;
+		width: 100%;
+		flex-direction: column;
+		display: flex;
+		gap: rem(32);
+		align-items: flex-start;
+
+		@include media-breakpoint-up(lg) {
+			flex-shrink: 0;
+			width: auto;
+			flex-direction: row;
+		}
+	}
+
+	&__panel-img-col {
+		flex-shrink: 0;
+	}
+
+	&__panel-img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: var(--radius-md);
+
+		@include media-breakpoint-up(lg) {
+			width: rem(342);
+		}
+	}
+
+	&__panel-labels {
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+		padding-top: rem(8);
+	}
+
+	&__panel-label {
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		letter-spacing: 0.04em;
+		line-height: 1.2;
+		color: var(--text-strong);
+	}
+
+	// ---- Reality card ----
+	&__reality-card {
+		background: var(--bg-surface);
+		border: 1px solid var(--border-default);
+		border-radius: var(--radius-md);
+		padding: rem(40) rem(44);
+		display: flex;
+		flex-direction: column;
+		gap: rem(22);
+	}
+
+	&__reality-title {
+		font-weight: 700;
+		font-size: rem(19);
+		line-height: 1.3;
+		color: var(--text-strong);
+	}
+
+	&__reality-intro {
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-muted);
+		margin: 0;
+	}
+
+	&__reality-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(12);
+	}
+
+	&__tag {
+		display: inline-flex;
+		align-items: center;
+		padding: rem(10) rem(16);
+		border: 1px solid var(--accent);
+		border-radius: var(--radius-sm);
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		letter-spacing: 0.04em;
+		line-height: 1;
+		color: var(--text-secondary);
+		white-space: nowrap;
+	}
+
+	&__reality-footer {
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-muted);
+		margin: 0;
+	}
+
+	// ---- Visual patterns block ----
+	&__visual-block {
+		display: flex;
+		flex-direction: column;
+		gap: rem(28);
+	}
+
+	&__sub-heading {
+		font-weight: 700;
+		font-size: rem(26);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+		margin: 0;
+	}
+
+	&__visual-cols {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+		}
+	}
+
+	&__visual-col {
+		flex: 1 0 0;
+		min-width: 0;
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-strong);
+	}
+
+	&__col-bold {
+		font-weight: 700;
+		color: var(--accent);
+	}
+
+	// ---- Instruments block ----
+	&__instruments-block {
+		display: flex;
+		flex-direction: column;
+		gap: rem(28);
+	}
+
+	&__instruments-heading {
+		font-weight: 700;
+		font-size: rem(26);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+		max-width: rem(707);
+		margin: 0;
+	}
+
+	&__instruments-row {
+		position: relative;
+
+		// swiper clips the peeking next slide at the content edge
+		.swiper {
+			overflow: hidden;
+		}
+
+		// peek carousel: main slide ~85vw (mobile) / 88% (desktop); next card peeks
+		.swiper-slide {
+			width: 85%;
+			height: auto;
+
+			@include media-breakpoint-up(lg) {
+				width: 88%;
+			}
+		}
+
+		// Override default swiper nav button styles
+		.swiper-button-prev,
+		.swiper-button-next {
+			position: static;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: rem(26);
+			height: rem(26);
+			background: none;
+			border: none;
+			padding: 0;
+			cursor: pointer;
+			color: var(--text-primary);
+			margin: 0;
+
+			&::after {
+				display: none; // hide default swiper arrows
+			}
+
+			&.swiper-button-disabled {
+				opacity: 0.4;
+			}
+		}
+
+		.swiper-pagination {
+			position: static;
+			width: auto;
+
+			.swiper-pagination-bullet {
+				margin: 0 rem(4);
+				background: var(--text-faint);
+			}
+
+			.swiper-pagination-bullet-active {
+				background: var(--accent);
+			}
+		}
+	}
+
+	&__slider-nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: rem(28);
+		padding-top: rem(24);
+	}
+
+	// ---- Instrument result cards ----
+	&__icard {
+		// Figma: bg --bg-canvas(#1d2024) in design system = our --bg-inverse (dark card)
+		background: var(--bg-inverse);
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+		padding: rem(24);
+		display: flex;
+		flex-direction: column;
+		gap: rem(12);
+
+		&--accent {
+			background: var(--bg-accent-soft);
+			border-color: var(--border-accent);
+		}
+	}
+
+	&__icard-num {
+		font-family: $font-family-code;
+		font-weight: 700;
+		font-size: rem(14);
+		letter-spacing: 0.04em;
+		line-height: 1;
+		color: var(--accent);
+	}
+
+	&__icard-name {
+		font-weight: 700;
+		font-size: rem(17);
+		line-height: 1.2;
+		color: var(--text-strong);
+		margin: 0;
+	}
+
+	&__icard-desc {
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-muted);
+		margin: 0;
+	}
+
+	&__icard--accent &__icard-desc {
+		color: var(--accent);
+	}
+
+	&__icard-chart {
+		display: block;
+		cursor: pointer;
+		margin-top: rem(8);
+		aspect-ratio: 1646 / 844;
+		overflow: hidden;
+		border-radius: var(--radius-sm);
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	// ---- Markets card ----
+	&__markets-card {
+		background: var(--bg-surface);
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+		padding: rem(40);
+	}
+
+	&__markets-title {
+		font-weight: 700;
+		font-size: rem(26);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+		margin: 0;
+	}
+
+	&__markets-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(12);
+	}
+
+	&__markets-footer,
+	&__markets-note {
+		font-weight: 500;
+		font-size: rem(16);
+		line-height: 1.45;
+		color: var(--text-strong);
+		margin: 0;
+	}
+
+	// ---- Videos block ----
+	&__videos-block {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+	}
+
+	&__videos-heading {
+		font-weight: 700;
+		font-size: rem(23);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+		max-width: rem(578);
+		margin: 0;
+	}
+
+	&__videos-grid {
+		// mobile: full-bleed CSS scroll-snap slider (no JS), next card peeks
+		@include slider-x(rem(24), $bleed: true);
+		padding-bottom: rem(2);
+
+		// desktop: wrapping grid
+		// desktop: full container-width wrapping grid (bleed reset)
+		@include media-breakpoint-up(md) {
+			@include bleed-x-reset();
+			display: flex;
+			flex-wrap: wrap;
+			gap: rem(24);
+			overflow: visible;
+			padding-bottom: 0;
+		}
+	}
+
+	&__vcard {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid var(--border-strong);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		position: relative;
+		// mobile slider card: ~85vw so the next card peeks; cap on wider phones
+		@include slider-slide(85vw);
+		max-width: rem(360);
+
+		@include media-breakpoint-up(md) {
+			flex: none;
+			max-width: none;
+			width: calc(50% - rem(12));
+		}
+
+		@include media-breakpoint-up(xl) {
+			// 3 columns filling the full row: (100% - 2x24px gaps) / 3
+			width: calc((100% - rem(48)) / 3);
+		}
+	}
+
+	&__vcard-thumb {
+		position: relative;
+		aspect-ratio: 16 / 9;
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		background: var(--bg-surface-raised);
+
+		iframe {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
+		}
+	}
+
+
+	&__vcard-info {
+		display: flex;
+		flex-direction: column;
+		gap: rem(8);
+		padding: rem(16) rem(18);
+	}
+
+	&__vcard-meta {
+		font-family: $font-family-code;
+		font-weight: 500;
+		font-size: rem(11);
+		letter-spacing: 0.14em;
+		line-height: 1;
+		color: var(--text-faint);
+		display: block;
+	}
+
+	&__vcard-title {
+		font-weight: 700;
+		font-size: rem(17);
+		line-height: 1.2;
+		color: var(--text-primary);
+		margin: 0;
+	}
+
+	// ---- CTA bar ----
+	&__cta-bar {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: rem(32);
+		padding: rem(40);
+		border: 1px solid var(--accent);
+		border-radius: var(--radius-md);
+		// Figma: bg --bg-canvas(#1d2024) in design system = our --bg-inverse (dark bar)
+		background: var(--bg-inverse);
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+
+	&__cta-bar-text {
+		flex: 1 0 0;
+		max-width: rem(720);
+		font-weight: 700;
+		font-size: rem(23);
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--text-strong);
+		margin: 0;
+	}
+
+} // end .sStats
